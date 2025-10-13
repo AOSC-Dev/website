@@ -20,14 +20,16 @@
     ]
   },
   "detail": {
-    "promptFetchError": "获取粘贴板异常（服务器内部错误）",
+    "prompt500Error": "获取粘贴板异常（服务器内部错误）",
     "pasteShareLink": "共享连接",
     "pasteFullContent": "全文",
     "pageTitle": "公共粘贴板",
     "pasteTitle": "标题：",
     "pasteExpiration": "过期时间：",
     "buttonCopyLink": "复制共享链接",
-    "buttonCopyFullContent": "复制全文"
+    "buttonCopyFullContent": "复制全文",
+    "promptNotFoundError": "粘贴板不存在",
+    "promptError": "获取粘贴板异常 ({code})"
   },
   "expirationDateTooltip": "过期时间"
 }
