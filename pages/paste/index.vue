@@ -123,7 +123,7 @@ const handleChange = (uploadFile, uploadFiles) => {
           <select
             v-model="pasteFormData.language"
             filterable
-            class="theme-border-primary mr-[20px] rounded-none border-2">
+            class="theme-border-primary mr-[20px] rounded-none border-2 px-2">
             <option v-for="item in languageList" :key="item" :value="item">
               {{ item }}
             </option>
@@ -150,7 +150,7 @@ const handleChange = (uploadFile, uploadFiles) => {
       <input
         v-model="pasteFormData.title"
         type="text"
-        class="theme-border-primary mb-[10px] w-full rounded-none border-2 py-[10px]"
+        class="theme-border-primary mb-[10px] w-full rounded-none border-2 py-[10px] px-2 outline-none"
         :placeholder="t('paste.index.placeholderTitle')" />
       <!-- 内容编辑器 -->
       <LazyMonacoEditor
@@ -177,17 +177,3 @@ const handleChange = (uploadFile, uploadFiles) => {
     </div>
   </div>
 </template>
-
-<style scoped>
-input:focus {
-  outline: none;
-}
-
-input {
-  padding: 5px;
-}
-
-select {
-  padding: 5px;
-}
-</style>
