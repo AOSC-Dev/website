@@ -15,7 +15,7 @@ const isImg = (name) => {
   return imgSuffixList.find((v) => v === suffix) !== undefined;
 };
 
-const { data, status } = await useAsyncData(
+const { data, status, error } = await useAsyncData(
   route.fullPath,
   () =>
     Promise.all([
@@ -26,9 +26,17 @@ const { data, status } = await useAsyncData(
 );
 
 const details = computed(() => data.value?.[0].msg);
-const failReason = computed(() =>
-  data.value?.[0].code !== 0 ? (data.value?.[0].msg ?? t('paste.detail.promptFetchError')) : ''
-);
+const failReason = computed(() => {
+  const code = error.value?.statusCode;
+  switch (code) {
+    case 404:
+      return t('paste.detail.promptNotFoundError');
+    case 500:
+      return t('paste.detail.prompt500Error');
+    default:
+      return data.value?.[0].msg ?? t('paste.detail.promptError', { code });
+  }
+});
 
 const returnHref = () => window.location.href;
 </script>
@@ -43,18 +51,26 @@ const returnHref = () => window.location.href;
         <div class="flex flex-col">
           <div class="flex justify-between">
             <div>
-              <div ref="div1">{{ t('paste.detail.pasteTitle') + details.title }}</div>
+              <div ref="div1">
+                {{ t('paste.detail.pasteTitle') + details.title }}
+              </div>
               <div ref="div2">
                 {{
                   t('paste.detail.pasteExpiration') +
-                  new Date(details.expiration*1000).toISOString().split('T')[0]
+                  new Date(details.expiration * 1000)
+                    .toISOString()
+                    .split('T')[0]
                 }}
               </div>
             </div>
             <button
               class="theme-bg-color-primary-static cursor-pointer px-[3em] py-[1em] text-white"
               @click="
-                copyToClipboard(locale, returnHref(), t('paste.detail.pasteShareLink'))
+                copyToClipboard(
+                  locale,
+                  returnHref(),
+                  t('paste.detail.pasteShareLink')
+                )
               ">
               {{ t('paste.detail.buttonCopyLink') }}
             </button>
@@ -87,7 +103,9 @@ const returnHref = () => window.location.href;
 
         <button
           class="theme-bg-color-primary-static mt-[10px] ml-auto cursor-pointer px-[3em] py-[1em] text-white"
-          @click="copyToClipboard(locale, data[1], t('paste.detail.pasteFullContent'))">
+          @click="
+            copyToClipboard(locale, data[1], t('paste.detail.pasteFullContent'))
+          ">
           {{ t('paste.detail.buttonCopyFullContent') }}
         </button>
       </div>
