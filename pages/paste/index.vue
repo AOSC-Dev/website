@@ -1,13 +1,18 @@
 <script setup>
-import hljs from 'highlight.js/lib/core';
-
 const config = useRuntimeConfig();
 const { t, tm } = useI18n();
 const textValue = tm('paste.index');
 // const linkValue = tm('allUniversalLink');
 useHead({ title: t('paste.index.pageTitle') });
 
-const languageList = ref(hljs.listLanguages());
+const languageList = ref(['plaintext']);
+
+onMounted(() => {
+  languageList.value = useMonaco()
+    .languages.getLanguages()
+    .map((lang) => lang.id)
+    .filter((lang) => !lang.startsWith('freemarker2.'));
+});
 
 const router = useRouter();
 
@@ -123,7 +128,9 @@ const handleChange = (uploadFile, uploadFiles) => {
               {{ item }}
             </option>
           </select>
-          <ElPopover placement="top" :content="t('paste.expirationDateTooltip')">
+          <ElPopover
+            placement="top"
+            :content="t('paste.expirationDateTooltip')">
             <template #reference>
               <input
                 v-model="pasteFormData.expDate"
