@@ -24,7 +24,7 @@ const linkValue = tm('allUniversalLink');
 
     <p>
       {{ t('DownloadDetailsAppleSiliconInstruction.text4') }}
-      <link-standard :link="useTIndex(linkValue.contact, 2)" />
+      <link-standard :link="useTIndex(linkValue.local.contact, 2)" />
       {{ t('DownloadDetailsAppleSiliconInstruction.text5') }}
     </p>
   </div>
