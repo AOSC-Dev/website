@@ -1,7 +1,7 @@
 {
-  "projects": "Projects one two three four",
-  "news": "News one two three four five six",
-  "culture": "Culture & Affairs one two three four",
-  "infrastructures": "Infrastructure one two",
-  "returnToTop": "Return to Top one two"
+    "projects": "Projects",
+    "news": "News and Support",
+    "culture": "Community",
+    "infrastructures": "Infrastructure",
+    "returnToTop": "Return to Top"
 }
