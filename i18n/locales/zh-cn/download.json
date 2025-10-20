@@ -101,7 +101,8 @@
     "omaTagLine": "简明好用的 APT 软件包管理界面",
     "omaSystemSupportInfo": [
       "使用终端运行该命令可在 Debian、Ubuntu、Linux Mint 及衍生版，以及 deepin、",
-      "开放麒麟 (openKylin) 等发行版安装小熊猫包管理"
+      "开放麒麟 (openKylin) 等发行版安装小熊猫包管理",
+      "在 Termux (>= 0.118.2) 终端运行该命令即可安装小熊猫包管理"
     ]
   }
 }

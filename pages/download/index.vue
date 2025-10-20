@@ -272,7 +272,8 @@ const omaNavigationList = [
   //   url: 'https://github.com/AOSC-Dev/oma/releases/tag/v1.8.2'
   // }
 ];
-const omaInstallScript = 'curl -sSf https://repo.aosc.io/get-oma.sh | sudo sh';
+const omaInstallScriptDistro = 'curl -sSf https://repo.aosc.io/get-oma.sh | sudo sh';
+const omaInstallScriptTermux = 'pkg install oma';
 // #endregion
 
 // #region Fetch
@@ -499,11 +500,21 @@ if (recipeError || recipeI18nError) {
         :use-hljs="false"
         code-class="text-white"
         button-class="ml-6 mt-[2px] bg-white"
-        :code-text="omaInstallScript" />
+        :code-text="omaInstallScriptDistro" />
       <p class="mt-[6px] text-[10pt]">
         <span>{{ textValue.omaSystemSupportInfo[0] }}</span>
         <br />
         <span>{{ textValue.omaSystemSupportInfo[1] }}</span>
+      </p>
+      <CopyCodeHighlight
+        class="mt-4 w-fit bg-black/60 py-2 pr-6"
+        language="bash"
+        :use-hljs="false"
+        code-class="text-white"
+        button-class="ml-6 mt-[2px] bg-white"
+        :code-text="omaInstallScriptTermux" />
+      <p class="mt-[6px] text-[10pt]">
+        <span>{{ textValue.omaSystemSupportInfo[2] }}</span>
       </p>
     </div>
   </div>
