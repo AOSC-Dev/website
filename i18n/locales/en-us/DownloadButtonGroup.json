@@ -1,4 +1,7 @@
 {
-  "whatIsThis": "这是什么",
-  "dropdownExpandButton": ["收起架构", "展开架构"]
+    "whatIsThis": "What is this?",
+    "dropdownExpandButton": [
+        "Collapse",
+        "Expand"
+    ]
 }
