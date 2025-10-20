@@ -34,6 +34,7 @@ AOSCC 是我社每年一度的线下聚会，公开邀请社区好友参与。�
 
 如下是我社“安同校园行”的足迹：
 
+- **2025 年 10 月 25 日**：哈尔滨工业大学
 - **2025 年 4 月 19 日**：[北京站（北京大学、北京航空航天大学与中国人民大学合办）](https://www.bilibili.com/video/BV1PPLczeEvm/)
 - **2025 年 3 月 15 日**：[河海大学](https://www.bilibili.com/video/BV1uQQtYYEpY/)
 - **2024 年 12 月 15 日**：[西安电子科技大学](https://www.bilibili.com/video/BV14MBTYNEi8/)
