@@ -1,0 +1,19 @@
+{
+  "title": "下载 WSL 版安同 OS",
+  "text1": "为满足不同用户的喜爱和需要，我们还提供了 WSL 现代发行版 ",
+  "text2": " 分发所需的 .wsl 文件一键包：",
+  "sysReqTitle": "系统需求",
+  "sysReqText1": "WSL 版安同 OS (AOSC OS on WSL) 可用于运行 Windows 的设备，其基本系统需求与安同 OS 类似，但由于其依赖 WSL 及 WSLg 等技术架构运行，因此除对设备处理器、显卡、存储和互联网连接外，对 Windows 系统组件版本等均有一定的需求。",
+  "sysReqText2": "详请见 ",
+  "helpAndSupportTitle": "帮助与支持",
+  "helpAndSupportText1": "如果您在安装或使用安同 OS 时遇到问题，请于",
+  "helpAndSupportText2": "与我们联系。",
+  "mirrorPlaceholder": "请选择下载源",
+  "downloadWslDetailArch": {
+    "x86_64": "x86-64",
+    "aarch64": "AArch64"
+  },
+  "manualDownload": {
+    "description": "如无法使用上述两种方式，也可手动下载 AppX 侧载包部署："
+  }
+}

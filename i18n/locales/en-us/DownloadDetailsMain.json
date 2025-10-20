@@ -1,0 +1,27 @@
+{
+  "basicInfoTitle": "基础信息",
+  "hashVerifyTitle": "校验和使用",
+  "basicInfoText1": "您正在下载",
+  "basicInfoText2": "版安同 OS",
+  "basicInfoText3": "您可以根据自身网络配置和物理位置选择最合适的镜像源，以便更快完成下载。",
+  "downloadType": ["LiveKit 救援启动盘", "安装盘"],
+  "mirrorPlaceholder": "请选择下载源",
+  "downloadButton": "下载",
+  "hashVerifyText1": "我们推荐您在下载后校验相关文件的 SHA-256 校验和，详情如下：",
+  "hashVerifyText2": "复制 SHA-256 校验和",
+  "hashVerifyText3": "如果您在使用 Windows 或 macOS，我们建议您下载 “AOSC 启动盘制作向导” 来制作",
+  "hashVerifyText4": "。",
+  "hashVerifyText5": "如果您在使用安同 OS，可从应用菜单直接启动“启动盘制作向导”工具制作",
+  "hashVerifyText6": "。",
+  "hashVerifyText7": "如果您在使用其他 Linux 系统，建议使用",
+  "hashVerifyText8": "或",
+  "hashVerifyText9": "工具制作",
+  "hashVerifyText10": "帮助与支持",
+  "hashVerifyText11": "如果您在安装或使用安同 OS 时遇到问题，请于",
+  "hashVerifyText12": "与我们联系。",
+  "mediaWriterButtonText": [
+    "Windows (x64)",
+    "macOS（Intel 芯片）",
+    "macOS（Apple 芯片）"
+  ]
+}

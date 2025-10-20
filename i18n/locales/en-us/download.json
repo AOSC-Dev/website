@@ -1,0 +1,108 @@
+{
+  "index": {
+    "title": "下载中心",
+    "operatingSystemsTitle": "操作系统",
+    "aoscOs": { "name": "安同 OS", "description": "称心得意的桌面操作系统" },
+    "aoscOsWsl": {
+      "name": "WSL",
+      "description": "在 Windows 上使用安同 OS",
+      "detail": "其他下载方式与支持详情..."
+    },
+    "aoscOsAppleSilicon": {
+      "name": "Apple Silicon",
+      "description": "适用于基于 Apple 芯片的 Mac 设备",
+      "download": "下载"
+    },
+    "afterglow": {
+      "name": "星霞 OS",
+      "description": "老设备也能发光发热",
+      "stayTuned": "敬请期待"
+    },
+    "downloadSources": [
+      {
+        "name": "官方软件源",
+        "loc": "自动",
+        "url": "https://releases.aosc.io/"
+      },
+      {
+        "name": "校园网联合镜像站",
+        "loc": "自动",
+        "url": "https://mirrors.cernet.edu.cn/anthon/aosc-os/"
+      }
+    ],
+    "downloadErrors": {
+      "aosc": "AOSC OS 版本信息获取失败",
+      "apple": "AOSC OS Apple Silicon 版本信息获取失败",
+      "oma": "oma 版本信息获取失败",
+      "mirrors": "镜像信息获取失败"
+    },
+    "portTierInfo": {
+      "primaryIsa": {
+        "name": "一级架构",
+        "description": "“一级架构”是我们支持水平最高的一类目标架构，各类更新及时且特性完整，亦最受维护者关注、测试设备充分"
+      },
+      "secondaryIsa": {
+        "name": "二级架构",
+        "description": "“二级架构”功能相对完整，但由于设备数量稀少、普遍性能较差或受维护者关注度不足，虽会及时响应安全更新，但其他类型更新、测试及反馈响应度可能略逊于一级架构"
+      }
+    },
+    "helpContent": {
+      "aoscOsIsaInfoPrimary": [
+        "适用于兼容 AMD64 或 Intel 64 指令集扩展的 x86 设备",
+        "适用于兼容 Armv8-A 及以上版本的 64 位 Arm 设备",
+        "适用于兼容龙架构 (LoongArch) 指令集及 128 位向量扩展 (LSX) 的 64 位设备"
+      ],
+      "aoscOsIsaInfoSecondary": [
+        "适用于兼容 Power ISA v2.07 及以上版本的 64 位、小端序模式设备",
+        "适用于兼容 RVA20 Architecture Profile 的 64 位 RISC-V 设备",
+        "适用于基于 MIPS 的龙芯三号设备"
+      ],
+      "afterglowIsaInfoPrimary": [
+        "适用于兼容 i486 (Intel486) 的 32 位 x86 设备",
+        "适用于基于 MIPS 并支持 LoongMMI 指令集扩展的龙芯二号 (2F) 设备",
+        "适用于兼容 PowerPC 指令集的 32 位大端序设备（IBM CHRP/PReP 或 Apple Macintosh 及兼容平台）"
+      ],
+      "afterglowIsaInfoSecondary": [
+        "适用于兼容 ARMv4 指令集的 Arm 设备",
+        "适用于兼容 ARMv6 指令集及 Thumb-2、NEON 扩展的 Arm 设备",
+        "适用于兼容 ARMv7 指令集及 Thumb-2、NEON 扩展的 Arm 设备",
+        "适用于基于 DEC Alpha（原称 Alpha AXP）指令集架构的设备",
+        "适用于兼容 IA-64 指令集架构的设备（安腾，Itanium）",
+        "用于兼容 Motorola 68020 且搭载内存管理单元 (MMU) 的设备",
+        "适用于兼容 PowerPC 指令集的 64 位大端序设备（IBM CHRP/PReP 及 Apple Macintosh 及兼容平台）",
+        "适用于兼容 SPARC V9 指令集及 VIS 1.0 扩展的 64 位 SPARC 设备"
+      ]
+    },
+    "downloadButtons": {
+      "aoscOsPrimary": ["x86-64", "AArch64", "LoongArch"],
+      "aoscOsSecondary": [
+        "POWER（64 位）",
+        "RISC-V（64 位）",
+        "龙芯三号 (MIPS)"
+      ],
+      "afterglowPrimary": [
+        "x86（32 位）",
+        "龙芯二号 (MIPS)",
+        "PowerPC（32 位，大端序）"
+      ],
+      "afterglowSecondary": [
+        "ARMv4",
+        "ARMv6（硬浮点）",
+        "ARMv7（硬浮点）",
+        "DEC Alpha",
+        "IA-64",
+        "Motorola 68000",
+        "PowerPC（64 位，大端序）",
+        "SPARC（64 位）"
+      ]
+    },
+    "utilitiesTitle": "实用工具",
+    "omaTitle": "小熊猫包管理 (oma)",
+    "omaTagLine": "简明好用的 APT 软件包管理界面",
+    "omaSystemSupportInfo": [
+      "使用终端运行该命令可在 Debian、Ubuntu、Linux Mint 及衍生版，以及 deepin、",
+      "开放麒麟 (openKylin) 等发行版安装小熊猫包管理",
+      "在 Termux (>= 0.118.2) 终端运行该命令即可安装小熊猫包管理"
+    ]
+  }
+}

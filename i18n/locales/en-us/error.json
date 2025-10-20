@@ -1,0 +1,11 @@
+{
+  "cannotFindPage": {
+    "title": "找不到页面 (404)",
+    "content": {
+      "text1": "您想要访问的页面：{url} 在站点上不存在。请检查您输入的网页地址 (URL) 是否正确。",
+      "text2": "如果该页面链接是其他网页中所引用的，请"
+    }
+  },
+  "errorPage": "错误页",
+  "unexpectedError": "发生意外错误：{statusCode}"
+}
