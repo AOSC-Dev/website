@@ -92,8 +92,8 @@
         },
         "aoscRelnote": {
             "title": [
-                "发行注记",
-                "查阅最新发行注记..."
+                "Release Notes",
+                "Read the latest release notes..."
             ],
             "url": "/aosc-os/relnote"
         },
