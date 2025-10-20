@@ -99,30 +99,30 @@
         },
         "aoscAsahiRelnote": {
             "title": [
-                "发行注记"
+                "Release Notes"
             ],
             "url": "/aosc-os/asahi/relnote"
         },
         "aoscWslRelnote": {
             "title": [
-                "发行注记",
-                "查阅最新发行注记..."
+                "Release Notes",
+                "Read the latest release notes..."
             ],
             "url": "/aosc-os/wsl/relnote"
         },
         "aoscWslRequirements": {
             "title": [
-                "配置需求",
-                "WSL 版安同 OS 系统配置需求表"
+                "System Requirements",
+                "System Requirements for AOSC OS on WSL"
             ],
             "url": "/aosc-os/wsl/requirements"
         },
         "aoscRequirements": {
             "title": [
-                "系统配置需求",
-                "安同 OS 系统需求配置表",
-                "配置需求",
-                "系统配置需求表"
+                "System Requirements",
+                "System Requirements for AOSC OS",
+                "System Requirements",
+                "System Requirements for AOSC OS"
             ],
             "url": "/aosc-os/requirements",
             "hash": [
@@ -131,16 +131,16 @@
         },
         "afterglowRelnote": {
             "title": [
-                "发行注记"
+                "Release Notes"
             ],
             "url": "/afterglow/relnote"
         },
         "afterglowRequirements": {
             "title": [
-                "系统配置需求",
-                "系统配置需求表",
-                "配置需求",
-                "星霞 OS 系统需求配置表"
+                "System Requirements",
+                "System Requirements for Afterglow",
+                "System Requirements",
+                "System Requirements for Afterglow"
             ],
             "url": "/afterglow/requirements",
             "hash": [
@@ -149,17 +149,17 @@
         },
         "about": {
             "title": [
-                "关于社区"
+                "About"
             ],
             "url": "/about"
         },
         "contact": {
             "title": [
-                "各聊天群组",
-                "联系方式",
-                "社区聊天群组",
-                "报告系统使用问题",
-                "与我们联系"
+                "community chat groups",
+                "Contact Us",
+                "Community chat groups",
+                "Report a issue with our system distribution",
+                "Contact Us"
             ],
             "url": "/contact",
             "hash": [
@@ -168,63 +168,63 @@
         },
         "home": {
             "title": [
-                "社区门户",
-                "返回主页"
+                "Community Portal",
+                "Return to Home"
             ],
             "url": "/"
         },
         "aoscOs": {
             "title": [
-                "安同 OS"
+                "AOSC OS"
             ],
             "url": "/aosc-os"
         },
         "afterglow": {
             "title": [
-                "星霞 OS"
+                "Afterglow"
             ],
             "url": "/afterglow"
         },
         "liblol": {
             "title": [
-                "libLoL 兼容层"
+                "libLoL"
             ],
             "url": "/liblol"
         },
         "oma": {
             "title": [
-                "oma Package Manager one two three",
-                "详细介绍"
+                "oma",
+                "Project Details"
             ],
             "url": "/oma"
         },
         "l10n": {
             "title": [
-                "软件本地化"
+                "Localization (L10n)"
             ],
             "url": "/l10n"
         },
         "news": {
             "title": [
-                "新闻资讯",
-                "查阅最新社区资讯"
+                "News",
+                "Read the latest community news"
             ],
             "url": "/news"
         },
         "gallery": {
             "title": [
-                "活动相册"
+                "Event Albums"
             ],
             "url": "/gallery"
         },
         "events": {
             "title": [
-                "社区活动",
-                "查阅近期活动信息",
-                "AOSCC：社区年度聚会",
-                "安同校园行",
-                "春节烙饼会",
-                "其他活动"
+                "Community Events",
+                "See the latest community events",
+                "AOSCC - Annual Community Gathering",
+                "AOSC @ Campuses",
+                "SpringCon",
+                "Other Events"
             ],
             "url": "/events",
             "hash": [
@@ -236,10 +236,10 @@
         },
         "internship": {
             "title": [
-                "实习资源",
-                "查阅近期实习机会及待办项目",
-                "英雄帖：待办项目",
-                "实习项目：开源之夏"
+                "Internships",
+                "See the latest internship opportunities and to-do items",
+                "Help Wanted",
+                "Internships: OSPP"
             ],
             "url": "/internship",
             "hash": [
@@ -249,23 +249,23 @@
         },
         "sponsors": {
             "title": [
-                "赞助方一览"
+                "Sponsors"
             ],
             "url": "/sponsors"
         },
         "crowdsourcing": {
             "title": [
-                "社区众筹",
-                "赞助硬件或服务"
+                "Crowdsourcing",
+                "Donate hardware or services"
             ],
             "url": "/crowdsourcing"
         },
         "guidelines": {
             "title": [
-                "人际关系准则",
+                "Community Guidelines",
                 {
                     "texts": [
-                        "人际关系准则"
+                        "Community Guidelines"
                     ],
                     "book": [
                         0
@@ -276,69 +276,69 @@
         },
         "mascot": {
             "title": [
-                "社区吉祥物"
+                "Mascots"
             ],
             "url": "/mascot"
         },
         "paste": {
             "title": [
-                "公共粘贴板",
-                "使用公共剪贴板"
+                "Pastebin",
+                "Make a public paste"
             ],
             "url": "/paste"
         }
     },
     "mail20": {
         "title": [
-            "贡献者邮箱"
+            "Mail (Contributors)"
         ],
         "url": "https://mail20.mymailcheap.com/"
     },
     "buildbots": {
         "title": [
-            "构建服务器"
+            "Buildbots"
         ],
         "url": "https://wiki.aosc.io/developer/infrastructure/buildbots/"
     },
     "buildit": {
         "title": [
-            "自动化设施"
+            "Automation (BuildIt!)"
         ],
         "url": "https://buildit.aosc.io/"
     },
     "forum": {
         "title": [
-            "社区论坛"
+            "Forums"
         ],
         "url": "https://bbs.aosc.io/"
     },
     "qqStickers": {
         "title": [
-            "QQ 表情包"
+            "QQ Emotes"
         ],
         "url": "https://zb.vip.qq.com/hybrid/emoticonmall/detail?id=239191"
     },
     "telegramStickers": {
         "title": [
-            "Telegram 贴图包"
+            "Telegram Stickers"
         ],
         "url": "https://t.me/addstickers/AnAnTongTong"
     },
     "mascotsTexture": {
         "title": [
-            "贴图包素材"
+            "Originals"
         ],
         "url": "https://repo.aosc.io/mascots/zhaxia-stickers-v1.zip"
     },
     "antongMascotsCharacterSheet": {
         "title": [
-            "下载设定稿"
+            "Character Sheets"
         ],
         "url": "https://repo.aosc.io/mascots/mascots.zip"
     },
     "fumoMascotsCharacterSheetDownload": {
         "title": [
-            "下载设定稿"
+            "Design Sheets"
         ],
         "url": "https://repo.aosc.io/mascots/fumo.zip"
     },
@@ -356,7 +356,7 @@
     },
     "ananMcFigura": {
         "title": [
-            "下载人物模型"
+            "Character Model"
         ],
         "url": "https://github.com/OvOla2/AnAn-Figura-avatar"
     },
@@ -368,21 +368,21 @@
     },
     "tomatoScrambledEggsHuaJia": {
         "title": [
-            "画加"
+            "Huajia"
         ],
         "url": "https://huajia.163.com/main/profile/LBpmxjyE"
     },
     "tomatoScrambledEggsGoofish": {
         "title": [
-            "闲鱼"
+            "Goofish"
         ],
         "url": "https://www.goofish.com/personal?userId=2216037747883"
     },
     "omaSourceGithub": {
         "title": [
-            "代码仓库",
-            "小熊猫包管理 (oma)",
-            "源代码"
+            "Code Repository",
+            "oma",
+            "Source Code"
         ],
         "url": "https://github.com/AOSC-Dev/oma"
     },
@@ -390,7 +390,7 @@
         "infrastructure": {
             "apernet": {
                 "title": [
-                    "光圈网络 (Apernet Internet Laboratory)"
+                    "Apernet Internet Laboratory"
                 ],
                 "url": "https://apernet.io/",
                 "img": "apernet"
@@ -404,7 +404,7 @@
             },
             "loongson": {
                 "title": [
-                    "龙芯中科（武汉）技术有限公司"
+                    "Loongson Technology (Wuhan) Co., Ltd."
                 ],
                 "url": "https://www.loongson.cn/",
                 "img": "loongson"
@@ -420,21 +420,21 @@
         "mirrors": {
             "pku": {
                 "title": [
-                    "北京大学开源镜像站"
+                    "Peking University OSS Mirrors"
                 ],
                 "url": "https://mirrors.pku.edu.cn/",
                 "img": "pku"
             },
             "bfsu": {
                 "title": [
-                    "北京外国语大学开源软件镜像站"
+                    "Beijing Foreign Studies University OSS Mirrors"
                 ],
                 "url": "https://mirrors.bfsu.edu.cn/",
                 "img": "bfsu"
             },
             "uestclug": {
                 "title": [
-                    "电子科技大学 Linux 用户组"
+                    "Linux User Group of University of Electronic Science and Technology of China"
                 ],
                 "url": "https://uestclug.org/",
                 "img": "uestclug"
@@ -448,14 +448,14 @@
             },
             "hit": {
                 "title": [
-                    "哈尔滨工业大学 Linux 开源学生俱乐部"
+                    "Student's Linux & Open Source Club of Harbin Institute of Technology"
                 ],
                 "url": "https://lug.hit.edu.cn",
                 "img": "hit-lug"
             },
             "nluug": {
                 "title": [
-                    "荷兰本地 Unix 用户组 (NLUUG)"
+                    "The Netherlands Local Unix User Group (NLUUG)"
                 ],
                 "url": "https://nluug.nl/",
                 "img": "nluug"
@@ -469,91 +469,91 @@
             },
             "jlulug": {
                 "title": [
-                    "吉林大学 Linux 用户协会"
+                    "Linux User Group of Jilin University"
                 ],
                 "url": "https://jlulug.org/",
                 "img": "jlu-lug"
             },
             "lzuoss": {
                 "title": [
-                    "兰州大学开源社区 (LZUOSS)"
+                    "Open Source Community of Lanzhou University (LZUOSS)"
                 ],
                 "url": "https://github.com/lzuoss",
                 "img": "lzuoss"
             },
             "nju": {
                 "title": [
-                    "南京大学 e-Science 中心"
+                    "e-Science Center of Nanjing University"
                 ],
                 "url": "https://sci.nju.edu.cn/",
                 "img": "nju-lug"
             },
             "nyist": {
                 "title": [
-                    "南阳理工学院计算机与信息化处理协会"
+                    "Computer and Information Processing Society of Nanyang Institute of Technology"
                 ],
                 "url": "https://cips.nyist.edu.cn/",
                 "img": "nyist-cips"
             },
             "qlu": {
                 "title": [
-                    "齐鲁工业大学开源软件镜像站 "
+                    "Qilu University of Technology OSS Mirrors "
                 ],
                 "url": "https://mirrors.qlu.edu.cn/",
                 "img": "qlu"
             },
             "tuna": {
                 "title": [
-                    "清华大学 TUNA 协会"
+                    "TUNA Association of Tsinghua University"
                 ],
                 "url": "https://tuna.moe/",
                 "img": "tuna"
             },
             "sdu": {
                 "title": [
-                    "山东大学（青岛）网管会镜像站学生运营团队"
+                    "Student Mirrors Operations Team of the Board of Network Administrators of Shandong University (Qingdao)"
                 ],
                 "url": "https://mirrors.sdu.edu.cn/",
                 "img": "sdu"
             },
             "sjtu": {
                 "title": [
-                    "上海交通大学 Linux 用户组"
+                    "Linux User Group of Shanghai Jiao Tong University"
                 ],
                 "url": "https://mirror.sjtu.edu.cn/",
                 "img": "sjtug"
             },
             "sustech": {
                 "title": [
-                    "南方科技大学开源软件镜像站"
+                    "Southern University of Science and Technology OSS Mirrors"
                 ],
                 "url": "https://mirrors.sustech.edu.cn/",
                 "img": "sustech"
             },
             "geekpie": {
                 "title": [
-                    "上海科技大学 Geekpie 协会"
+                    "GeekPie Association of ShanghaiTech University"
                 ],
                 "url": "https://geekpie.club/",
                 "img": "geekpie"
             },
             "tencent": {
                 "title": [
-                    "腾讯云"
+                    "Tencent Cloud"
                 ],
                 "url": "https://cloud.tencent.com/",
                 "img": "tencent-cloud"
             },
             "ustc": {
                 "title": [
-                    "中国科学技术大学 Linux 用户组 (LUG@USTC)"
+                    "Linux User Group of University of Science and Technology of China (LUG@USTC)"
                 ],
                 "url": "https://lug.ustc.edu.cn/",
                 "img": "lug-ustc"
             },
             "sysu": {
                 "title": [
-                    "中山大学网络与信息中心 & Matrix 开发团队"
+                    "Network and Information Center of Sun Yat-sen University & Matrix Development Team"
                 ],
                 "url": "https://mirror.sysu.edu.cn/",
                 "img": "sysu"
@@ -562,14 +562,14 @@
         "devices": {
             "bananaPi": {
                 "title": [
-                    "Banana Pi 社区"
+                    "Banana Pi Community"
                 ],
                 "url": "https://www.banana-pi.org/",
                 "img": "bpi"
             },
             "plctlab": {
                 "title": [
-                    "PLCT 实验室"
+                    "PLCT Lab"
                 ],
                 "url": "https://plctlab.org/zh/",
                 "img": "plct"
@@ -622,7 +622,7 @@
             },
             "qingcloud": {
                 "title": [
-                    "青云 QingCloud"
+                    "QingCloud"
                 ],
                 "url": "https://www.qingcloud.com/",
                 "img": "qingcloud"
@@ -645,14 +645,14 @@
         "historicSoftwareLicense": {
             "lanunion": {
                 "title": [
-                    "重庆大学蓝盟"
+                    "Lanunion of Chongqing University"
                 ],
                 "url": "http://lanunion.cqu.edu.cn/",
                 "img": "cqu-lanunion"
             },
             "cquptlug": {
                 "title": [
-                    "重庆邮电大学 Linux 用户组"
+                    "Linux User Group of Chongqing University of Posts and Telecommunications"
                 ],
                 "url": "https://github.com/cquptlug",
                 "img": "cqupt-lug"
@@ -666,14 +666,14 @@
             },
             "shuosc": {
                 "title": [
-                    "上海大学开源社区"
+                    "Shanghai University Open Source Community"
                 ],
                 "url": "https://www.shuosc.org/",
                 "img": "shuosc"
             },
             "capitalonline": {
                 "title": [
-                    "首都在线"
+                    "Capital Online"
                 ],
                 "url": "http://mirrors.capitalonline.net/",
                 "img": "cods"
@@ -682,67 +682,67 @@
     },
     "aoscWiki": {
         "title": [
-            "AOSC 维基",
-            "参考文档 (Wiki)"
+            "AOSC Wiki",
+            "Wiki"
         ],
-        "url": "https://wiki.aosc.io/zh"
+        "url": "https://wiki.aosc.io/"
     },
     "githubOrg": {
         "title": [
-            "GitHub 组织",
-            "代码仓库"
+            "GitHub Organization",
+            "Code Repositories"
         ],
         "url": "https://github.com/AOSC-Dev/"
     },
     "liblol": {
         "apps": {
             "title": [
-                "兼容性数据库",
-                "应用程序兼容性数据库"
+                "Compatibility Database",
+                "Application Compatibility Database"
             ],
             "url": "https://liblol.aosc.io/docs/apps/"
         },
         "home": {
             "title": [
-                "项目主页",
+                "Project Home",
                 "libLoL"
             ],
             "url": "https://liblol.aosc.io/"
         },
         "usage": {
             "title": [
-                "安装指南"
+                "Installation Guides"
             ],
             "url": "https://liblol.aosc.io/docs/usage/"
         },
         "doc": {
             "oldAndNewWorlds": {
                 "title": [
-                    "关于“新世界”与“旧世界”"
+                    "About \"New World\" and \"Old World\""
                 ],
                 "url": "https://areweloongyet.com/docs/old-and-new-worlds/"
             },
             "faq": {
                 "title": [
-                    "常见问题解答"
+                    "Frequently Asked Questions"
                 ],
                 "url": "https://liblol.aosc.io/docs/faq/"
             },
             "changelog": {
                 "title": [
-                    "更新日志"
+                    "Changelog"
                 ],
                 "url": "https://liblol.aosc.io/docs/dev/changelog/"
             },
             "packaging": {
                 "title": [
-                    "打包注意事项"
+                    "Notes on Packaging"
                 ],
                 "url": "https://liblol.aosc.io/docs/dev/packaging/"
             },
             "design": {
                 "title": [
-                    "实现原理"
+                    "Design Principles"
                 ],
                 "url": "https://liblol.aosc.io/docs/dev/design/"
             }
