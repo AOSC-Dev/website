@@ -10,17 +10,17 @@ export const nuxtI18nLocales = [
     name: '简体中文',
     file: 'zh-CN.ts'
   },
-  {
-    code: 'en-us',
-    language: 'en-US',
-    name: 'English(en-US)',
-    file: 'en-US.ts'
-  }
+  // {
+  //   code: 'en-us',
+  //   language: 'en-US',
+  //   name: 'English(en-US)',
+  //   file: 'en-US.ts'
+  // }
 ] as const;
 
 const codeMap = {
   'zh-cn': 'zhCN',
-  'en-us': 'enUS'
+  // 'en-us': 'enUS'
 } as const;
 
 export const i18nCodeToContent = (locale: NuxtI18nCode) => codeMap[locale];
