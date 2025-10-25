@@ -35,14 +35,14 @@ AOSCC 是我社每年一度的线下聚会，公开邀请社区好友参与。�
 如下是我社“安同校园行”的足迹：
 
 - **2025 年 10 月 25 日**：哈尔滨工业大学
-- **2025 年 4 月 19 日**：[北京站（北京大学、北京航空航天大学与中国人民大学合办）](https://www.bilibili.com/video/BV1PPLczeEvm/)
-- **2025 年 3 月 15 日**：[河海大学](https://www.bilibili.com/video/BV1uQQtYYEpY/)
-- **2024 年 12 月 15 日**：[西安电子科技大学](https://www.bilibili.com/video/BV14MBTYNEi8/)
-- **2024 年 12 月 7 日**：[山东大学（青岛）](https://www.bilibili.com/video/BV1caiyY4E3p/)
-- **2024 年 11 月 10 日**：[兰州大学](https://www.bilibili.com/video/BV1yUm6YEEWK/)
-- **2024 年 10 月 27 日**：[澳门科技大学](https://www.bilibili.com/video/BV1Vc1eYgEpm/)
-- **2024 年 10 月 20 日**：[宁夏理工学院](https://www.bilibili.com/video/BV1BYyzYfEd5/)
-- **2024 年 3 月 20 日**：[曲阜师范大学（“社团开放活动：计算进化”）](https://www.bilibili.com/video/BV1wr42187aT/)
+- **2025 年 4 月 19 日**：[北京站（北京大学、北京航空航天大学与中国人民大学合办）](https://www.bilibili.com/video/BV1PPLczeEvm)
+- **2025 年 3 月 15 日**：[河海大学](https://www.bilibili.com/video/BV1uQQtYYEpY)
+- **2024 年 12 月 15 日**：[西安电子科技大学](https://www.bilibili.com/video/BV14MBTYNEi8)
+- **2024 年 12 月 7 日**：[山东大学（青岛）](https://www.bilibili.com/video/BV1caiyY4E3p)
+- **2024 年 11 月 10 日**：[兰州大学](https://www.bilibili.com/video/BV1yUm6YEEWK)
+- **2024 年 10 月 27 日**：[澳门科技大学](https://www.bilibili.com/video/BV1Vc1eYgEpm)
+- **2024 年 10 月 20 日**：[宁夏理工学院](https://www.bilibili.com/video/BV1BYyzYfEd5)
+- **2024 年 3 月 20 日**：[曲阜师范大学（“社团开放活动：计算进化”）](https://www.bilibili.com/video/BV1wr42187aT)
 
 <!-- 如下是近期规划内的“安同校园行”目的地： -->
 
@@ -52,7 +52,7 @@ AOSCC 是我社每年一度的线下聚会，公开邀请社区好友参与。�
 
 自 2023 年始，为更及时地展示和沟通社区工作进展和规划，我们开始在春节假期组织线上“烙饼会”（取画饼之意），邀请贡献者和社区好友一道交流成果、计划与期望。如下是往期“烙饼会”的直播录像：
 
-- **2025 年**：[乙巳烙饼会（2025 年 2 月 1 日）](https://www.bilibili.com/video/BV1CNcFeYEBQ/)
+- **2025 年**：[乙巳烙饼会（2025 年 2 月 1 日）](https://www.bilibili.com/video/BV1CNcFeYEBQ)
 - **2024 年**：[甲辰烙饼会（2024 年 2 月 15 日）](https://www.bilibili.com/video/BV1Fj421X7gX)
 
 ::h2{id="others"}
