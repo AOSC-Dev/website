@@ -10,8 +10,7 @@ defineProps({
     default: 'text-link'
   },
   spanClass: {
-    type: String,
-    default: 'mx-1'
+    type: String
   }
 });
 </script>
