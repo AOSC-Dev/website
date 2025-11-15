@@ -21,7 +21,7 @@ const fileType = props.path.includes('livekit')
   ? textValue.downloadType[0]
   : textValue.downloadType[1];
 
-const mediaWriterVersion = '0.3.3'; // FIXME: Currently unable to get dynamic Media Writer version
+const mediaWriterVersion = '0.4.3'; // FIXME: Currently unable to get dynamic Media Writer version
 const mediaWritersInfo = setNestedKeyValue(
   [
     {
