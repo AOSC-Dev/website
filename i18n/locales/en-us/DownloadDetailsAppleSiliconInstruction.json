@@ -1,9 +1,6 @@
 {
     "text1": "AOSC OS may be installed on Apple silicon-based Macs. For information on device, features, and peripheral support, please see",
     "text2": "Install AOSC OS with the following command on macOS Ventura (13) and higher:",
-    "text3": "Default login:",
     "text4": "Should you run into issues when installing AOSC OS, please contact us at",
-    "text5": ".",
-    "username": "Username",
-    "password": "Password"
+    "text5": "."
 }

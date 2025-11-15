@@ -12,15 +12,6 @@ const linkValue = tm('allUniversalLink');
     </p>
     <p>{{ t('DownloadDetailsAppleSiliconInstruction.text2') }}</p>
     <CopyButton content="curl https://releases.aosc.io/install-asahi | sh" />
-    <p>{{ t('DownloadDetailsAppleSiliconInstruction.text3') }}</p>
-    <el-descriptions size="small">
-      <el-descriptions-item :label="t('DownloadDetailsAppleSiliconInstruction.username')">
-        aosc
-      </el-descriptions-item>
-      <el-descriptions-item :label="t('DownloadDetailsAppleSiliconInstruction.password')">
-        anthon
-      </el-descriptions-item>
-    </el-descriptions>
 
     <p>
       {{ t('DownloadDetailsAppleSiliconInstruction.text4') }}
