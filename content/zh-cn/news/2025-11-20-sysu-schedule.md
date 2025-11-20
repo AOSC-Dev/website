@@ -14,6 +14,8 @@ home: true
 日程预告
 ---
 
+![](/assets/news/aosc-sysu-poster.webp)
+
 ### 扶大厦于将倾：软件供应链启蒙
 讲者：王雪瑞 (xen0n) / 开源贡献者
 
