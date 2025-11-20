@@ -4,7 +4,7 @@ categories:
 title: "安记冰室・九月号"
 date: 2025-10-01T02:00:00+08:00
 important: false
-home: true
+home: false
 ---
 
 本期编辑：ZeroAurora Camber  

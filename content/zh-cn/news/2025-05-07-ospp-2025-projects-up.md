@@ -4,7 +4,7 @@ categories:
 title: "社区“开源之夏 2025”项目正式上线"
 date: 2025-05-07T22:19:13-08:00
 important: false
-home: true
+home: false
 ---
 ![OSPP2025](/assets/news/ospp2025-project.png)
 

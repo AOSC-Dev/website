@@ -4,7 +4,7 @@ categories:
 title: "PostgreSQL 因打包方式变化需要手动介入升级"
 date: 2025-06-21T16:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 由于 PostgreSQL 属于多分支维护的服务端软件、且大版本之间并不兼容，而安同 OS 的 PostgreSQL 由于没有按照大版本独立打包，导致源内 PostgreSQL 版本较为落后。因此我们在此次 PostgreSQL 维护之际，对 PostgreSQL 的打包方式做出了一些改动：

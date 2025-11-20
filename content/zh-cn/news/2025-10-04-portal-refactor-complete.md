@@ -4,7 +4,7 @@ categories:
 title: "社区门户已完成重构！"
 date: 2025-10-04T00:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![](/assets/news/portal-refactor-nuxt.webp)

@@ -4,7 +4,7 @@ categories:
 title: "安同校园行：哈尔滨工业大学站"
 date: 2025-10-20T17:30:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![抱抱雪国企鹅！](/assets/news/aosc-hit.webp)
