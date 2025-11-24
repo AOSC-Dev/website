@@ -4,7 +4,7 @@ categories:
 title: "安同校园行：中山大学站"
 date: 2025-11-10T20:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![亲切探望双鸭山好友！](/assets/news/aosc-sysu.webp)

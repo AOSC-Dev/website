@@ -4,7 +4,7 @@ categories:
 title: "社区服务维护通知两则"
 date: 2025-11-20T18:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 今日，我们发布了两则社区服务维护通知，详见下文。

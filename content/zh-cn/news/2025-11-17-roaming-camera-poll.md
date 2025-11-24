@@ -4,7 +4,7 @@ categories:
 title: "安同 OS 廿五年末暨“流浪相机”默认壁纸投票"
 date: 2025-11-17T22:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![](/assets/news/roaming-camera-2025-poll.webp)
