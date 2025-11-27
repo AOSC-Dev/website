@@ -12,7 +12,7 @@ home: true
 
 Robot Operating System (ROS)是一套完全开源的用于构建机器人应用软件库和工具。包括了驱动程序、算法和开发工具等构建机器人项目所需的软件。
 
-近日，我们将 Desktop 变种的 [Jazzy Jalisco 版本的 ROS](https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html) 引入了安同 OS ，使安同 OS 上的机器人相关开发工作更加便利。由于 ROS 复杂度高，涉及数百个互相耦合的包，所以在进入稳定分之前我们希望有更多的用户可以对它进行测试。
+近日，我们将 Desktop 变种的 [Jazzy Jalisco 版本的 ROS](https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html) 引入了安同 OS ，使安同 OS 上的机器人相关开发工作更加便利。由于 ROS 复杂度高，涉及数百个互相耦合的包，所以在进入稳定分支前我们希望有更多的用户可以对它进行测试。
 
 需要注意的是，相比较 ROS 官方打包的 `ros-jazzy-desktop`，我们打包的版本缺少了 RTI Connext DDS（不开源）和 mimick_vendor（缺少架构支持）。
 
