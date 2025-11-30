@@ -26,6 +26,7 @@ const { data, error, status } = await useAsyncData(
     <div v-else-if="status === 'success'" class="flex flex-col">
       <div v-for="item in data" :key="item.path" class="newslist-item">
         <NuxtLinkLocale
+          v-if="new Date() > new Date(item.date)"
           :to="item.path"
           class="flex h-[2rem] cursor-pointer pl-6 leading-8 hover:bg-leftbar-bg">
           <span class="flex-1 truncate">
