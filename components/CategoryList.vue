@@ -33,7 +33,7 @@ const { data, error, status } = await useAsyncData(
             {{ item.title }}
           </span>
           <span v-if="item.date" class="pr-6">
-            [{{ item.date.split('T')[0] }}]
+            [{{ new Date(item.date).toLocaleDateString('en-CA') }}]
           </span>
         </NuxtLinkLocale>
       </div>
