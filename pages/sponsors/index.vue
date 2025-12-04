@@ -78,6 +78,11 @@ const sponsorList = [
           :key="description">
           {{ description }}
         </p>
+        <br />
+        <AppTableOrdinary
+          :table-value="textValue.individualDonors.tableYuanBaoSsd"
+          my-key="sponsors-index-1" />
+        <br />
         <AppTableOrdinary
           :table-value="textValue.individualDonors.tableAoscc2025"
           my-key="sponsors-index-1" />
