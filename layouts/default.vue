@@ -23,7 +23,9 @@ onBeforeUnmount(() => observer?.disconnect());
           class="sticky top-0 w-[15%] min-w-[12rem] bg-leftbar-bg *:text-nowrap">
           <BarLeft class="sticky top-0 min-w-[100%] *:text-nowrap" />
         </div>
-        <div ref="mainBody" class="flex-1">
+        <!-- min-w-3xl needed here for pre in the content to shrink (allows flex item shrinking) -->
+        <!-- if a smaller size is needed, use min-w-0 at least -->
+        <div ref="mainBody" class="min-w-3xl flex-1">
           <div ref="dMainBody">
             <slot />
           </div>
