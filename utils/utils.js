@@ -29,7 +29,7 @@ export const copyToClipboard = (locale, text, name = '') => {
       ElMessage.success(`${lang.copy}${name}${lang.success}`);
     })
     .catch((err) => {
-      ElMessage.success(`${lang.copy}${failure}:${err}`);
+      ElMessage.success(`${lang.copy}${lang.failure}:${err}`);
     });
 };
 
