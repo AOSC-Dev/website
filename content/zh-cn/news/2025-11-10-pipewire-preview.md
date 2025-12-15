@@ -4,7 +4,7 @@ categories:
 title: "PipeWire 音频系统迁移测试公告"
 date: 2025-11-10T19:15:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![喵—— 同同掏出了妙妙更新！](/assets/news/testing-topic-pipewire-20251110.webp)

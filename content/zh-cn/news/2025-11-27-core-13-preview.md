@@ -4,7 +4,7 @@ categories:
 title: "安同 OS 核心包 13.0.0 测试公告"
 date: 2025-11-27T23:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![喵～](/assets/news/core-13-preview.webp)
