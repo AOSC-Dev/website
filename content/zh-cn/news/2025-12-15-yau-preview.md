@@ -4,7 +4,7 @@ categories:
 title: "安同校园行：延安大学站"
 date: 2025-12-15T19:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![2025 年最后一站！](/assets/news/aosc-yau.webp)
