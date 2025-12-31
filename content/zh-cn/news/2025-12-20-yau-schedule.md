@@ -4,7 +4,7 @@ categories:
 title: "校园行延安大学站：日程预告"
 date: 2025-12-17T16:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![校园行延安大学站日程海报](/assets/news/aosc-yau-poster.webp)
