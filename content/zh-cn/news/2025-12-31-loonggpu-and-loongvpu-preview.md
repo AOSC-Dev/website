@@ -1,8 +1,8 @@
 ---
 categories:
   - advisories
-title: "校园行延安大学站：日程预告"
-date: 2025-12-17T16:00:00+08:00
+title: "LoongGPU 及 LoongVPU 驱动更新测试公告"
+date: 2025-12-31T22:00:00+08:00
 important: true
 home: true
 ---
