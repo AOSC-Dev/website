@@ -2,7 +2,7 @@
 categories:
   - news
 title: "社区软件源服务降级公告"
-date: 2026-01-07T23:30:00+08:00
+date: 2026-01-10T23:30:00+08:00
 important: true
 home: true
 ---
