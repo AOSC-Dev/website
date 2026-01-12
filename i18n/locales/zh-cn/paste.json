@@ -29,7 +29,9 @@
     "buttonCopyLink": "复制共享链接",
     "buttonCopyFullContent": "复制全文",
     "promptNotFoundError": "粘贴板不存在",
-    "promptError": "获取粘贴板异常 ({code})"
+    "promptError": "获取粘贴板异常 ({code})",
+    "buttonCopyRawLink": "复制原始链接",
+    "pasteShareRawLink": "原始链接"
   },
   "expirationDateTooltip": "过期时间"
 }
