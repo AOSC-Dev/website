@@ -63,17 +63,30 @@ const returnHref = () => window.location.href;
                 }}
               </div>
             </div>
-            <button
-              class="theme-bg-color-primary-static cursor-pointer px-[3em] py-[1em] text-white"
-              @click="
-                copyToClipboard(
-                  locale,
-                  returnHref(),
-                  t('paste.detail.pasteShareLink')
-                )
-              ">
-              {{ t('paste.detail.buttonCopyLink') }}
-            </button>
+            <div>
+              <button
+                class="theme-bg-color-primary-static cursor-pointer px-[3em] py-[1em] text-white"
+                @click="
+                  copyToClipboard(
+                    locale,
+                    `${config.public.pasteApi}/${route.query.id}/content`,
+                    t('paste.detail.pasteShareRawLink')
+                  )
+                ">
+                {{ t('paste.detail.buttonCopyRawLink') }}
+              </button>
+              <button
+                class="theme-bg-color-primary-static cursor-pointer px-[3em] py-[1em] text-white ml-2"
+                @click="
+                  copyToClipboard(
+                    locale,
+                    returnHref(),
+                    t('paste.detail.pasteShareLink')
+                  )
+                ">
+                {{ t('paste.detail.buttonCopyLink') }}
+              </button>
+            </div>
           </div>
           <ul class="el-upload-list el-upload-list--text">
             <li
@@ -100,7 +113,6 @@ const returnHref = () => window.location.href;
           hydrate-on-visible
           class="theme-border-primary h-[50vh] rounded-none border-2"
           :lang="details.language" />
-
         <button
           class="theme-bg-color-primary-static mt-[10px] ml-auto cursor-pointer px-[3em] py-[1em] text-white"
           @click="
