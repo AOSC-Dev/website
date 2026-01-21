@@ -15,7 +15,8 @@ const getComp = computed(() => {
           localLink.afterglow,
           localLink.liblol,
           localLink.oma,
-          localLink.l10n
+          localLink.l10n,
+          { title: ['支持中心'], url: '/support' }
         ],
         show: true
       },
@@ -223,7 +224,7 @@ const backToTopBtnShow = ref(false);
     <Transition name="anim-button">
       <div
         v-show="backToTopBtnShow"
-        class="to-top-color mb-[1px] px-2 flex justify-between leading-8 text-white"
+        class="to-top-color mb-[1px] flex justify-between px-2 leading-8 text-white"
         onclick="window.scrollTo({
             top: 0,
             left: 0,
