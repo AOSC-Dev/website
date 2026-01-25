@@ -15,6 +15,7 @@ onMounted(() => {
 });
 
 const router = useRouter();
+const localePath = useLocalePath()
 
 const getFutureDate = (days) =>
   new Date(new Date().setDate(new Date().getDate() + days))
@@ -74,7 +75,7 @@ const submit = async () => {
     if (results.code == 0) {
       pasteRes.value = results.msg.id;
       router.push({
-        path: '/paste/detail',
+        path: localePath('/paste/detail'),
         query: {
           id: results.msg.id
         }
