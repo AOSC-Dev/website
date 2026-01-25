@@ -1,33 +1,33 @@
 {
     "index": {
-        "crowdsourcingTitle": "社区众筹",
+        "crowdsourcingTitle": "Crowdsourcing",
         "crowdsourcingAddendum": "补充条例",
         "crowdsourcingText1": {
             "text": [
-                "According to community",
-                "的要求，社区不接受作为社区及项目运转资金之用的捐款。但由于我社作为无运作资本的志愿者社区，在社区日常运营及为具体项目购置大宗物件（如构建用服务器和 AOSCC 年度聚会等场合）时经常需要资金及物质支持。因此，我们接受针对特定项目及购买计划的金钱、物品（如电脑机箱、电源及硬盘等）及服务（如网站服务器资源等）捐赠。"
+                "According to the ",
+                ", the community does not accept donations intended for general community and project management. However, as a volunteer community without operating capital, we frequently require financial and material support for daily community operations and for purchasing large items for specific projects (such as servers for building purposes and for events like AOSCC). Therefore, we accept donations of money, goods (such as computer cases, power supplies, and hard drives), and services (such as website server resources) specifically for designated projects and purchasing plans."
             ]
         },
         "crowdsourcingText2": {
             "text": [
-                "You may refer to the our Wiki site for further information",
-                "。"
+                "You may refer to the ",
+                " for more information."
             ]
         },
         "crowdsourcingTextList1": {
             "li": [
-                "资金及物品捐赠必须用于具体社区项目（例：为 AOSC OS 移植构建或升级构建用服务器）。",
-                "社区将鸣谢捐赠者，但捐赠者不会自动成为社区贡献者（后者享受如社区门户上的个人主页、Git 写入访问及 @aosc.io 邮箱等福利）。捐赠者享有如下权利：",
+                "Financial and material donations must be used for specific community projects (e.g., servers for building or upgrading AOSC OS ports).",
+                "The community will acknowledge donors, but donors do not automatically become contributors (who enjoy benefits such as personal profiles on the community portal, Git write access, and @aosc.io email accounts). Donors have the following rights:",
                 [
-                    "捐赠者可请求访问其参与众筹的设备及服务。",
-                    "社区将通知捐赠者有关设备后续用途、维护及置换的具体事宜。"
+                    "Donors may request access to devices and services they contributed to crowdfunding.",
+                    "The community will inform donors about the specific details of the equipment's subsequent use, maintenance, and replacement."
                 ],
-                "在所需金额及物品集齐后，众筹项目即认定完成。",
-                "如筹得额外资金，额外资金将按捐款顺序退还，直到还清为止。",
+                "Crowdfunding is considered complete when the required amount of funds and materials have been collected.",
+                "If excess funds are raised, they will be refunded in the order of donation until all refunds are completed.",
                 [
-                    "如捐款者不接受退款，可根据需要调整众筹内容。"
+                    "If a donor does not accept a refund, the crowdfunding content may be adjusted as needed."
                 ],
-                "如众筹项目被取消，将全额退还捐款予捐赠者。"
+                "If the crowdfunding is canceled, all donations will be fully refunded to the donors."
             ]
         },
         "crowdsourcingRecords": "Crowdfunding Records"

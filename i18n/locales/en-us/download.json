@@ -1,10 +1,10 @@
 {
     "index": {
         "title": "Download Center",
-        "operatingSystemsTitle": "操作系统",
+        "operatingSystemsTitle": "Operating Systems",
         "aoscOs": {
             "name": "AOSC OS",
-            "description": "称心得意的桌面操作系统"
+            "description": "Operating system that suits your needs"
         },
         "aoscOsWsl": {
             "name": "WSL",
@@ -18,8 +18,8 @@
         },
         "afterglow": {
             "name": "Afterglow OS",
-            "description": "老设备也能发光发热",
-            "stayTuned": "敬请期待"
+            "description": "Keeping your pride and joy going",
+            "stayTuned": "Stay tuned"
         },
         "downloadSources": [
             {
@@ -28,52 +28,52 @@
                 "url": "https://releases.aosc.io/"
             },
             {
-                "name": "校园网联合镜像站",
+                "name": "Cernet",
                 "loc": "Auto",
                 "url": "https://mirrors.cernet.edu.cn/anthon/aosc-os/"
             }
         ],
         "downloadErrors": {
-            "aosc": "AOSC OS 版本信息获取失败",
-            "apple": "AOSC OS Apple Silicon 版本信息获取失败",
-            "oma": "oma 版本信息获取失败",
-            "mirrors": "镜像信息获取失败"
+            "aosc": "Failed to fetch AOSC OS version information",
+            "apple": "Failed to fetch AOSC OS Apple Silicon version information",
+            "oma": "Failed to fetch oma version information",
+            "mirrors": "Failed to fetch mirrors information"
         },
         "portTierInfo": {
             "primaryIsa": {
-                "name": "一级架构",
-                "description": "“一级架构”是我们支持水平最高的一类目标架构，各类更新及时且特性完整，亦最受维护者关注、测试设备充分"
+                "name": "Primary Architecture",
+                "description": "\"Primary Architecture\" is the target architecture we support at the highest level, featuring timely updateds, complete features, receiving most attention from maintainers, and ample test devices."
             },
             "secondaryIsa": {
-                "name": "二级架构",
-                "description": "“二级架构”功能相对完整，但由于设备数量稀少、普遍性能较差或受维护者关注度不足，虽会及时响应安全更新，但其他类型更新、测试及反馈响应度可能略逊于一级架构"
+                "name": "Secondary Architecture",
+                "description": "\"Secondary Architecture\" offers relatively complete functionality, but due to the limited number of devices, generally poorer performance, or insufficient attention from maintainers, while security updates are promptly addressed, other types of updates, testing, and feedback responses may be slightly less responsive than primary architecture."
             }
         },
         "helpContent": {
             "aoscOsIsaInfoPrimary": [
-                "适用于兼容 AMD64 或 Intel 64 指令集扩展的 x86 设备",
-                "适用于兼容 Armv8-A 及以上版本的 64 位 Arm 设备",
-                "适用于兼容龙架构 (LoongArch) 指令集及 128 位向量扩展 (LSX) 的 64 位设备"
+                "For x86-64 (AMD64 or Intel 64) compatible devices",
+                "For AArch64 (Armv8-A or above) machines",
+                "For 64-bit LoongArch devices with support for 128-bit vector instructions (LSX)"
             ],
             "aoscOsIsaInfoSecondary": [
-                "适用于兼容 Power ISA v2.07 及以上版本的 64 位、小端序模式设备",
-                "适用于兼容 RVA20 Architecture Profile 的 64 位 RISC-V 设备",
-                "适用于基于 MIPS 的龙芯三号设备"
+                "For little endian, 64-bit Power ISA v2.07 (and above) devices",
+                "For 64-bit RISC-V (RVA20 or above) devices",
+                "For MIPS-based Loongson 3 devices"
             ],
             "afterglowIsaInfoPrimary": [
-                "适用于兼容 i486 (Intel486) 的 32 位 x86 设备",
-                "适用于基于 MIPS 并支持 LoongMMI 指令集扩展的龙芯二号 (2F) 设备",
-                "适用于兼容 PowerPC 指令集的 32 位大端序设备（IBM CHRP/PReP 或 Apple Macintosh 及兼容平台）"
+                "For i486 (Intel486) compatible devices",
+                "For MIPS-based Loongson 2F devices with LoongMMI support",
+                "For big endian, 32-bit PowerPC devices (IBM CHRP/PReP or Apple Macintosh and compatible platforms)"
             ],
             "afterglowIsaInfoSecondary": [
-                "适用于兼容 ARMv4 指令集的 Arm 设备",
-                "适用于兼容 ARMv6 指令集及 Thumb-2、NEON 扩展的 Arm 设备",
-                "适用于兼容 ARMv7 指令集及 Thumb-2、NEON 扩展的 Arm 设备",
-                "适用于基于 DEC Alpha（原称 Alpha AXP）指令集架构的设备",
-                "适用于兼容 IA-64 指令集架构的设备（安腾，Itanium）",
-                "用于兼容 Motorola 68020 且搭载内存管理单元 (MMU) 的设备",
-                "适用于兼容 PowerPC 指令集的 64 位大端序设备（IBM CHRP/PReP 及 Apple Macintosh 及兼容平台）",
-                "适用于兼容 SPARC V9 指令集及 VIS 1.0 扩展的 64 位 SPARC 设备"
+                "For Arm (ARMv4) compatible devices",
+                "For Arm (ARMv6 and Thumb-2, NEON) compatible devices",
+                "For Arm (ARMv7 and Thumb-2, NEON) compatible devices",
+                "For DEC Alpha (previously Alpha AXP) based devices",
+                "For IA-64 (Itanium) compatible devices",
+                "For Mortorola 68020 compatible devices with memory management unit (MMU)",
+                "For big endian, 64-bit PowerPC devices (IBM CHRP/PReP or Apple Macintosh and compatible platforms)",
+                "For 64-bit SPARC (SPARC V9 and VIS 1.0) compatible devices"
             ]
         },
         "downloadButtons": {
@@ -94,8 +94,8 @@
             ],
             "afterglowSecondary": [
                 "ARMv4",
-                "ARMv6（硬浮点）",
-                "ARMv7（硬浮点）",
+                "ARMv6（hard float）",
+                "ARMv7（hard float）",
                 "DEC Alpha",
                 "IA-64",
                 "Motorola 68000",
@@ -105,7 +105,7 @@
         },
         "utilitiesTitle": "Utilities",
         "omaTitle": "oma (Oh My Ailurus Package Manager)",
-        "omaTagLine": "简明好用的 APT 软件包管理界面",
+        "omaTagLine": "Easy-to-use APT package management interface",
         "omaSystemSupportInfo": [
             "Run this command in the terminal to install oma on Debian, Ubuntu, Linux Mint and its derivatives, as well as deepin,",
             "openKylin, and other distributions",

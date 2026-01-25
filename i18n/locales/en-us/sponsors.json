@@ -1,18 +1,18 @@
 {
   "index": {
-    "infrastructure": "服务与设施",
-    "mirrors": "镜像源",
-    "devices": "开发设备",
-    "licenses": "软件许可",
-    "historicInfrastructure": "历史赞助方（服务与设施）",
-    "historicMirrors": "历史赞助方（镜像源）",
-    "title": "赞助方一览",
-    "introduction": "多年来，社区内外诸多好友慷慨解囊，提供诸如服务器托管、测试设备和镜像源等形式的持续支持。在降低项目开发维护成本和提高工作体验的同时，也让社区各项目的用户们享受到了尽可能好的服务质量。赞助方们的大力支持让安同开源社区在保持独立运作、志愿驱动的基本原则的同时得以存活和发展，我们在此展示社区当今及历史上的各赞助单位与个人，谨以此表达我们由衷的感激。",
+    "infrastructure": "Infrastructure",
+    "mirrors": "Mirrors",
+    "devices": "Devices",
+    "licenses": "Licenses",
+    "historicInfrastructure": "Past Sponsors (Services and Facilities)",
+    "historicMirrors": "Past Sponsors (Mirrors)",
+    "title": "Sponsors",
+    "introduction": "Over the years, many friends within and outside the community have generously contributed ongoing support in the form of server hosting, testing devices, and mirrors. This has reduced the costs of project development and maintenance, improved the working experience for our team, and allowed users of various community projects to enjoy the best possible service quality. The strong support from our sponsors has enabled AOSC to survive and thrive while maintaining its fundamental principles of independent operation and volunteer-driven development. We hereby present a list of our current and historical sponsors, both organizations and individuals, to express our heartfelt gratitude.",
     "individualDonors": {
-      "title": "个人捐赠者",
+      "title": "Individual donors",
       "introduction": [
-        "社区的持续运行同样离不开离不开社区好友以个人名义的捐赠，多年来，他们向社区捐赠各类硬件、积极参与社区发起的众筹项目，在支持各社区项目维护高效运转的同时，还为社区贡献者们分担了许多经济压力。",
-        "2025 年前，社区未有鸣谢个人捐赠者的流程，亦有提出希望保持匿名的朋友，因此本列表并不完整。我社谨以本节鸣谢一切未有留名的个人捐赠者。"
+        "The community's sustained operation also relies on donations made by community members in their personal capacity. Over the years, they have contributed various hardware to the community and actively participated in crowdfunding projects initiated by the community. While supporting the efficient maintenance and operation of various community projects, they have also alleviated significant financial burdens for community contributors.",
+        "Before 2025, the community did not have a process for acknowledging individual donors, and some individuals also requested to remain anonymous; therefore, this list is incomplete. We would like to take this opportunity to thank all individual donors who did not leave their names."
       ],
       "tableYuanBaoSsd": {
         "caption": "龙架构主力构建服务器存储升级（2025 年 12 月 4 日）",

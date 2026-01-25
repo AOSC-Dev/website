@@ -1,35 +1,35 @@
 {
   "index": {
-    "promptContentEmpty": "内容不能为空",
+    "promptContentEmpty": "Content cannot be empty",
     "promptContentTooLarge": [
-      "剪贴板大小超出了 10MiB 限制：文本占用了",
-      "、附件占用了"
+      "Paste size exceeds the 10MiB limit: text uses ",
+      ", attachments use "
     ],
-    "promptContentServerSizeLimit": "提交内容大小超出了服务器限制，这可能是一个错误，请报告！",
+    "promptContentServerSizeLimit": "Content size exceeds server limit. This might be a bug, please report it!",
     "promptContentSizeTooLargeWithAttachment": [
-      "每个剪贴板大小不得超过 10MiB，上传",
-      "后会超出该限制！"
+      "Each paste cannot exceed 10MiB. Uploading ",
+      " would exceed this limit!"
     ],
-    "promptFileAddSuccess": "成功添加文件:",
-    "pageTitle": "公共粘贴板",
-    "buttonSubmit": "提交",
-    "placeholderTitle": "标题",
+    "promptFileAddSuccess": "Successfully added file:",
+    "pageTitle": "Pastebin",
+    "buttonSubmit": "Submit",
+    "placeholderTitle": "Title",
     "promptAttachmentInstruction": [
-      "将文件拖拽到此处",
-      "或点击上传"
+      "Drag and drop files here, ",
+      "or click to upload"
     ]
   },
   "detail": {
-    "prompt500Error": "获取粘贴板异常（服务器内部错误）",
-    "pasteShareLink": "共享连接",
-    "pasteFullContent": "全文",
-    "pageTitle": "公共粘贴板",
-    "pasteTitle": "标题：",
-    "pasteExpiration": "过期时间：",
-    "buttonCopyLink": "复制共享链接",
-    "buttonCopyFullContent": "复制全文",
-    "promptNotFoundError": "粘贴板不存在",
-    "promptError": "获取粘贴板异常 ({code})"
+    "prompt500Error": "Failed to fetch paste (Internal Server Error)",
+    "pasteShareLink": "Share Link",
+    "pasteFullContent": "Full Content",
+    "pageTitle": "Public Paste",
+    "pasteTitle": "Title: ",
+    "pasteExpiration": "Expiration: ",
+    "buttonCopyLink": "Copy Share Link",
+    "buttonCopyFullContent": "Copy Full Content",
+    "promptNotFoundError": "Paste not found",
+    "promptError": "Failed to fetch paste ({code})"
   },
-  "expirationDateTooltip": "过期时间"
+  "expirationDateTooltip": "Expiration Date"
 }
