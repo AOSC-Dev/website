@@ -16,7 +16,7 @@ const expand = ref(false);
       <el-popover placement="top" width="233" :content="description">
         <template #reference>
           <span class="text-[8pt] font-[450]">
-            （{{ t('DownloadButtonGroup.whatIsThis') }}？）
+            {{ t('DownloadButtonGroup.whatIsThis') }}
           </span>
         </template>
       </el-popover>
