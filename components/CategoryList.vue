@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { locale } = useI18n();
+const { locale, defaultLocale } = useI18n();
 
 const props = defineProps<{
   category?: string;
@@ -7,15 +7,46 @@ const props = defineProps<{
   limit?: number;
 }>();
 
-const { data, error, status } = await useAsyncData(
-  `${locale.value}:CategoryList:${props.category}:${props.limit}:${props.filters?.map((obj) => `${obj.key}-${obj.value}`).join('--')}`,
-  queryCollectionCategory(
-    locale.value,
-    props.category,
-    props.limit,
-    props.filters
-  )
-);
+const fetchCategoryData = async (localeValue: typeof locale.value) =>
+  await useAsyncData(
+    `${localeValue}:CategoryList:${props.category}:${props.limit}:${props.filters?.map((obj) => `${obj.key}-${obj.value}`).join('--')}`,
+    queryCollectionCategory(
+      localeValue,
+      props.category,
+      props.limit,
+      props.filters
+    )
+  );
+
+const data: Awaited<ReturnType<typeof fetchCategoryData>>['data'] = ref([]);
+const error = ref();
+const status = ref();
+
+// Nuxt content 不支持一次请求多个 collection 的内容
+// 先请求默认语言对应的列表，作为完整列表或 fallback 部分
+const dataDefaultLocale = await fetchCategoryData(defaultLocale);
+data.value = dataDefaultLocale.data.value;
+error.value = dataDefaultLocale.error.value;
+status.value = dataDefaultLocale.status.value;
+
+if (dataDefaultLocale.data.value && locale.value !== defaultLocale) {
+  const dataCurrentLocale = await fetchCategoryData(locale.value);
+  if (dataCurrentLocale.data.value) {
+    // 去重，当前语言优先
+    const pathMap = new Map<string, NonNullable<typeof data.value>[number]>();
+    for (const item of dataCurrentLocale.data.value)
+      pathMap.set(item.path, item);
+    for (const item of data.value ?? [])
+      if (!pathMap.has(item.path)) pathMap.set(item.path, item);
+
+    // 根据时间排序
+    data.value = Array.from(pathMap.values()).sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+  error.value = dataCurrentLocale.error.value;
+  status.value = dataCurrentLocale.status.value;
+}
 </script>
 
 <template>
