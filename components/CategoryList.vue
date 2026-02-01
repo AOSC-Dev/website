@@ -7,14 +7,11 @@ const props = defineProps<{
   limit?: number;
 }>();
 
-const { data, error, status } = await useAsyncData(
-  `${locale.value}:CategoryList:${props.category}:${props.limit}:${props.filters?.map((obj) => `${obj.key}-${obj.value}`).join('--')}`,
-  queryCollectionCategory(
-    locale.value,
-    props.category,
-    props.limit,
-    props.filters
-  )
+const { data, error, status } = await useAsyncCategoryData(
+  locale.value,
+  props.category,
+  props.limit,
+  props.filters
 );
 </script>
 

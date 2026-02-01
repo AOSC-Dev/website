@@ -21,7 +21,7 @@ const supportCategoryList = [
   {
     path: '/support/software',
     name: '软件',
-    description: '使用 Aoska、oma、Flatpak 等安安装软件',
+    description: '使用各种软件包管理器安安装软件',
     icon: 'ic:baseline-install-desktop'
   },
   {
@@ -41,12 +41,6 @@ const supportCategoryList = [
     name: '你知道吗？',
     description: '你 8d 吗',
     icon: 'ic:baseline-question-mark'
-  },
-  {
-    path: '/contact',
-    name: '还有高手 →',
-    description: '联系安安同临时工',
-    icon: 'ic:baseline-contact-page'
   }
 ];
 
@@ -66,12 +60,12 @@ const ananReactionList: Record<
   { text: string; img: string }
 > = {
   idle: {
-    text: '希望安安帮忙找点什么呢？',
+    text: '搜索安安知识库...',
     img: ananImgPrefix + 'tuosai.svg'
   },
   searching: {
     text: '安安正在努力寻找...',
-    img: ananImgPrefix + 'afterglow.png'
+    img: ananImgPrefix + 'afterglow.svg'
   },
   success: {
     text: '安安找到了这些：',
@@ -83,7 +77,7 @@ const ananReactionList: Record<
   },
   oma: {
     text: '是在找 oma 吗？',
-    img: ananImgPrefix + 'oma.svg'
+    img: '/download/oma-mascot.svg'
   }
 };
 
@@ -137,81 +131,148 @@ const queryState: Ref<ananReactionType> = computed(() => {
   if (status.value === 'error') return 'failed';
   return 'idle';
 });
+
+const faqData = await useAsyncCategoryData(locale.value, 'support/faq', 8);
+const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 </script>
 
 <template>
   <div>
     <category-second title="芝士中心" />
-    <div class="mx-6 my-2 flex items-center gap-4">
-      <img :src="ananReactionList[queryState].img" class="h-32 w-32" />
-      <div class="flex-grow">
-        <span>{{ ananReactionList[queryState].text }}</span>
-        <div class="mt-2 flex">
-          <el-select v-model="queryCategory" class="max-w-[6.5em]">
-            <el-option
-              v-for="category in queryCategoryList"
-              :key="category.path"
-              :label="category.name"
-              :value="category.path" />
-          </el-select>
-          <div class="w-full">
-            <el-input
-              v-model="query"
-              inputmode="search"
-              placeholder="请输入文字"
-              class="max-full" />
-            <div v-if="results?.length || queryState === 'oma'" class="relative">
-              <!--TODO: investigate z-index?-->
-              <ul
-                class="absolute z-1 w-full border-1 border-(--primary) bg-white px-3 py-1">
-                <NuxtLinkLocale
-                  v-if="queryState === 'oma'"
-                  to="/support/software#oma"
-                  class="hover:no-underline">
-                  <div class="border-2 border-(--primary) p-1 hover:bg-[#eee]">
-                    <div>这里可以是特殊的提示</div>
-                    <div>前往 oma 版块 →</div>
-                  </div>
-                </NuxtLinkLocale>
-                <li v-for="result in results?.slice(0, 10)" :key="result.id">
-                  <span v-for="title in result.titles" :key="title">
-                    {{ title }} >
-                  </span>
-                  <NuxtLinkLocale :to="result.id">
-                    <span class="text-link">{{ result.title }}</span>
-                  </NuxtLinkLocale>
-                </li>
-              </ul>
+    <div class="grid auto-rows-[200px] overflow-hidden *:px-8">
+      <div class="flex bg-[#C6DCEC]">
+        <img
+          :src="ananReactionList[queryState].img"
+          class="mr-8 size-36 shrink-0 self-end" />
+        <div class="flex grow items-center justify-between">
+          <div class="flex-grow gap-4">
+            <span class="mb-2 text-xl">
+              {{ ananReactionList[queryState].text }}
+            </span>
+            <div class="mt-2 flex">
+              <el-select v-model="queryCategory" large class="max-w-[6.5em]">
+                <el-option
+                  v-for="category in queryCategoryList"
+                  :key="category.path"
+                  :label="category.name"
+                  :value="category.path" />
+              </el-select>
+              <div>
+                <el-input
+                  v-model="query"
+                  large
+                  inputmode="search"
+                  placeholder="请输入文本"
+                  class="max-full" />
+                <div
+                  v-if="results?.length || queryState === 'oma'"
+                  class="relative">
+                  <!--TODO: investigate z-index?-->
+                  <ul
+                    class="absolute z-1 w-full border-1 border-(--primary) bg-white px-3 py-1">
+                    <NuxtLinkLocale
+                      v-if="queryState === 'oma'"
+                      to="/support/software#oma"
+                      class="hover:no-underline">
+                      <div
+                        class="border-2 border-(--primary) p-1 hover:bg-[#eee]">
+                        <div>这里可以是特殊的提示</div>
+                        <div>前往 oma 版块 →</div>
+                      </div>
+                    </NuxtLinkLocale>
+                    <li
+                      v-for="result in results?.slice(0, 10)"
+                      :key="result.id">
+                      <span v-for="title in result.titles" :key="title">
+                        {{ title }} >
+                      </span>
+                      <NuxtLinkLocale :to="result.id">
+                        <span class="text-link">{{ result.title }}</span>
+                      </NuxtLinkLocale>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="grid-col-2 grid gap-x-1">
+            <div class="col-start-1 text-right">在线帮助主题</div>
+            <div class="col-start-1 self-baseline text-right text-2xl">
+              1145141
+            </div>
+            <span class="col-start-2 self-baseline">篇</span>
           </div>
         </div>
       </div>
-    </div>
-    <category-second title="支持类别" />
-    <div class="grid grid-cols-3">
-      <NuxtLinkLocale
-        v-for="category in supportCategoryList"
-        :key="category.path"
-        :to="category.path"
-        class="flex items-center gap-4 px-6 py-4 hover:bg-[#ddd] hover:no-underline">
-        <Icon :name="category.icon" size="24" />
-        <div>
-          <div>{{ category.name }}</div>
-          <div class="text-[10pt]">{{ category.description }}</div>
-        </div>
-      </NuxtLinkLocale>
-    </div>
-    <div class="grid grid-cols-2">
-      <div class="border-r-1 border-white">
-        <category-second title="常见问题" />
-        <category-list category="support/faq" :limit="Math.sqrt(0x8d + 3)" />
-        <div class="mx-6 my-1">
-          <NuxtLinkLocale>我的问题还是没有解决怎么办？</NuxtLinkLocale>
+
+      <div class="flex items-center bg-[#eee3c4]">
+        <img
+          src="/download/oma-mascot.svg"
+          class="mr-8 size-36 shrink-0 self-end" />
+        <div class="grow">
+          <div class="mb-2 flex items-center justify-between">
+            <div class="text-xl">帮助主题</div>
+            <AppLink to="/contact" class="text-black">
+              还有高手？联系按安同临时工→
+            </AppLink>
+          </div>
+          <div class="grid grid-cols-3">
+            <NuxtLinkLocale
+              v-for="category in supportCategoryList"
+              :key="category.path"
+              :to="category.path"
+              class="flex items-center gap-2 px-2 py-1 hover:bg-[#ddd2b4] hover:no-underline">
+              <Icon :name="category.icon" size="28" class="shrink-0" />
+              <div>
+                <div>{{ category.name }}</div>
+                <div class="text-[10pt]">{{ category.description }}</div>
+              </div>
+            </NuxtLinkLocale>
+          </div>
         </div>
       </div>
-      <div>
-        <category-second title="最新资讯" />
-        <category-list category="news" :limit="12" />
+
+      <div class="flex items-center bg-[#e4cdcd]">
+        <img
+          src="/support/anan/break.png"
+          class="mr-8 size-36 shrink-0 self-end object-contain" />
+        <div class="grow">
+          <div class="mb-2 flex items-center justify-between">
+            <div class="text-xl">常见问题</div>
+            <AppLink to="" class="text-black">看看更多常见问题→</AppLink>
+          </div>
+          <div
+            v-if="faqData.status.value === 'success'"
+            class="grid w-full grid-flow-col grid-cols-2 grid-rows-4 gap-1">
+            <AppLink
+              v-for="faqItem in faqData.data.value"
+              :key="faqItem.path"
+              :to="faqItem.path"
+              class="block text-black">
+              {{ faqItem.title }}
+            </AppLink>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center bg-[#cdcee4]">
+        <img
+          src="/support/anan/upstream.svg"
+          class="mr-8 size-36 shrink-0 self-end" />
+        <div class="grow">
+          <div class="mb-2 text-xl">最新公告</div>
+          <div
+            v-if="newsData.status.value === 'success'"
+            class="grid grid-flow-col grid-cols-2 grid-rows-4 gap-1">
+            <AppLink
+              v-for="newsItem in newsData.data.value"
+              :key="newsItem.path"
+              :to="newsItem.path"
+              class="block text-black">
+              {{ newsItem.title }}
+            </AppLink>
+          </div>
+        </div>
       </div>
     </div>
   </div>
