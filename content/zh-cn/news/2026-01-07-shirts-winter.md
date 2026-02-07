@@ -4,7 +4,7 @@ categories:
 title: "社区文化衫（2026 款冬装）开催"
 date: 2026-01-07T23:30:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![2026 款冬装来啦！](/assets/news/2026-shirts-preview-poster.webp)

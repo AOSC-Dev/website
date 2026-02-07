@@ -4,7 +4,7 @@ categories:
 title: "社区软件源服务现已基本恢复"
 date: 2026-01-11T18:15:00+08:00
 important: true
-home: true
+home: false
 ---
 
 经托管方协助，社区软件源服务器 (repo.aosc.io) 的互联网访问已于 UTC+8 时间 2026 年 1 月 11 日早 1 时许基本恢复，唯两处影响较小的外部已知问题仍需与外部方面联络解决。
