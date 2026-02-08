@@ -254,11 +254,6 @@
   },
   "sponsors": {
     "infrastructure": {
-      "apernet": {
-        "title": ["光圈网络 (Apernet Internet Laboratory)"],
-        "url": "https://apernet.io/",
-        "img": "apernet"
-      },
       "globalsign": {
         "title": ["GlobalSign"],
         "url": "https://www.globalsign.com/",
@@ -273,6 +268,11 @@
         "title": ["Microsoft Open Source"],
         "url": "https://opensource.microsoft.com/",
         "img": "microsoft"
+      },
+      "nearoute": {
+        "title": ["Nearoute Limited"],
+        "url": "https://nearoute.com/",
+        "img": "nearoute"
       }
     },
     "mirrors": {
@@ -310,6 +310,11 @@
         "title": ["Hexhu"],
         "url": "https://arch.hu.fo/",
         "img": "hexhu"
+      },
+      "ifanr": {
+        "title": ["爱范儿"],
+        "url": "https://www.ifanr.com/",
+        "img": "ifanr"
       },
       "jlulug": {
         "title": ["吉林大学 Linux 用户协会"],
@@ -407,6 +412,11 @@
       }
     },
     "historicInfrastructure": {
+      "apernet": {
+        "title": ["光圈网络 (Apernet Internet Laboratory)"],
+        "url": "https://apernet.io/",
+        "img": "apernet"
+      },
       "fuslvz": {
         "title": ["FuslVZ"],
         "url": "https://fuslvz.ws/",

@@ -80,6 +80,10 @@ const sponsorList = [
         </p>
         <br />
         <AppTableOrdinary
+          :table-value="textValue.individualDonors.repo2026"
+          my-key="sponsors-index-1" />
+        <br />
+        <AppTableOrdinary
           :table-value="textValue.individualDonors.tableYuanBaoSsd"
           my-key="sponsors-index-1" />
         <br />

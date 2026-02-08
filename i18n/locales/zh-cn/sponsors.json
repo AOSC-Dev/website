@@ -18,14 +18,15 @@
         "caption": "龙架构主力构建服务器存储升级（2025 年 12 月 4 日）",
         "tr": [
           ["老嘟嘟", "chenx97", "liushuyu", "pch666777"],
-          ["WangYuli", "xry111"]
+          ["WangYuli", "xry111", "…", ""]
         ]
       },
       "tableServerHardDrive": {
         "caption": "软件源源服务器冷存储用硬盘（2025 年 2 月 6 日）",
         "tr": [
           ["冲浪的小鱼", "黄逸君", "kf", "刘璨贤"],
-          ["okami2012", "要塞姬Ilikara", "Yo Kaslana", "梓瑶"]
+          ["okami2012", "要塞姬Ilikara", "Yo Kaslana", "梓瑶"],
+          ["…", ""]
         ]
       },
       "tableAoscc2025": {
@@ -47,7 +48,23 @@
             "蚊子 (Mozz.ie)",
             "御坂云见#17535"
           ],
-          ["自言者一么", "", "", ""]
+          ["自言者一么", "…", "", ""]
+        ]
+      },
+      "repo2026": {
+        "caption": "软件源服务器迁移与升级（2026 年 2 月 5 日）",
+        "tr": [
+          ["陈寒彤", "冲浪的小鱼", "哈啤HPHP", "老嘟嘟"],
+          ["林间冰宇", "轮子妈", "神白凛", "吳「OriginCode」楷陽"],
+          ["꧁༺ۣ消逝ۣ༒ۣ星系ۣ༻꧂", "小洛克", "荧惑", "浙江理工大学学生"],
+          ["梓瑶", "Andy Zhang", "baka", "BillZhou233"],
+          ["chenx97", "Cherrling", "cloudcollector", "darkyzhou"],
+          ["elysia-best", "FlyGoat", "@ilemonrain", "kfkk"],
+          ["Liet Blue", "little_sheepycn", "MuleRouter.ai", "multimode_Liu"],
+          ["MutsukiC", "NoitaniGami", "okami2012", "ouni666"],
+          ["pppwaw (Skywolf)", "RawDiamondMC", "shatyuka", "skybird"],
+          ["Trickplayer", "VZstless", "WangYuli", "zen"],
+          ["ZeroAurora", "Zzzzz", "…", ""]
         ]
       }
     }
