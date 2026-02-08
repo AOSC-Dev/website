@@ -7,6 +7,8 @@ important: true
 home: true
 ---
 
+![喂～ 我喺 Nearoute 幫緊你！](/assets/news/aosc-repo-thank-you-2026.webp)
+
 > 喂～ 我喺 Nearoute 幫緊你！
 
 UTC+8 时间 2026 年 2 月 8 日 14:29，由 Nearoute Limited 托管的新软件源服务器已成功完成数据与服务迁移，并已于原地址上线。目前各服务已恢复运行。
