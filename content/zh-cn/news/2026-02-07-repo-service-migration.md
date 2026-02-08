@@ -4,7 +4,7 @@ categories:
 title: "软件源服务器维护公告"
 date: 2026-02-07T22:30:00+08:00
 important: true
-home: true
+home: false
 ---
 
 UTC+8 时间 2026 年 2 月 8 日 12:00，为迁移软件源到 Nearoute Limited 托管的新服务器上，我们计划对社区软件源服务器进行下线维护，迁移服务配置及 DNS 记录等，并测试各项应用服务。
