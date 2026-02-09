@@ -7,13 +7,16 @@ const props = defineProps<{
   limit?: number;
 }>();
 
-const fetchCategoryData = async (localeValue: typeof locale.value) =>
+const fetchCategoryData = async (
+  localeValue: typeof locale.value,
+  limit?: number
+) =>
   await useAsyncData(
-    `${localeValue}:CategoryList:${props.category}:${props.limit}:${props.filters?.map((obj) => `${obj.key}-${obj.value}`).join('--')}`,
+    `${localeValue}:CategoryList:${props.category}:${limit}:${props.filters?.map((obj) => `${obj.key}-${obj.value}`).join('--')}`,
     queryCollectionCategory(
       localeValue,
       props.category,
-      props.limit,
+      limit,
       props.filters
     )
   );
@@ -24,13 +27,21 @@ const status = ref();
 
 // Nuxt content 不支持一次请求多个 collection 的内容
 // 先请求默认语言对应的列表，作为完整列表或 fallback 部分
-const dataDefaultLocale = await fetchCategoryData(defaultLocale);
+const dataDefaultLocale = await fetchCategoryData(defaultLocale, props.limit);
 data.value = dataDefaultLocale.data.value;
 error.value = dataDefaultLocale.error.value;
 status.value = dataDefaultLocale.status.value;
 
-if (dataDefaultLocale.data.value && locale.value !== defaultLocale) {
-  const dataCurrentLocale = await fetchCategoryData(locale.value);
+if (
+  dataDefaultLocale.data.value &&
+  // 长度不够再请求当前语言对应的列表补足
+  dataDefaultLocale.data.value.length < (props.limit ?? Infinity) &&
+  locale.value !== defaultLocale
+) {
+  const dataCurrentLocale = await fetchCategoryData(
+    locale.value,
+    props.limit ? props.limit - dataDefaultLocale.data.value.length : undefined
+  );
   if (dataCurrentLocale.data.value) {
     // 去重，当前语言优先
     const pathMap = new Map<string, NonNullable<typeof data.value>[number]>();
