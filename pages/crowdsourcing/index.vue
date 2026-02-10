@@ -15,11 +15,6 @@ useHead({ title: t('crowdsourcing.index.crowdsourcingTitle') });
         <link-standard :link="useTIndex(localLink.guidelines, 1)" />
         <span>{{ textValue.crowdsourcingText1.text[1] }}</span>
       </p>
-      <p>
-        <span>{{ textValue.crowdsourcingText2.text[0] }}</span>
-        <link-standard :link="linkValue.crowdfundingRecord" />
-        <span>{{ textValue.crowdsourcingText2.text[1] }}</span>
-      </p>
     </div>
 
     <category-second :title="t('crowdsourcing.index.crowdsourcingAddendum')" />
