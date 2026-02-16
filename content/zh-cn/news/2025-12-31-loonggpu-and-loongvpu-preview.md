@@ -4,7 +4,7 @@ categories:
 title: "LoongGPU 及 LoongVPU 驱动更新测试公告"
 date: 2025-12-31T22:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![龙芯 2K3000 SoC](/assets/news/2k3000-soc.webp)
