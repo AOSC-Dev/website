@@ -39,6 +39,12 @@
   background-image: url(/backgrounds/winter.svg);
 }
 
+.festive {
+  --primary: #b41f18;
+  --secondary: #d2433e;
+  background-image: url(/backgrounds/winter.svg);
+}
+
 .dark {
   &.spring {
     --primary: #517a47;
