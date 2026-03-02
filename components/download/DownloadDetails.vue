@@ -64,7 +64,11 @@ const dialogTab = ref(props.initialTab);
       disabled>
       <!-- TODO -->
     </el-tab-pane>
-    <el-tab-pane :label="t('DownloadDetails.downloadDockerContainers')" name="docker" disabled />
+    <el-tab-pane
+      :label="t('DownloadDetails.downloadDockerContainers')"
+      name="docker">
+      <DownloadDetailsDocker />
+    </el-tab-pane>
     <el-tab-pane :label="t('DownloadDetails.downloadVmImages')" name="vm" disabled />
   </el-tabs>
 </template>
