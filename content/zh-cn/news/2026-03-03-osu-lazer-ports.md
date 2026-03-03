@@ -7,7 +7,7 @@ important: true
 home: true
 ---
 
-![osu! (lazer) 现已支持全部一级架构](/assets/news/osu-lazer.webp)
+![osu! (lazer) 现已支持全部一级架构](/assets/news/osu-ports.webp)
 
 > 爱玩音游的朋友们，欢迎在非 x86 架构上试玩 osu! (lazer)！
 
