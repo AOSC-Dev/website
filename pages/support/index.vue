@@ -140,10 +140,12 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
   <div class="support-center">
     <category-second title="芝士中心" />
     <div class="overflow-hidden">
+      <FilterOutline filter-id="support-anan-outline" />
+
       <div class="bg-search flex h-64 bg-[#C6DCEC] pr-8">
         <img
           :src="ananReactionList[queryState].img"
-          class="mx-[0.5rem] size-[calc(var(--left-anan-width)-2*0.5rem)] shrink-0 self-end" />
+          class="anan-outline mx-[0.5rem] size-[calc(var(--left-anan-width)-2*0.5rem)] shrink-0 self-end" />
         <div class="flex grow items-center justify-between">
           <div class="flex-grow gap-4">
             <span class="mb-2 text-xl">
@@ -216,7 +218,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
       <div class="bg-categories flex min-h-48 items-center bg-[#eee3c4] pr-8">
         <img
           src="/download/oma-mascot.svg"
-          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
+          class="anan-outline test mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
         <div class="grow py-4">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xl">帮助主题</div>
@@ -246,7 +248,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
       <div class="bg-faq flex h-48 items-center bg-[#e4cdcd] pr-8">
         <img
           src="/support/anan/break.png"
-          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end object-contain" />
+          class="anan-outline mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end object-contain" />
         <div class="grow">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xl">常见问题</div>
@@ -274,7 +276,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
       <div class="bg-news flex h-48 items-center bg-[#cdcee4] pr-8">
         <img
           src="/support/anan/upstream.svg"
-          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
+          class="anan-outline mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
         <div class="grow">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xl">最新公告</div>
@@ -305,6 +307,11 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 <style scoped>
 .support-center {
   --left-anan-width: 13rem;
+}
+
+.anan-outline {
+  filter: url(#support-anan-outline);
+  clip-path: inset(-10px -10px 0 -10px);
 }
 
 .bg-search {
