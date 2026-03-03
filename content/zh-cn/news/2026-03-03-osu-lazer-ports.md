@@ -30,5 +30,5 @@ oma install osu-lazer
 特别鸣谢
 ---
 
-- Catty Steve (https://github.com/Catty2014) 的 osu-lazer-loongarch (https://github.com/Catty2014/osu-lazer-loongarch) 构建流程与耐心指导
-- Un4seen Developments (https://www.un4seen.com/) 的 Ian 提供的龙架构 BASS 音频库二进制 (https://www.un4seen.com/stuff/bass24-linux-loongarch64.zip)
+- [Catty Steve](https://github.com/Catty2014) 的 [osu-lazer-loongarch](https://github.com/Catty2014/osu-lazer-loongarch) 构建流程与耐心指导
+- [Un4seen Developments](https://www.un4seen.com/) 的 Ian 提供的[龙架构 BASS 音频库二进制](https://www.un4seen.com/stuff/bass24-linux-loongarch64.zip)
