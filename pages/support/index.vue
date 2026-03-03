@@ -137,13 +137,13 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 </script>
 
 <template>
-  <div>
+  <div class="support-center">
     <category-second title="芝士中心" />
-    <div class="grid auto-rows-[200px] overflow-hidden *:px-8">
-      <div class="flex bg-[#C6DCEC]">
+    <div class="overflow-hidden">
+      <div class="bg-search flex h-64 bg-[#C6DCEC] pr-8">
         <img
           :src="ananReactionList[queryState].img"
-          class="mr-8 size-36 shrink-0 self-end" />
+          class="mx-[0.5rem] size-[calc(var(--left-anan-width)-2*0.5rem)] shrink-0 self-end" />
         <div class="flex grow items-center justify-between">
           <div class="flex-grow gap-4">
             <span class="mb-2 text-xl">
@@ -195,25 +195,36 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               </div>
             </div>
           </div>
-          <div class="grid-col-2 grid gap-x-1">
-            <div class="col-start-1 text-right">在线帮助主题</div>
-            <div class="col-start-1 self-baseline text-right text-2xl">
-              1145141
+          <div
+            class="ml-8 flex h-3/4 w-1/3 flex-col justify-between gap-2 text-white">
+            <div class="shrink-0 text-[1.3rem]">令人耳目一新的新拌面</div>
+            <div class="overflow-y-auto text-[0.9rem]">
+              AOSC
+              支持中心采用《全新设计》，在性能上易于操作、易于浏览；在外观上优雅大方、风格清新、色彩诱人。
+              <br />
+              重新设计的支持中心便于您查找重要信息并阅读最常见的帮助主题。
             </div>
-            <span class="col-start-2 self-baseline">篇</span>
+            <div class="flex shrink-0 flex-row items-center justify-end gap-2">
+              <Icon name="material-symbols:arrow-back-ios-new" size="16" />
+              1/1
+              <Icon name="material-symbols:arrow-forward-ios" size="16" />
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="flex items-center bg-[#eee3c4]">
+      <div class="bg-categories flex min-h-48 items-center bg-[#eee3c4] pr-8">
         <img
           src="/download/oma-mascot.svg"
-          class="mr-8 size-36 shrink-0 self-end" />
-        <div class="grow">
+          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
+        <div class="grow py-4">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xl">帮助主题</div>
-            <AppLink to="/contact" class="text-black">
-              还有高手？联系按安同临时工→
+            <AppLink to="/contact" class="flex items-center text-black">
+              <span>还有高手？联系按安同临时工</span>
+              <img
+                src="/support/var-a.svg"
+                class="ml-[0.3em] inline size-[1em]" />
             </AppLink>
           </div>
           <div class="grid grid-cols-3">
@@ -232,14 +243,19 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
         </div>
       </div>
 
-      <div class="flex items-center bg-[#e4cdcd]">
+      <div class="bg-faq flex h-48 items-center bg-[#e4cdcd] pr-8">
         <img
           src="/support/anan/break.png"
-          class="mr-8 size-36 shrink-0 self-end object-contain" />
+          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end object-contain" />
         <div class="grow">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xl">常见问题</div>
-            <AppLink to="" class="text-black">看看更多常见问题→</AppLink>
+            <AppLink to="/support/faq" class="flex items-center text-black">
+              看看更多常见问题
+              <img
+                src="/support/var-a.svg"
+                class="ml-[0.3em] inline size-[1em]" />
+            </AppLink>
           </div>
           <div
             v-if="faqData.status.value === 'success'"
@@ -248,19 +264,27 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               v-for="faqItem in faqData.data.value"
               :key="faqItem.path"
               :to="faqItem.path"
-              class="block text-black">
+              class="block truncate text-nowrap text-black">
               {{ faqItem.title }}
             </AppLink>
           </div>
         </div>
       </div>
 
-      <div class="flex items-center bg-[#cdcee4]">
+      <div class="bg-news flex h-48 items-center bg-[#cdcee4] pr-8">
         <img
           src="/support/anan/upstream.svg"
-          class="mr-8 size-36 shrink-0 self-end" />
+          class="mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
         <div class="grow">
-          <div class="mb-2 text-xl">最新公告</div>
+          <div class="mb-2 flex items-center justify-between">
+            <div class="text-xl">最新公告</div>
+            <AppLink to="/news" class="flex items-center text-black">
+              查看更多公告
+              <img
+                src="/support/var-a.svg"
+                class="ml-[0.3em] inline size-[1em]" />
+            </AppLink>
+          </div>
           <div
             v-if="newsData.status.value === 'success'"
             class="grid grid-flow-col grid-cols-2 grid-rows-4 gap-1">
@@ -268,7 +292,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               v-for="newsItem in newsData.data.value"
               :key="newsItem.path"
               :to="newsItem.path"
-              class="block text-black">
+              class="block truncate text-nowrap text-black">
               {{ newsItem.title }}
             </AppLink>
           </div>
@@ -277,3 +301,41 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
     </div>
   </div>
 </template>
+
+<style scoped>
+.support-center {
+  --left-anan-width: 13rem;
+}
+
+.bg-search {
+  background:
+    url(/support/y2k-gradient.svg),
+    linear-gradient(to right, #c6dcec 70%, #5387c0 70%);
+  background-position-x: 70%;
+  background-repeat: no-repeat;
+}
+
+.bg-categories {
+  background: linear-gradient(
+    to bottom,
+    rgba(238, 227, 196, 1) 0%,
+    rgba(221, 210, 180, 1) 100%
+  );
+}
+
+.bg-faq {
+  background: linear-gradient(
+    to bottom,
+    rgba(228, 205, 205, 1) 0%,
+    rgba(206, 185, 185, 1) 100%
+  );
+}
+
+.bg-news {
+  background: linear-gradient(
+    to bottom,
+    rgba(205, 206, 228, 1) 0%,
+    rgba(190, 191, 211, 1) 100%
+  );
+}
+</style>
