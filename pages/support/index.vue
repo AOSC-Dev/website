@@ -198,7 +198,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
             </div>
           </div>
           <div
-            class="ml-8 flex h-3/4 w-1/3 flex-col justify-between gap-2 text-white">
+            class="ml-8 flex h-3/4 w-[calc(100%-var(--tips-start-position))] flex-col justify-between gap-2 text-white">
             <div class="shrink-0 text-[1.3rem]">令人耳目一新的新拌面</div>
             <div class="overflow-y-auto text-[0.9rem]">
               AOSC
@@ -215,91 +215,56 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
         </div>
       </div>
 
-      <div class="bg-categories flex min-h-48 items-center bg-[#eee3c4] pr-8">
-        <img
-          src="/download/oma-mascot.svg"
-          class="anan-outline test mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
-        <div class="grow py-4">
-          <div class="mb-2 flex items-center justify-between">
-            <div class="text-xl">帮助主题</div>
-            <AppLink to="/contact" class="flex items-center text-black">
-              <span>还有高手？联系按安同临时工</span>
-              <img
-                src="/support/var-a.svg"
-                class="ml-[0.3em] inline size-[1em]" />
-            </AppLink>
-          </div>
-          <div class="grid grid-cols-3">
-            <NuxtLinkLocale
-              v-for="category in supportCategoryList"
-              :key="category.path"
-              :to="category.path"
-              class="flex items-center gap-2 px-2 py-1 hover:bg-[#ddd2b4] hover:no-underline">
-              <Icon :name="category.icon" size="28" class="shrink-0" />
-              <div>
-                <div>{{ category.name }}</div>
-                <div class="text-[10pt]">{{ category.description }}</div>
-              </div>
-            </NuxtLinkLocale>
-          </div>
+      <SupportSection
+        img-src="/download/oma-mascot.svg"
+        img-class="anan-outline"
+        class="bg-gradient-to-b from-[#EEE3C4] to-[#DDD2B4]">
+        <SupportSectionHeader
+          title="帮助主题"
+          link-to="/contact"
+          link-text="还有高手？联系按安同临时工" />
+        <div class="grid grid-cols-3">
+          <NuxtLinkLocale
+            v-for="category in supportCategoryList"
+            :key="category.path"
+            :to="category.path"
+            class="flex items-center gap-2 px-2 py-1 hover:bg-[#ddd2b4] hover:no-underline">
+            <Icon :name="category.icon" size="28" class="shrink-0" />
+            <div>
+              <div>{{ category.name }}</div>
+              <div class="text-[10pt]">{{ category.description }}</div>
+            </div>
+          </NuxtLinkLocale>
         </div>
-      </div>
+      </SupportSection>
 
-      <div class="bg-faq flex h-48 items-center bg-[#e4cdcd] pr-8">
-        <img
-          src="/support/anan/break.png"
-          class="anan-outline mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end object-contain" />
-        <div class="grow">
-          <div class="mb-2 flex items-center justify-between">
-            <div class="text-xl">常见问题</div>
-            <AppLink to="/support/faq" class="flex items-center text-black">
-              看看更多常见问题
-              <img
-                src="/support/var-a.svg"
-                class="ml-[0.3em] inline size-[1em]" />
-            </AppLink>
-          </div>
-          <div
-            v-if="faqData.status.value === 'success'"
-            class="grid w-full grid-flow-col grid-cols-2 grid-rows-4 gap-1">
-            <AppLink
-              v-for="faqItem in faqData.data.value"
-              :key="faqItem.path"
-              :to="faqItem.path"
-              class="block truncate text-nowrap text-black">
-              {{ faqItem.title }}
-            </AppLink>
-          </div>
-        </div>
-      </div>
+      <SupportSection
+        img-src="/support/anan/break.png"
+        img-class="anan-outline object-contain"
+        class="bg-gradient-to-b from-[#E4CDCD] to-[#CEB9B9]">
+        <SupportSectionHeader
+          title="常见问题"
+          link-to="/support/faq"
+          link-text="看看更多常见问题" />
+        <SupportLinkGrid
+          :items="
+            faqData.status.value === 'success' ? faqData.data.value : null
+          " />
+      </SupportSection>
 
-      <div class="bg-news flex h-48 items-center bg-[#cdcee4] pr-8">
-        <img
-          src="/support/anan/upstream.svg"
-          class="anan-outline mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end" />
-        <div class="grow">
-          <div class="mb-2 flex items-center justify-between">
-            <div class="text-xl">最新公告</div>
-            <AppLink to="/news" class="flex items-center text-black">
-              查看更多公告
-              <img
-                src="/support/var-a.svg"
-                class="ml-[0.3em] inline size-[1em]" />
-            </AppLink>
-          </div>
-          <div
-            v-if="newsData.status.value === 'success'"
-            class="grid grid-flow-col grid-cols-2 grid-rows-4 gap-1">
-            <AppLink
-              v-for="newsItem in newsData.data.value"
-              :key="newsItem.path"
-              :to="newsItem.path"
-              class="block truncate text-nowrap text-black">
-              {{ newsItem.title }}
-            </AppLink>
-          </div>
-        </div>
-      </div>
+      <SupportSection
+        img-src="/support/anan/upstream.svg"
+        img-class="anan-outline"
+        class="bg-gradient-to-b from-[#CDCEE4] to-[#BEBFD3]">
+        <SupportSectionHeader
+          title="最新公告"
+          link-to="/news"
+          link-text="查看更多公告" />
+        <SupportLinkGrid
+          :items="
+            newsData.status.value === 'success' ? newsData.data.value : null
+          " />
+      </SupportSection>
     </div>
   </div>
 </template>
@@ -309,40 +274,21 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
   --left-anan-width: 13rem;
 }
 
-.anan-outline {
+:deep(.anan-outline) {
   filter: url(#support-anan-outline);
   clip-path: inset(-10px -10px 0 -10px);
 }
 
 .bg-search {
+  --tips-start-position: 70%;
   background:
     url(/support/y2k-gradient.svg),
-    linear-gradient(to right, #c6dcec 70%, #5387c0 70%);
-  background-position-x: 70%;
+    linear-gradient(
+      to right,
+      #c6dcec var(--tips-start-position),
+      #5387c0 var(--tips-start-position)
+    );
+  background-position-x: var(--tips-start-position);
   background-repeat: no-repeat;
-}
-
-.bg-categories {
-  background: linear-gradient(
-    to bottom,
-    rgba(238, 227, 196, 1) 0%,
-    rgba(221, 210, 180, 1) 100%
-  );
-}
-
-.bg-faq {
-  background: linear-gradient(
-    to bottom,
-    rgba(228, 205, 205, 1) 0%,
-    rgba(206, 185, 185, 1) 100%
-  );
-}
-
-.bg-news {
-  background: linear-gradient(
-    to bottom,
-    rgba(205, 206, 228, 1) 0%,
-    rgba(190, 191, 211, 1) 100%
-  );
 }
 </style>
