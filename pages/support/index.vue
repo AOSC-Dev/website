@@ -2,7 +2,7 @@
 import { Document, Charset } from 'flexsearch';
 import { i18nCodeToContent } from '~/i18n/config';
 
-const { locale } = useI18n();
+const { locale, tm } = useI18n();
 useHead({ title: '支持中心' });
 
 const supportCategoryList = [
@@ -89,6 +89,23 @@ type contentSearchResult = {
   level: number;
 };
 
+// #region tips
+// Use CSS to set state before hydration
+const TIPS_BREAKPOINT = 1390;
+const showTips: Ref<boolean | null> = ref(null);
+const toggleTips = () => {
+  showTips.value =
+    showTips.value === null
+      ? !window.matchMedia(`(min-width: ${TIPS_BREAKPOINT}px)`).matches
+      : !showTips.value;
+};
+const tipsList = tm('support.index.tips') as {
+  title: string;
+  content: string;
+}[];
+const tipIndex = ref(0);
+// #endregion
+
 const { data: store, status } = await useAsyncData<contentSearchResult[]>(() =>
   queryCollectionSearchSections(i18nCodeToContent(locale.value))
 );
@@ -142,74 +159,105 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
     <div class="overflow-hidden">
       <FilterOutline filter-id="support-anan-outline" />
 
-      <div class="bg-search flex h-64 bg-[#C6DCEC] pr-8">
+      <div class="relative flex h-72 bg-[#C6DCEC] pr-8">
         <img
           :src="ananReactionList[queryState].img"
           class="anan-outline mx-[0.5rem] size-[calc(var(--left-anan-width)-2*0.5rem)] shrink-0 self-end" />
-        <div class="flex grow items-center justify-between">
-          <div class="flex-grow gap-4">
-            <span class="mb-2 text-xl">
-              {{ ananReactionList[queryState].text }}
-            </span>
-            <div class="mt-2 flex">
-              <el-select v-model="queryCategory" large class="max-w-[6.5em]">
-                <el-option
-                  v-for="category in queryCategoryList"
-                  :key="category.path"
-                  :label="category.name"
-                  :value="category.path" />
-              </el-select>
-              <div>
-                <el-input
-                  v-model="query"
-                  large
-                  inputmode="search"
-                  placeholder="请输入文本"
-                  class="max-full" />
-                <div
-                  v-if="results?.length || queryState === 'oma'"
-                  class="relative">
-                  <!--TODO: investigate z-index?-->
-                  <ul
-                    class="absolute z-1 w-full border-1 border-(--primary) bg-white px-3 py-1">
-                    <NuxtLinkLocale
-                      v-if="queryState === 'oma'"
-                      to="/support/software#oma"
-                      class="hover:no-underline">
-                      <div
-                        class="border-2 border-(--primary) p-1 hover:bg-[#eee]">
-                        <div>这里可以是特殊的提示</div>
-                        <div>前往 oma 版块 →</div>
-                      </div>
+        <div class="flex max-w-108 grow flex-col justify-center">
+          <span class="text-xl">
+            {{ ananReactionList[queryState].text }}
+          </span>
+          <div class="mt-2 flex">
+            <el-select v-model="queryCategory" large class="max-w-[6.5em]">
+              <el-option
+                v-for="category in queryCategoryList"
+                :key="category.path"
+                :label="category.name"
+                :value="category.path" />
+            </el-select>
+            <div class="grow">
+              <el-input
+                v-model="query"
+                large
+                inputmode="search"
+                placeholder="请输入文本"
+                class="max-full" />
+              <div
+                v-if="results?.length || queryState === 'oma'"
+                class="relative">
+                <!--TODO: investigate z-index?-->
+                <ul
+                  class="absolute z-1 w-full border-1 border-(--primary) bg-white pl-6 pr-2 py-1 list-disc">
+                  <NuxtLinkLocale
+                    v-if="queryState === 'oma'"
+                    to="/support/software#oma"
+                    class="hover:no-underline">
+                    <div
+                      class="border-2 border-(--primary) p-1 hover:bg-[#eee]">
+                      <div>这里可以是特殊的提示</div>
+                      <div>前往 oma 版块 →</div>
+                    </div>
+                  </NuxtLinkLocale>
+                  <li v-for="result in results?.slice(0, 10)" :key="result.id">
+                    <span v-for="title in result.titles" :key="title">
+                      {{ title }} >
+                    </span>
+                    <NuxtLinkLocale :to="result.id">
+                      <span class="text-link">{{ result.title }}</span>
                     </NuxtLinkLocale>
-                    <li
-                      v-for="result in results?.slice(0, 10)"
-                      :key="result.id">
-                      <span v-for="title in result.titles" :key="title">
-                        {{ title }} >
-                      </span>
-                      <NuxtLinkLocale :to="result.id">
-                        <span class="text-link">{{ result.title }}</span>
-                      </NuxtLinkLocale>
-                    </li>
-                  </ul>
-                </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div
-            class="ml-8 flex h-3/4 w-[calc(100%-var(--tips-start-position))] flex-col justify-between gap-2 text-white">
-            <div class="shrink-0 text-[1.3rem]">令人耳目一新的新拌面</div>
-            <div class="overflow-y-auto text-[0.9rem]">
-              AOSC
-              支持中心采用《全新设计》，在性能上易于操作、易于浏览；在外观上优雅大方、风格清新、色彩诱人。
-              <br />
-              重新设计的支持中心便于您查找重要信息并阅读最常见的帮助主题。
+        </div>
+
+        <!-- Tips panel - Uses TIPS_BREAKPOINT (1390px) -->
+        <div
+          :class="{
+            '!right-0': showTips === true,
+            '!-right-88': showTips === false
+          }"
+          class="absolute -right-88 z-2 flex h-full w-108 flex-row text-white transition-[right] duration-300 ease-out min-[1390px]:right-0">
+          <!-- Toggle button - Uses TIPS_BREAKPOINT (1390px) -->
+          <button
+            class="absolute top-4 left-9 aspect-square size-7 cursor-pointer bg-[#5387c0] hover:bg-[#6ca1d9] min-[1390px]:rotate-180"
+            :class="{
+              '!rotate-180': showTips === true,
+              '!rotate-0': showTips === false
+            }"
+            @click="toggleTips">
+            <Icon
+              name="material-symbols:keyboard-double-arrow-left"
+              size="28px" />
+          </button>
+          <img
+            src="/support/y2k-gradient.svg"
+            class="mr-[-0.5px] aspect-[108.5/264]" />
+          <div class="flex grow flex-col gap-2 bg-[#5387c0] px-10 py-10">
+            <div class="shrink-0 text-[1.3rem]">
+              {{ tipsList[tipIndex]?.title }}
             </div>
-            <div class="flex shrink-0 flex-row items-center justify-end gap-2">
-              <Icon name="material-symbols:arrow-back-ios-new" size="16" />
-              1/1
-              <Icon name="material-symbols:arrow-forward-ios" size="16" />
+            <div class="grow overflow-y-auto text-[0.9rem] whitespace-pre-line">
+              {{ tipsList[tipIndex]?.content }}
+            </div>
+            <div
+              class="flex shrink-0 flex-row items-center justify-end gap-2 leading-5">
+              <button
+                class="h-4 cursor-pointer"
+                @click="
+                  tipIndex = (tipIndex + tipsList.length - 1) % tipsList.length
+                ">
+                <Icon name="material-symbols:arrow-back-ios-new" size="16" />
+              </button>
+              <span>{{ tipIndex + 1 }} / {{ tipsList.length }}</span>
+              <button
+                class="h-4 cursor-pointer"
+                @click="
+                  tipIndex = (tipIndex + tipsList.length + 1) % tipsList.length
+                ">
+                <Icon name="material-symbols:arrow-forward-ios" size="16" />
+              </button>
             </div>
           </div>
         </div>
@@ -277,18 +325,5 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 :deep(.anan-outline) {
   filter: url(#support-anan-outline);
   clip-path: inset(-10px -10px 0 -10px);
-}
-
-.bg-search {
-  --tips-start-position: 70%;
-  background:
-    url(/support/y2k-gradient.svg),
-    linear-gradient(
-      to right,
-      #c6dcec var(--tips-start-position),
-      #5387c0 var(--tips-start-position)
-    );
-  background-position-x: var(--tips-start-position);
-  background-repeat: no-repeat;
 }
 </style>
