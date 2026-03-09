@@ -4,7 +4,7 @@ categories:
 title: "新春快乐，烙饼会见！"
 date: 2026-02-17T00:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![丙午烙饼会将于 UTC+8 时间 2026 年 2 月 26 日 14:00 举行](/assets/news/springcon-2026.webp)

@@ -4,7 +4,7 @@ categories:
 title: "GNOME 49 及 Cinnamon 6.6 更新即将推送"
 date: 2026-02-17T20:40:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![GNOME 49](/assets/news/gnome-49.webp)

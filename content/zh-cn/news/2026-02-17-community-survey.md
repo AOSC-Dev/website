@@ -4,7 +4,7 @@ categories:
 title: "2026 年社区工作问卷"
 date: 2026-02-17T21:40:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![2026 年社区工作工作问卷，邀您填写！](/assets/news/community-survey-2026.webp)

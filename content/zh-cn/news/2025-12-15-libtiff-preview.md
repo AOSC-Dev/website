@@ -4,7 +4,7 @@ categories:
 title: "LibTIFF 安全更新测试公告"
 date: 2025-12-15T19:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![喵—— 同同掏出了妙妙更新！](/assets/news/testing-topic-libtiff-20251215.webp)
