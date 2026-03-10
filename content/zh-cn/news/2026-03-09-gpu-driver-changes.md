@@ -25,19 +25,19 @@ home: true
 ---
 
 ```bash
-oma install cx4-linux-graphics-driver-dri
+oma mark manual cx4-linux-graphics-driver-dri
 ```
 
 兆芯开先 KX-6000/6900 集成显卡
 ---
 
 ```bash
-oma install zhaoxin-linux-graphics-driver-dri
+oma mark manual zhaoxin-linux-graphics-driver-dri
 ```
 
 龙芯 LoongGPU LG110/120/200
 ---
 
 ```bash
-oma install loonggpu-driver
+oma mark manual loonggpu-driver
 ```
