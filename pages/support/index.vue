@@ -233,7 +233,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
           </button>
           <img
             src="/support/y2k-gradient.svg"
-            class="mr-[-0.5px] aspect-[108.5/264]" />
+            class="mr-[-0.5px] aspect-[108.5/264] h-full" />
           <div class="flex grow flex-col gap-2 bg-[#5387c0] px-10 py-10">
             <div class="shrink-0 text-[1.3rem]">
               {{ tipsList[tipIndex]?.title }}
