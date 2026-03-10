@@ -1,18 +1,12 @@
 <script lang="ts" setup>
-defineProps<{
-  imgSrc: string;
-  imgClass?: string;
-}>();
+defineProps<{ imgSrc: string }>();
 </script>
 
 <template>
-  <div class="flex min-h-48 items-center pr-8">
+  <div class="support-section flex min-h-48 items-center pr-8">
     <img
       :src="imgSrc"
-      :class="[
-        'mx-[2rem] size-[calc(var(--left-anan-width)-2*2rem)] shrink-0 self-end',
-        imgClass
-      ]" />
+      class="anan-outline mx-[var(--anan-section-mx)] size-[calc(var(--left-anan-width)-2*var(--anan-section-mx))] shrink-0 self-end object-contain" />
     <div class="grow py-4">
       <slot />
     </div>

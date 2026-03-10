@@ -162,7 +162,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
       <div class="relative flex h-72 bg-[#C6DCEC] pr-8">
         <img
           :src="ananReactionList[queryState].img"
-          class="anan-outline mx-[0.5rem] size-[calc(var(--left-anan-width)-2*0.5rem)] shrink-0 self-end" />
+          class="anan-outline mx-[var(--anan-header-mx)] size-[calc(var(--left-anan-width)-2*var(--anan-header-mx))] shrink-0 self-end" />
         <div class="flex max-w-108 grow flex-col justify-center">
           <span class="text-xl">
             {{ ananReactionList[queryState].text }}
@@ -187,7 +187,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
                 class="relative">
                 <!--TODO: investigate z-index?-->
                 <ul
-                  class="absolute z-1 w-full border-1 border-(--primary) bg-white pl-6 pr-2 py-1 list-disc">
+                  class="absolute z-1 w-full list-disc border-1 border-(--primary) bg-white py-1 pr-2 pl-6">
                   <NuxtLinkLocale
                     v-if="queryState === 'oma'"
                     to="/support/software#oma"
@@ -265,7 +265,6 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/download/oma-mascot.svg"
-        img-class="anan-outline"
         class="bg-gradient-to-b from-[#EEE3C4] to-[#DDD2B4]">
         <SupportSectionHeader
           title="帮助主题"
@@ -288,7 +287,6 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/support/anan/break.png"
-        img-class="anan-outline object-contain"
         class="bg-gradient-to-b from-[#E4CDCD] to-[#CEB9B9]">
         <SupportSectionHeader
           title="常见问题"
@@ -302,7 +300,6 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/support/anan/upstream.svg"
-        img-class="anan-outline"
         class="bg-gradient-to-b from-[#CDCEE4] to-[#BEBFD3]">
         <SupportSectionHeader
           title="最新公告"
@@ -319,7 +316,10 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
 <style scoped>
 .support-center {
-  --left-anan-width: 13rem;
+  /* cqw resolves against content-container */
+  --left-anan-width: clamp(11rem, 17cqw, 13rem);
+  --anan-header-mx: clamp(0.42rem, 0.66cqw, 0.5rem);
+  --anan-section-mx: clamp(1.69rem, 2.64cqw, 2rem);
 }
 
 :deep(.anan-outline) {
