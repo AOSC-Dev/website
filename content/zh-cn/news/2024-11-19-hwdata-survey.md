@@ -4,7 +4,7 @@ categories:
 title: "hwdata 信息缺漏征集"
 date: 2024-11-19T22:00:00+08:00
 important: false
-home: true
+home: false
 ---
 
 ![](/assets/news/hwdata-missing.png)

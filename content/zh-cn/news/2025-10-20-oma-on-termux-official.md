@@ -4,7 +4,7 @@ categories:
 title: "小熊猫包管理 (oma) 登陆 Termux 官方源"
 date: 2025-10-20T09:45:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![可以用 pkg 命令安装 oma 啦！](/assets/news/oma-on-termux-official.webp)
