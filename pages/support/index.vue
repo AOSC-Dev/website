@@ -218,7 +218,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
             '!right-0': showTips === true,
             '!-right-88': showTips === false
           }"
-          class="absolute -right-88 z-2 flex h-full w-108 flex-row text-white transition-[right] duration-300 ease-out min-[1390px]:right-0">
+          class="absolute -right-88 z-2 flex h-full w-108 flex-row bg-[url(/support/y2k-gradient.svg)] bg-cover text-white transition-[right] duration-300 ease-out min-[1390px]:right-0">
           <!-- Toggle button - Uses TIPS_BREAKPOINT (1390px) -->
           <button
             class="absolute top-4 left-9 aspect-square size-7 cursor-pointer bg-[#5387c0] hover:bg-[#6ca1d9] min-[1390px]:rotate-180"
@@ -231,10 +231,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               name="material-symbols:keyboard-double-arrow-left"
               size="28px" />
           </button>
-          <img
-            src="/support/y2k-gradient.svg"
-            class="mr-[-0.5px] aspect-[108.5/264] h-full" />
-          <div class="flex grow flex-col gap-2 bg-[#5387c0] px-10 py-10">
+          <div class="flex grow flex-col gap-2 px-40 py-10 pr-10">
             <div class="shrink-0 text-[1.3rem]">
               {{ tipsList[tipIndex]?.title }}
             </div>
