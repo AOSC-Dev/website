@@ -232,10 +232,12 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               size="28px" />
           </button>
           <div class="flex grow flex-col gap-2 px-40 py-10 pr-10">
-            <div class="shrink-0 text-[1.3rem]">
+            <div
+              class="shrink-0 text-[1.3rem] text-shadow-[1.5px_1.5px_0px_#033180]">
               {{ tipsList[tipIndex]?.title }}
             </div>
-            <div class="grow overflow-y-auto text-[0.9rem] whitespace-pre-line">
+            <div
+              class="grow overflow-y-auto text-[0.9rem] whitespace-pre-line">
               {{ tipsList[tipIndex]?.content }}
             </div>
             <div
