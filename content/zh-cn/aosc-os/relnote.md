@@ -66,7 +66,7 @@ title: 发行注记：2026 年 3 月
 - 更新 Python 至 3.14，包含自 Python 3.10 起的各类新语言及运行时特性，同时清理了一大批 Python 软件包的依赖并进一步剥离了 Python 2 依赖
 - 更新 Firefox 及 Thunderbird 至 148.0，修复了多个严重及高危漏洞
 - 更新 LibTIFF 至 4.7.1，修复自 2023 年以来在 LibTIFF 中披露的 29 处安全漏洞（含 8 个高危漏洞），并通过 `libtiff-5` 提供老旧软件的兼容性
-- 修复 BIND、curl、Exiv2、FreeRDP、FreeType、GLib、glibc、GNU InetUtils、GnuPG、GnuTLS、ImageMagick、OpenSSL、PyCA Cryptography 等其他系统组件，共修复了其中发现的数十个严重或高危安全漏洞
+- 更新 BIND、curl、Exiv2、FreeRDP、FreeType、GLib、glibc、GNU InetUtils、GnuPG、GnuTLS、ImageMagick、OpenSSL、PyCA Cryptography 等其他系统组件，共修复了其中发现的数十个严重或高危安全漏洞
 - 更新 Vulkan 图形及计算栈至 1.4.335.0，支持更多新增扩展
 - 更新 GNOME 桌面组件及运行时至 49，结束三年以来绑定 GNOME 42 的历史
 - 更新时区数据库 (`tzdata`) 至 2026a 并换用兼容性更好的 "fat" 格式配置数据，修复部分程序的兼容性问题
