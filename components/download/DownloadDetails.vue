@@ -8,8 +8,7 @@ const props = defineProps({
         title: String,
         label: String,
         popoverData: { content: String, placement: String },
-        installer: Object,
-        livekit: Object
+        installer: Object
       }
     ],
     required: true
@@ -38,17 +37,6 @@ const dialogTab = ref(props.initialTab);
         :content="isaInfo.popoverData.content"
         :path="isaInfo.installer?.path ?? ''"
         :sha256sum="isaInfo.installer?.sha256sum ?? ''"
-        :sources="sources" />
-    </el-tab-pane>
-    <el-tab-pane
-      :disabled="!isaInfo.livekit"
-      :label="t('DownloadDetails.downloadLivekitName')"
-      name="livekit">
-      <DownloadDetailsMain
-        :arch="isaInfo.label"
-        :content="isaInfo.popoverData.content"
-        :path="isaInfo.livekit?.path ?? ''"
-        :sha256sum="isaInfo.livekit?.sha256sum ?? ''"
         :sources="sources" />
     </el-tab-pane>
     <el-tab-pane
