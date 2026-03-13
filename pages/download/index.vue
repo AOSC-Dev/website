@@ -278,9 +278,10 @@ const omaInstallScriptTermux = 'pkg install oma';
 // #endregion
 
 // #region Fetch
-// Installer and LiveKit
+// Installer
 const { data, error } = await useAsyncData(() => {
   return Promise.all([
+    // This file is named livekit but contains installer info
     $fetch('https://releases.aosc.io/manifest/livekit.json'),
     $fetch('https://releases.aosc.io/os-arm64/asahi/installer_data.json'),
     $fetch('https://packages.aosc.io/packages/oma?type=json'),
@@ -297,17 +298,15 @@ const versionArchErr = error.value;
 if (versionArch.value.length !== 0) {
   antong1List.value.forEach((v) => {
     v.installer = getNewVersionArch(v.title, 'installer');
-    v.livekit = getNewVersionArch(v.title, 'livekit');
   });
   antong2List.value.forEach((v) => {
     v.installer = getNewVersionArch(v.title, 'installer');
-    v.livekit = getNewVersionArch(v.title, 'livekit');
   });
   xingxia1List.value.forEach((v) => {
-    v.livekit = getNewVersionArch(v.title, 'livekit');
+    v.installer = getNewVersionArch(v.title, 'installer');
   });
   xingxia2List.value.forEach((v) => {
-    v.livekit = getNewVersionArch(v.title, 'livekit');
+    v.installer = getNewVersionArch(v.title, 'installer');
   });
 } else if (versionArchErr) {
   console.warn(t('download.index.downloadErrors.aosc'));

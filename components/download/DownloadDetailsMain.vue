@@ -17,9 +17,7 @@ const props = defineProps({
 
 const selected_source_url = ref(props.sources[0].url);
 
-const fileType = props.path.includes('livekit')
-  ? textValue.downloadType[0]
-  : textValue.downloadType[1];
+const fileType = textValue.downloadType[0];
 
 const mediaWriterVersion = '0.4.3'; // FIXME: Currently unable to get dynamic Media Writer version
 const mediaWritersInfo = setNestedKeyValue(
