@@ -67,8 +67,11 @@ const dialogTab = ref(props.initialTab);
     <el-tab-pane
       :label="t('DownloadDetails.downloadDockerContainers')"
       name="docker">
-      <DownloadDetailsDocker />
+      <DownloadDetailsDocker :arch-code="isaInfo.title" />
     </el-tab-pane>
-    <el-tab-pane :label="t('DownloadDetails.downloadVmImages')" name="vm" disabled />
+    <el-tab-pane
+      :label="t('DownloadDetails.downloadVmImages')"
+      name="vm"
+      disabled />
   </el-tabs>
 </template>
