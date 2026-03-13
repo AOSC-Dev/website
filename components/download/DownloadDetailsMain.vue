@@ -78,6 +78,7 @@ const mediaWritersInfo = setNestedKeyValue(
     <p>{{ t('DownloadDetailsMain.hashVerifyText1') }}</p>
     <CopyButton :content="sha256sum" :button-text="t('DownloadDetailsMain.hashVerifyText2')" />
 
+    <app-h2>{{t('DownloadDetailsMain.creatingInstallationMediaTitle')}}</app-h2>
     <p>{{ t('DownloadDetailsMain.hashVerifyText3') }}{{ spaceWord(fileType) }}{{ t('DownloadDetailsMain.hashVerifyText4') }}</p>
     <el-container class="flex-wrap">
       <AppLink

@@ -1,6 +1,7 @@
 {
     "basicInfoTitle": "General Information",
-    "hashVerifyTitle": "Verifying and Creating Media",
+    "hashVerifyTitle": "Verifying Checksums",
+    "creatingInstallationMediaTitle": "Creating Installation Media",
     "basicInfoText1": "You are downloading",
     "basicInfoText2": "version of AOSC OS",
     "basicInfoText3": "You may select a mirror most appropriate for you network configuration and geographical location to speed up the download.",
