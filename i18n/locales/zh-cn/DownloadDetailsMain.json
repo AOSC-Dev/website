@@ -1,6 +1,7 @@
 {
   "basicInfoTitle": "基础信息",
-  "hashVerifyTitle": "校验和使用",
+  "hashVerifyTitle": "文件校验",
+  "creatingInstallationMediaTitle": "制作安装盘",
   "basicInfoText1": "您正在下载",
   "basicInfoText2": "版安同 OS",
   "basicInfoText3": "您可以根据自身网络配置和物理位置选择最合适的镜像源，以便更快完成下载。",
