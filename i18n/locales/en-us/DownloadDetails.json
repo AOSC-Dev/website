@@ -1,6 +1,5 @@
 {
     "downloadInstallerName": "Installation Media",
-    "downloadLivekitName": "Rescue Environment (LiveKit)",
     "downloadAppleSiliconInstruction": "Apple Silicon Installer",
     "downloadDeviceImages": "Device-specific Images",
     "downloadDockerContainers": "Docker",

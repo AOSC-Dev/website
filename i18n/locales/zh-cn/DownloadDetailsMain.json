@@ -4,7 +4,7 @@
   "basicInfoText1": "您正在下载",
   "basicInfoText2": "版安同 OS",
   "basicInfoText3": "您可以根据自身网络配置和物理位置选择最合适的镜像源，以便更快完成下载。",
-  "downloadType": ["LiveKit 救援启动盘", "安装盘"],
+  "downloadType": ["安装盘"],
   "mirrorPlaceholder": "请选择下载源",
   "downloadButton": "下载",
   "hashVerifyText1": "我们推荐您在下载后校验相关文件的 SHA-256 校验和，详情如下：",
