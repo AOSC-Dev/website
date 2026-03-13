@@ -1,7 +1,7 @@
 <script setup>
 // #region Common
 
-const { t,tm } = useI18n();
+const { t, tm } = useI18n();
 const textValue = tm('download.index');
 const linkValue = tm('allUniversalLink');
 const localLink = linkValue.local;
@@ -272,7 +272,8 @@ const omaNavigationList = [
   //   url: 'https://github.com/AOSC-Dev/oma/releases/tag/v1.8.2'
   // }
 ];
-const omaInstallScriptDistro = 'curl -sSf https://repo.aosc.io/get-oma.sh | sudo sh';
+const omaInstallScriptDistro =
+  'curl -sSf https://repo.aosc.io/get-oma.sh | sudo sh';
 const omaInstallScriptTermux = 'pkg install oma';
 // #endregion
 
@@ -358,7 +359,9 @@ if (recipeError || recipeI18nError) {
 
 <template>
   <div>
-    <category-second id="aosc-os-download" :title="t('download.index.operatingSystemsTitle')" />
+    <category-second
+      id="aosc-os-download"
+      :title="t('download.index.operatingSystemsTitle')" />
 
     <!-- AOSC OS -->
     <div
@@ -382,7 +385,9 @@ if (recipeError || recipeI18nError) {
           " />
         <DownloadButtonGroup
           :title="t('download.index.portTierInfo.secondaryIsa.name')"
-          :description="t('download.index.portTierInfo.secondaryIsa.description')"
+          :description="
+            t('download.index.portTierInfo.secondaryIsa.description')
+          "
           :button-props="
             antong2List.map((item) => ({
               archName: item.label,
@@ -402,11 +407,11 @@ if (recipeError || recipeI18nError) {
             :title="t('download.index.aoscOsWsl.name')"
             :description="t('download.index.aoscOsWsl.description')"
             small-title />
-          <span
-            class="cursor-pointer text-[11pt] hover:underline"
+          <div
+            class="cursor-pointer hover:underline text-[11pt]"
             @click="wslDialogState = true">
             {{ t('download.index.aoscOsWsl.detail') }}
-          </span>
+          </div>
         </div>
 
         <el-dialog v-model="wslDialogState" width="80%">
@@ -470,7 +475,9 @@ if (recipeError || recipeI18nError) {
           " />
         <DownloadButtonGroup
           :title="t('download.index.portTierInfo.secondaryIsa.name')"
-          :description="t('download.index.portTierInfo.secondaryIsa.description')"
+          :description="
+            t('download.index.portTierInfo.secondaryIsa.description')
+          "
           :button-props="
             xingxia2List.map((item) => ({
               archName: item.label,
