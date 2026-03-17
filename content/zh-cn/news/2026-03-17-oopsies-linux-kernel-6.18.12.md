@@ -7,7 +7,7 @@ important: true
 home: true
 ---
 
-![私密吗喽！我们又搞砸了，这次是 linux-kernel-6.18.12](/assets/news/)
+![私密吗喽！我们又搞砸了，这次是 linux-kernel-6.18.12](/assets/news/oopsies-linux-kernel-6.18.12-20260317.webp)
 
 由于打包疏忽，您在手动卸载 linux-kernel-6.18.12 内核包或清理未使用依赖时将遇到如下报错：
 
