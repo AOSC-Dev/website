@@ -31,7 +31,8 @@ dpkg: 出现过多错误，正在停止
 
 ```bash
 echo "" | \
-sudo tee /var/lib/dpkg/info/linux-kernel-6.18.12.postrm && sudo oma remove linux-kernel-6.18.12
+sudo tee /var/lib/dpkg/info/linux-kernel-6.18.12.postrm && \
+sudo oma remove linux-kernel-6.18.12
 ```
 
 然后，清理为该内核版本编译的内核模块：
