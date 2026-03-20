@@ -19,7 +19,7 @@ const selected_source_url = ref(props.sources[0].url);
 
 const fileType = textValue.downloadType[0];
 
-const mediaWriterVersion = '0.4.3'; // FIXME: Currently unable to get dynamic Media Writer version
+const mediaWriterVersion = '0.4.4'; // FIXME: Currently unable to get dynamic Media Writer version
 const mediaWritersInfo = setNestedKeyValue(
   [
     {
