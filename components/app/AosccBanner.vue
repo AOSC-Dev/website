@@ -17,7 +17,7 @@ const randomFart = () => {
 };
 
 const showBanner = ref(true);
-const endTime = Date.parse('2026/4/2');
+const endTime = Date.parse('2026-04-02T00:00:00+08:00');
 const deltaTime = (timestamp1 = Date.now(), timestamp2 = endTime) => {
   const totalSeconds = Math.max(
     0,
@@ -27,8 +27,8 @@ const deltaTime = (timestamp1 = Date.now(), timestamp2 = endTime) => {
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   return days
-    ? `${days} days ${hours} hours`
-    : `${hours} hours ${minutes} minutes`;
+    ? `${days} day${days === 1 ? '' : 's'} ${hours} hour${hours === 1 ? '' : 's'}`
+    : `${hours} hour${hours === 1 ? '' : 's'} ${minutes} minute${minutes === 1 ? '' : 's'}`;
 };
 </script>
 
