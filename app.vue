@@ -1,11 +1,8 @@
-<script setup lang="ts">
-import AosccBanner from './components/app/AosccBanner.vue';
-
+<script setup lang="js">
 useDefaultHead();
 </script>
 
 <template>
-  <AosccBanner />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
