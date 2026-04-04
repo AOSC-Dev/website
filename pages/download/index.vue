@@ -345,12 +345,6 @@ if (recipeError || recipeI18nError) {
 } else {
   recipe.value = recipeResponse.value;
   recipeI18n.value = recipeI18nResponse.value;
-
-  // There's some problem with Fastly now
-  recipe.value.mirrors = recipe.value.mirrors.filter(
-    (mirror) => mirror['name-tr'] !== 'fastly-name'
-  );
-
   sources.value = sources.value.concat(
     recipe.value.mirrors.map((mirror) => ({
       name: recipeI18n.value['zh-CN'][mirror['name-tr']],
@@ -413,7 +407,7 @@ if (recipeError || recipeI18nError) {
             :description="t('download.index.aoscOsWsl.description')"
             small-title />
           <div
-            class="cursor-pointer text-[11pt] hover:underline"
+            class="cursor-pointer hover:underline text-[11pt]"
             @click="wslDialogState = true">
             {{ t('download.index.aoscOsWsl.detail') }}
           </div>
