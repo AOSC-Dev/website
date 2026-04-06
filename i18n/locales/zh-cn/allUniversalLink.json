@@ -311,6 +311,11 @@
         "url": "https://arch.hu.fo/",
         "img": "hexhu"
       },
+      "hust": {
+        "title": ["华中科技大学开源镜像站"],
+        "url": "https://mirrors.hust.edu.cn",
+        "img": "hust"
+      },
       "ifanr": {
         "title": ["爱范儿"],
         "url": "https://www.ifanr.com/",

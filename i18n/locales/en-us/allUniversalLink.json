@@ -467,6 +467,11 @@
                 "url": "https://arch.hu.fo/",
                 "img": "hexhu"
             },
+            "hust": {
+                "title": ["Huazhong University of Science and Technology OSS Mirrors"],
+                "url": "https://mirrors.hust.edu.cn",
+                "img": "hust"
+            },
             "jlulug": {
                 "title": [
                     "Linux User Group of Jilin University"
