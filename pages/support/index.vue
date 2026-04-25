@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import { Document, Charset } from 'flexsearch';
+import { onClickOutside } from '@vueuse/core';
 import { i18nCodeToContent } from '~/i18n/config';
-
-const { locale, tm } = useI18n();
 useHead({ title: '支持中心' });
+const { locale, tm } = useI18n();
 
 const supportCategoryList = [
   {
@@ -44,13 +43,40 @@ const supportCategoryList = [
   }
 ];
 
+// #region tips
+// Use CSS to set state before hydration
+const TIPS_BREAKPOINT = 1390;
+const showTips: Ref<boolean | null> = ref(null);
+const toggleTips = () => {
+  showTips.value =
+    showTips.value === null
+      ? !window.matchMedia(`(min-width: ${TIPS_BREAKPOINT}px)`).matches
+      : !showTips.value;
+};
+const tipsList = tm('support.index.tips') as {
+  title: string;
+  content: string;
+}[];
+const tipIndex = ref(0);
+// #endregion
+
+const { search: meiliSearch, result } = useMeiliSearch(
+  `_content_${i18nCodeToContent(locale.value)}`
+);
 const query = ref('');
-const queryCategory = ref('/support');
+const queryCategory = ref('all');
+const searchRef = ref();
+const showSearchDetail = ref(false);
+const handleSearchFocus = () => (showSearchDetail.value = true);
+onClickOutside(searchRef, () => (showSearchDetail.value = false), {
+  // Ignore clicks inside any Element Plus popup
+  ignore: ['.el-popper']
+});
 
 const queryCategoryList = [
-  { path: '/', name: 'ALL' },
-  { path: '/news', name: '新闻' },
-  { path: '/support', name: '支持中心' }
+  { path: 'all', name: 'ALL' },
+  { path: 'news', name: '新闻' },
+  { path: 'support', name: '支持中心' }
 ];
 
 const ananImgPrefix = '/support/anan/';
@@ -80,73 +106,35 @@ const ananReactionList: Record<
     img: '/download/oma-mascot.svg'
   }
 };
-
-type contentSearchResult = {
-  id: string;
-  title: string;
-  titles: Array<string>;
-  content: string;
-  level: number;
-};
-
-// #region tips
-// Use CSS to set state before hydration
-const TIPS_BREAKPOINT = 1390;
-const showTips: Ref<boolean | null> = ref(null);
-const toggleTips = () => {
-  showTips.value =
-    showTips.value === null
-      ? !window.matchMedia(`(min-width: ${TIPS_BREAKPOINT}px)`).matches
-      : !showTips.value;
-};
-const tipsList = tm('support.index.tips') as {
-  title: string;
-  content: string;
-}[];
-const tipIndex = ref(0);
-// #endregion
-
-const { data: store, status } = await useAsyncData<contentSearchResult[]>(() =>
-  queryCollectionSearchSections(i18nCodeToContent(locale.value))
-);
-
-const index = new Document({
-  preset: 'default',
-  encoder: Charset.CJK,
-  document: { id: 'id', index: ['title', 'content'] }
-});
-// TODO: generate index on server & reactivity
-if (store.value) {
-  for (const item of store.value) {
-    index.add(item);
+const status = ref<ananReactionType>('idle');
+const search = async () => {
+  if (!query.value) {
+    status.value = 'idle';
+    return;
   }
-}
-
-const storeDict = store.value?.reduce(
-  (acc, obj) => {
-    acc[obj.id] = obj;
-    return acc;
-  },
-  {} as Record<string, contentSearchResult>
-);
-
-const results = computed(() =>
-  storeDict
-    ? index
-        .search(query.value, { merge: true, suggest: true })
-        .filter((item) => item.id.toString().startsWith(queryCategory.value))
-        .map((item) => storeDict[item.id])
-    : null
-);
+  status.value = 'searching';
+  console.log(
+    await meiliSearch(query.value, {
+      limit: 10,
+      filter:
+        queryCategory.value !== 'all'
+          ? `category=${queryCategory.value}`
+          : undefined,
+      attributesToCrop: ['content'],
+      attributesToHighlight: ['title', 'content'],
+      cropLength: 10,
+      highlightPreTag: '<u>',
+      highlightPostTag: '</u>'
+    })
+  );
+  if (result.value?.hits.length) status.value = 'success';
+  else status.value = 'failed';
+};
+watch([query, queryCategory], search);
 
 const queryState: Ref<ananReactionType> = computed(() => {
-  // TODO: & async searching
-  //if (searching)return 'searching';
   if (query.value.toLowerCase().includes('oma')) return 'oma';
-  if (query.value && !results.value?.length) return 'failed';
-  if (status.value === 'success' && results.value?.length) return 'success';
-  if (status.value === 'error') return 'failed';
-  return 'idle';
+  return status.value;
 });
 
 const faqData = await useAsyncCategoryData(locale.value, 'support/faq', 8);
@@ -164,30 +152,28 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
           :src="ananReactionList[queryState].img"
           class="anan-outline mx-[var(--anan-header-mx)] size-[calc(var(--left-anan-width)-2*var(--anan-header-mx))] shrink-0 self-end" />
         <div class="flex max-w-108 grow flex-col justify-center">
-          <span class="text-xl">
-            {{ ananReactionList[queryState].text }}
-          </span>
-          <div class="mt-2 flex">
-            <el-select v-model="queryCategory" large class="max-w-[6.5em]">
-              <el-option
-                v-for="category in queryCategoryList"
-                :key="category.path"
-                :label="category.name"
-                :value="category.path" />
-            </el-select>
-            <div class="grow">
-              <el-input
-                v-model="query"
-                large
-                inputmode="search"
-                placeholder="请输入文本"
-                class="max-full" />
+          <span class="text-xl">{{ ananReactionList[queryState].text }}</span>
+          <div ref="searchRef" class="mt-2">
+            <input
+              v-model="query"
+              type="search"
+              placeholder="请输入文本"
+              class="bg-white bg-[url(/support/search.svg)] bg-size-[18px] bg-position-[left_8px_center] bg-no-repeat py-[6px] pr-1 pl-8 leading-0"
+              @focus="handleSearchFocus" />
+            <!-- Search result -->
+            <div v-show="showSearchDetail" class="relative">
               <div
-                v-if="results?.length || queryState === 'oma'"
-                class="relative">
-                <!--TODO: investigate z-index?-->
+                class="absolute z-10 mt-2 min-w-[500px] border-2 border-(--primary) bg-white p-2 shadow-md">
+                <ElSelect v-model="queryCategory" large class="max-w-[6.5em]">
+                  <ElOption
+                    v-for="category in queryCategoryList"
+                    :key="category.path"
+                    :label="category.name"
+                    :value="category.path" />
+                </ElSelect>
                 <ul
-                  class="absolute z-1 w-full list-disc border-1 border-(--primary) bg-white py-1 pr-2 pl-6">
+                  v-if="query && result?.estimatedTotalHits"
+                  class="u:bg-(--primary) mt-2 max-h-[600px] max-w-[500px] overflow-auto">
                   <NuxtLinkLocale
                     v-if="queryState === 'oma'"
                     to="/support/software#oma"
@@ -198,13 +184,19 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
                       <div>前往 oma 版块 →</div>
                     </div>
                   </NuxtLinkLocale>
-                  <li v-for="result in results?.slice(0, 10)" :key="result.id">
-                    <span v-for="title in result.titles" :key="title">
-                      {{ title }} >
-                    </span>
-                    <NuxtLinkLocale :to="result.id">
-                      <span class="text-link">{{ result.title }}</span>
+                  <li
+                    v-for="r in result?.hits"
+                    :key="r.id"
+                    class="px-2 py-1 hover:bg-[#eee]">
+                    <NuxtLinkLocale :to="r.id">
+                      <span v-for="title in r.titles" :key="title">
+                        {{ title }} >
+                      </span>
+                      <span v-html="r._formatted?.title" />
                     </NuxtLinkLocale>
+                    <p
+                      class="truncate text-nowrap text-[#8d8d8d]"
+                      v-html="r._formatted?.content" />
                   </li>
                 </ul>
               </div>
@@ -236,8 +228,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               class="shrink-0 text-[1.3rem] text-shadow-[1.5px_1.5px_0px_#033180]">
               {{ tipsList[tipIndex]?.title }}
             </div>
-            <div
-              class="grow overflow-y-auto text-[0.9rem] whitespace-pre-line">
+            <div class="grow overflow-y-auto text-[0.9rem] whitespace-pre-line">
               {{ tipsList[tipIndex]?.content }}
             </div>
             <div

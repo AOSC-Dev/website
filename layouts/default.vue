@@ -32,6 +32,6 @@ onBeforeUnmount(() => observer?.disconnect());
         </div>
       </div>
     </div>
-    <BarFooter class="fixed bottom-0 h-[2rem] min-w-[960px]" />
+    <BarFooter class="fixed bottom-0 h-[2rem] min-w-[960px] z-50" />
   </div>
 </template>

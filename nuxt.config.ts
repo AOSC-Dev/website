@@ -30,7 +30,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     'nuxt-monaco-editor',
     '@nuxtjs/i18n',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'nuxt-meilisearch'
   ],
 
   icon: {
@@ -71,12 +72,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-06-22',
 
   runtimeConfig: {
+    // Config values here can be set using `NUXT_PUBLIC_*` in your
+    // environmental variables or the `.env` file.
+    // Example: NUXT_PUBLIC_MEILI_SEARCH_API_KEY=''
     public: {
-      // PASTE_API defaults to https://paste.aosc.io. To use the proxy,
-      // please set PASTE_API=http://localhost:2334 in your environmental
-      // variables or the `.env` file.
-      pasteApi: process.env.PASTE_API || 'https://paste.aosc.io'
+      pasteApi: 'https://paste.aosc.io', // http://localhost:2334
+      meiliSearchApiKey: ''
     }
+  },
+
+  meilisearch: {
+    hostUrl: 'http://localhost:3000/api/search',
+    searchApiKey: process.env.NUXT_MEILI_SEARCH_API_KEY
   },
 
   vite: {
@@ -94,7 +101,12 @@ export default defineNuxtConfig({
         '/api/paste': {
           target: 'https://paste.aosc.io',
           changeOrigin: true,
-          rewrite:  (path) => path.replace(/^\/api\/paste/, '')
+          rewrite: (path) => path.replace(/^\/api\/paste/, '')
+        },
+        '/api/search': {
+          target: 'http://localhost:7700',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/search/, '')
         },
         '/galleryFile': {
           target: 'https://aosc.io',
