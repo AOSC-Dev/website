@@ -16,7 +16,17 @@ const title = computed(() => {
       return '';
   }
 });
-useHead({ title: title });
+useHead({
+  title: title,
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: title,
+      href: `/news/feed/${route.params.category}.xml`
+    }
+  ]
+});
 
 const categoryFilter = computed(() => [
   { key: 'categories', value: `%"${route.params.category}"%` }
@@ -25,7 +35,10 @@ const categoryFilter = computed(() => [
 
 <template>
   <div>
-    <category-second :title="title" class="border-r-solid border-r-white" />
+    <category-second
+      :title="title"
+      :rss-url="`/news/feed/${route.params.category}.xml`"
+      class="border-r-solid border-r-white" />
     <category-list category="news" :filters="categoryFilter" />
   </div>
 </template>

@@ -2,7 +2,16 @@
 const { t } = useI18n();
 // const linkValue = tm('allUniversalLink');
 const newsLimit = 10;
-useHead({ title: t('news.index.headingMain') });
+useHead({
+  title: t('news.index.headingMain'),
+  link: [
+    { rel: 'alternate', type: 'application/rss+xml', title: '资讯订阅', href: '/news/feed/all.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: '用户公告', href: '/news/feed/advisories.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: '社区新闻', href: '/news/feed/news.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: '安记冰室', href: '/news/feed/journals.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: '会议纪要', href: '/news/feed/minutes.xml' }
+  ]
+});
 const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory}"%` }];
 </script>
 
@@ -11,6 +20,7 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
     <div>
       <category-second
         :title="t('news.index.headingAdvisories')"
+        rss-url="/news/feed/advisories.xml"
         :right-text="t('news.index.seeAll')"
         right-url="/news/list/advisories"
         :show-right-chevron="true" />
@@ -23,6 +33,7 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
     <div class="">
       <category-second
         :title="t('news.index.headingNews')"
+        rss-url="/news/feed/news.xml"
         :right-text="t('news.index.seeAll')"
         right-url="/news/list/news"
         class="border-l border-l-white"
@@ -36,6 +47,7 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
     <div>
       <category-second
         :title="t('news.index.headingPeriodicals')"
+        rss-url="/news/feed/journals.xml"
         :right-text="t('news.index.seeAll')"
         right-url="/news/list/journals"
         :show-right-chevron="true" />
@@ -49,6 +61,7 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
     <div class="">
       <category-second
         :title="t('news.index.headingMinutes')"
+        rss-url="/news/feed/minutes.xml"
         :right-text="t('news.index.seeAll')"
         right-url="/news/list/minutes"
         :show-right-chevron="true"

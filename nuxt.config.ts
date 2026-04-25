@@ -30,7 +30,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     'nuxt-monaco-editor',
     '@nuxtjs/i18n',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'nuxt-module-feed'
   ],
 
   icon: {
@@ -94,7 +95,7 @@ export default defineNuxtConfig({
         '/api/paste': {
           target: 'https://paste.aosc.io',
           changeOrigin: true,
-          rewrite:  (path) => path.replace(/^\/api\/paste/, '')
+          rewrite: (path) => path.replace(/^\/api\/paste/, '')
         },
         '/galleryFile': {
           target: 'https://aosc.io',
@@ -113,6 +114,31 @@ export default defineNuxtConfig({
       // https://github.com/nuxt/nuxt/issues/15462#issuecomment-2995718316
       autoSubfolderIndex: false
     }
+  },
+
+  feed: {
+    sources: [
+      {
+        path: '/news/feed/advisories.xml',
+        type: 'rss2'
+      },
+      {
+        path: '/news/feed/news.xml',
+        type: 'rss2'
+      },
+      {
+        path: '/news/feed/journals.xml',
+        type: 'rss2'
+      },
+      {
+        path: '/news/feed/minutes.xml',
+        type: 'rss2'
+      },
+      {
+        path: '/news/feed/all.xml',
+        type: 'rss2'
+      }
+    ]
   },
 
   i18n: {

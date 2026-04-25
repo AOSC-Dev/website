@@ -22,6 +22,8 @@ const navigationList = [
         :navigation-list="navigationList"
         span-class="mx-[20px]"
         link-class="cursor-pointer" />
+      <span class="mx-[20px]">|</span>
+      <a href="/news/feed/all.xml" class="cursor-pointer">资讯订阅</a>
     </div>
   </div>
 </template>
