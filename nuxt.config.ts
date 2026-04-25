@@ -120,23 +120,28 @@ export default defineNuxtConfig({
     sources: [
       {
         path: '/news/feed/advisories.xml',
-        type: 'rss2'
+        type: 'rss2',
+        cacheTime: 21600
       },
       {
         path: '/news/feed/news.xml',
-        type: 'rss2'
+        type: 'rss2',
+        cacheTime: 21600
       },
       {
         path: '/news/feed/journals.xml',
-        type: 'rss2'
+        type: 'rss2',
+        cacheTime: 21600
       },
       {
         path: '/news/feed/minutes.xml',
-        type: 'rss2'
+        type: 'rss2',
+        cacheTime: 21600
       },
       {
         path: '/news/feed/all.xml',
-        type: 'rss2'
+        type: 'rss2',
+        cacheTime: 21600
       }
     ]
   },

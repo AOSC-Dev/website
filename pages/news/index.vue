@@ -5,11 +5,11 @@ const newsLimit = 10;
 useHead({
   title: t('news.index.headingMain'),
   link: [
-    { rel: 'alternate', type: 'application/rss+xml', title: '资讯订阅', href: '/news/feed/all.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: '用户公告', href: '/news/feed/advisories.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: '社区新闻', href: '/news/feed/news.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: '安记冰室', href: '/news/feed/journals.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: '会议纪要', href: '/news/feed/minutes.xml' }
+    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMain'), href: '/news/feed/all.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingAdvisories'), href: '/news/feed/advisories.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingNews'), href: '/news/feed/news.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingPeriodicals'), href: '/news/feed/journals.xml' },
+    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMinutes'), href: '/news/feed/minutes.xml' }
   ]
 });
 const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory}"%` }];

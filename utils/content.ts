@@ -1,4 +1,5 @@
-import { type NuxtI18nCode, i18nCodeToContent } from '~/i18n/config';
+import type { NuxtI18nCode } from '~/i18n/config';
+import { i18nCodeToContent } from '~/i18n/config';
 
 export const queryCollectionLocale = (locale: NuxtI18nCode) =>
   queryCollection(i18nCodeToContent(locale));
