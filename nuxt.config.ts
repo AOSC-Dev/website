@@ -30,21 +30,12 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     'nuxt-monaco-editor',
     '@nuxtjs/i18n',
-    '@nuxt/icon',
-    'nuxt-module-feed'
+    '@nuxt/icon'
   ],
 
   icon: {
     mode: 'css',
     cssLayer: 'base'
-  },
-
-  devtools: {
-    enabled: true,
-
-    timeline: {
-      enabled: true
-    }
   },
 
   css: ['~/assets/css/main.css', '~/assets/index.scss', '~/assets/theme.scss'],
@@ -114,36 +105,6 @@ export default defineNuxtConfig({
       // https://github.com/nuxt/nuxt/issues/15462#issuecomment-2995718316
       autoSubfolderIndex: false
     }
-  },
-
-  feed: {
-    sources: [
-      {
-        path: '/news/feed/advisories.xml',
-        type: 'rss2',
-        cacheTime: 21600
-      },
-      {
-        path: '/news/feed/news.xml',
-        type: 'rss2',
-        cacheTime: 21600
-      },
-      {
-        path: '/news/feed/journals.xml',
-        type: 'rss2',
-        cacheTime: 21600
-      },
-      {
-        path: '/news/feed/minutes.xml',
-        type: 'rss2',
-        cacheTime: 21600
-      },
-      {
-        path: '/news/feed/all.xml',
-        type: 'rss2',
-        cacheTime: 21600
-      }
-    ]
   },
 
   i18n: {
