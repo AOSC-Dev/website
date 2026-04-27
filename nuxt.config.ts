@@ -38,6 +38,14 @@ export default defineNuxtConfig({
     cssLayer: 'base'
   },
 
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true
+    }
+  },
+
   css: ['~/assets/css/main.css', '~/assets/index.scss', '~/assets/theme.scss'],
 
   vue: {
