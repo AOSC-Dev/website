@@ -163,16 +163,16 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
             <!-- Search result -->
             <div v-show="showSearchDetail" class="relative">
               <div
-                class="absolute z-10 mt-2 min-w-[500px] border-2 border-(--primary) bg-white p-2 shadow-md">
-                <ElSelect v-model="queryCategory" large class="max-w-[6.5em]">
-                  <ElOption
+                class="absolute z-10 mt-1 min-w-[500px] border-2 border-(--primary) bg-white px-2 pb-2 shadow-md">
+                <ElTabs v-model="queryCategory" class="px-2">
+                  <ElTabPane
                     v-for="category in queryCategoryList"
                     :key="category.path"
                     :label="category.name"
-                    :value="category.path" />
-                </ElSelect>
+                    :name="category.path" />
+                </ElTabs>
                 <ul
-                  v-if="query && result?.estimatedTotalHits"
+                  v-if="status === 'success' && result?.estimatedTotalHits"
                   class="u:bg-(--primary) mt-2 max-h-[600px] max-w-[500px] overflow-auto">
                   <NuxtLinkLocale
                     v-if="queryState === 'oma'"
@@ -199,6 +199,13 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
                       v-html="r._formatted?.content" />
                   </li>
                 </ul>
+                <div v-else class="w-full p-4 *:m-auto">
+                  <img
+                    src="/support/anan/catfish.png"
+                    width="100px"
+                    height="100px"
+                    class="opacity-50" />
+                </div>
               </div>
             </div>
           </div>
@@ -315,5 +322,9 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 :deep(.anan-outline) {
   filter: url(#support-anan-outline);
   clip-path: inset(-10px -10px 0 -10px);
+}
+
+:deep(.el-tabs__header) {
+  margin: 0;
 }
 </style>
