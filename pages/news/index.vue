@@ -1,16 +1,19 @@
 <script setup>
-const { t } = useI18n();
+const { t, locale } = useI18n();
 // const linkValue = tm('allUniversalLink');
 const newsLimit = 10;
 useHead({
   title: t('news.index.headingMain'),
-  link: [
-    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMain'), href: '/news/feed/all.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingAdvisories'), href: '/news/feed/advisories.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingNews'), href: '/news/feed/news.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingPeriodicals'), href: '/news/feed/journals.xml' },
-    { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMinutes'), href: '/news/feed/minutes.xml' }
-  ]
+  link:
+    locale.value === 'zh-cn'
+      ? [
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMain'), href: '/news/feed/all.xml' },
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingAdvisories'), href: '/news/feed/advisories.xml' },
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingNews'), href: '/news/feed/news.xml' },
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingPeriodicals'), href: '/news/feed/journals.xml' },
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMinutes'), href: '/news/feed/minutes.xml' }
+        ]
+      : []
 });
 const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory}"%` }];
 </script>

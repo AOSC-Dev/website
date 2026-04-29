@@ -1,6 +1,6 @@
 <script setup>
 const route = useRoute();
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const title = computed(() => {
   switch (route.params.category) {
@@ -18,14 +18,17 @@ const title = computed(() => {
 });
 useHead({
   title: title,
-  link: [
-    {
-      rel: 'alternate',
-      type: 'application/rss+xml',
-      title: title,
-      href: `/news/feed/${route.params.category}.xml`
-    }
-  ]
+  link:
+    locale.value === 'zh-cn'
+      ? [
+          {
+            rel: 'alternate',
+            type: 'application/rss+xml',
+            title: title,
+            href: `/news/feed/${route.params.category}.xml`
+          }
+        ]
+      : []
 });
 
 const categoryFilter = computed(() => [

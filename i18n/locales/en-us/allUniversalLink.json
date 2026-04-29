@@ -13,12 +13,6 @@
                     "Report Content Issues"
                 ],
                 "url": "https://github.com/AOSC-Dev/website-2023/issues"
-            },
-            "newsSubscription": {
-                "title": [
-                    "News Feed"
-                ],
-                "url": "/news/feed/all.xml"
             }
         }
     },

@@ -1,4 +1,6 @@
 <script setup>
+const { locale } = useI18n();
+
 defineProps({
   title: { type: String, required: true },
   titleUrl: { type: String, default: undefined },
@@ -16,7 +18,7 @@ defineProps({
         {{ title }}
       </span>
       <AppLink v-else :to="titleUrl" class="no-underline">{{ title }}</AppLink>
-      <span v-if="rssUrl !== undefined">
+      <span v-if="rssUrl !== undefined && locale === 'zh-cn'">
         |
         <a :href="rssUrl">RSS</a>
       </span>
