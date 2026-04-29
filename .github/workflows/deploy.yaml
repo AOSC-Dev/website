@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Use Node.js 22
+      - name: Use Node.js 24
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       # https://github.com/actions/cache/blob/v4/examples.md#node---npm
       - name: Get npm cache directory
