@@ -13,6 +13,12 @@
                     "Report Content Issues"
                 ],
                 "url": "https://github.com/AOSC-Dev/website-2023/issues"
+            },
+            "newsSubscription": {
+                "title": [
+                    "News Feed"
+                ],
+                "url": "/news/feed/all.xml"
             }
         }
     },
@@ -468,7 +474,9 @@
                 "img": "hexhu"
             },
             "hust": {
-                "title": ["Huazhong University of Science and Technology OSS Mirrors"],
+                "title": [
+                    "Huazhong University of Science and Technology OSS Mirrors"
+                ],
                 "url": "https://mirrors.hust.edu.cn",
                 "img": "hust"
             },

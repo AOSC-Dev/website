@@ -9,6 +9,10 @@
       "websiteIssuse": {
         "title": ["报告内容问题"],
         "url": "https://github.com/AOSC-Dev/website-2023/issues"
+      },
+      "newsSubscription": {
+        "title": ["资讯订阅"],
+        "url": "/news/feed/all.xml"
       }
     }
   },

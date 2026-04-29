@@ -22,8 +22,6 @@ const navigationList = [
         :navigation-list="navigationList"
         span-class="mx-[20px]"
         link-class="cursor-pointer" />
-      <span class="mx-[20px]">|</span>
-      <a href="/news/feed/all.xml" class="cursor-pointer">{{ t('BarFooter.newsSubscription') }}</a>
     </div>
   </div>
 </template>
