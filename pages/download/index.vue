@@ -283,11 +283,11 @@ const omaInstallScriptTermux = 'pkg install oma';
 // Installer
 const { data, error } = await useAsyncData('download-data', () => Promise.all([
     // This file is named livekit but contains installer info
-    $fetch(new URL('/manifest/livekit.json', releasesBaseUrl).href),
-    $fetch(new URL('/os-arm64/asahi/installer_data.json', releasesBaseUrl).href),
+    $fetch(releasesBaseUrl + '/manifest/livekit.json'),
+    $fetch(releasesBaseUrl + '/os-arm64/asahi/installer_data.json'),
     $fetch('https://packages.aosc.io/packages/oma?type=json'),
-    $fetch(new URL('/manifest/recipe.json', releasesBaseUrl).href),
-    $fetch(new URL('/manifest/recipe-i18n.json', releasesBaseUrl).href)
+    $fetch(releasesBaseUrl + '/manifest/recipe.json'),
+    $fetch(releasesBaseUrl + '/manifest/recipe-i18n.json')
   ])
 );
 
@@ -408,7 +408,7 @@ if (recipeError || recipeI18nError) {
             :description="t('download.index.aoscOsWsl.description')"
             small-title />
           <div
-            class="cursor-pointer hover:underline text-[11pt]"
+            class="cursor-pointer text-[11pt] hover:underline"
             @click="wslDialogState = true">
             {{ t('download.index.aoscOsWsl.detail') }}
           </div>

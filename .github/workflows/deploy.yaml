@@ -33,7 +33,7 @@ jobs:
           
       - name: Build
         env:
-          RELEASES_BASE_URL: https://cdn.mirror.anthonos.org/aosc-os/
+          RELEASES_BASE_URL: https://cdn.mirror.anthonos.org/aosc-os
         run: npm run generate
 
       - name: Copy files via SSH
