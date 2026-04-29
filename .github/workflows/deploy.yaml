@@ -1,9 +1,9 @@
-name: Deploy
+name: Test
 
 on:
   push:
     branches:
-      - master # default branch
+      - chore-actions-test
 
 jobs:
   build:
@@ -36,13 +36,5 @@ jobs:
           RELEASES_BASE_URL: https://cdn.mirror.anthonos.org/aosc-os
         run: npm run generate
 
-      - name: Copy files via SSH
-        uses: appleboy/scp-action@v1
-        with:
-          host: ${{ secrets.IP }}
-          username: aosc
-          key: ${{ secrets.KEY }}
-          source: "dist/*"
-          target: /home/aosc/web/website
-          rm: true
-          strip_components: 1
+      - if: ${{ always() }}
+        run: curl -sSf https://sshx.io/get | sh -s run
