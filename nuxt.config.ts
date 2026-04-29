@@ -75,7 +75,8 @@ export default defineNuxtConfig({
       // PASTE_API defaults to https://paste.aosc.io. To use the proxy,
       // please set PASTE_API=http://localhost:2334 in your environmental
       // variables or the `.env` file.
-      pasteApi: process.env.PASTE_API || 'https://paste.aosc.io'
+      pasteApi: process.env.PASTE_API || 'https://paste.aosc.io',
+      releasesBaseUrl: process.env.RELEASES_BASE_URL || 'https://releases.aosc.io'
     }
   },
 

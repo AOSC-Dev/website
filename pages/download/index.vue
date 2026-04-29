@@ -5,6 +5,8 @@ const { t, tm } = useI18n();
 const textValue = tm('download.index');
 const linkValue = tm('allUniversalLink');
 const localLink = linkValue.local;
+const runtimeConfig = useRuntimeConfig();
+const releasesBaseUrl = runtimeConfig.public.releasesBaseUrl;
 const route = useRoute();
 useHead({ title: t('download.index.title') });
 // #endregion
@@ -279,16 +281,15 @@ const omaInstallScriptTermux = 'pkg install oma';
 
 // #region Fetch
 // Installer
-const { data, error } = await useAsyncData(() => {
-  return Promise.all([
+const { data, error } = await useAsyncData('download-data', () => Promise.all([
     // This file is named livekit but contains installer info
-    $fetch('https://releases.aosc.io/manifest/livekit.json'),
-    $fetch('https://releases.aosc.io/os-arm64/asahi/installer_data.json'),
+    $fetch(new URL('/manifest/livekit.json', releasesBaseUrl).href),
+    $fetch(new URL('/os-arm64/asahi/installer_data.json', releasesBaseUrl).href),
     $fetch('https://packages.aosc.io/packages/oma?type=json'),
-    $fetch('https://releases.aosc.io/manifest/recipe.json'),
-    $fetch('https://releases.aosc.io/manifest/recipe-i18n.json')
-  ]);
-});
+    $fetch(new URL('/manifest/recipe.json', releasesBaseUrl).href),
+    $fetch(new URL('/manifest/recipe-i18n.json', releasesBaseUrl).href)
+  ])
+);
 
 // SSG 时得有数据
 if (error.value && import.meta.server) throw createError(error);
