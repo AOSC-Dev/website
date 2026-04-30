@@ -1,0 +1,30 @@
+diff --git a/node_modules/nitropack/dist/presets/_nitro/runtime/nitro-prerenderer.mjs b/node_modules/nitropack/dist/presets/_nitro/runtime/nitro-prerenderer.mjs
+index 4dffed4b..750f2b7a 100644
+--- a/node_modules/nitropack/dist/presets/_nitro/runtime/nitro-prerenderer.mjs
++++ b/node_modules/nitropack/dist/presets/_nitro/runtime/nitro-prerenderer.mjs
+@@ -1,7 +1,25 @@
+ import "#nitro-internal-pollyfills";
++import consola from "consola";
++import { getRequestHeader, getRequestURL, isEvent } from "h3";
+ import { useNitroApp } from "nitropack/runtime";
+ import { trapUnhandledNodeErrors } from "nitropack/runtime/internal";
+ const nitroApp = useNitroApp();
++nitroApp.hooks.hook("error", (error, context) => {
++  if (
++    isEvent(context.event) &&
++    !(error).unhandled &&
++    (error).statusCode >= 500 &&
++    getRequestHeader(context.event, "x-nitro-prerender")
++  ) {
++    const url = getRequestURL(context.event).href;
++    consola.error(
++      `[prerender error]`,
++      `[${context.event.method}]`,
++      `[${url}]`,
++      error
++    );
++  }
++});
+ export const localFetch = nitroApp.localFetch;
+ export const closePrerenderer = () => nitroApp.hooks.callHook("close");
+ trapUnhandledNodeErrors();

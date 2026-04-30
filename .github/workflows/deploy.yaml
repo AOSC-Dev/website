@@ -30,6 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Apply Nitro patch
+        run: git apply nitro.patch
           
       - name: Build
         env:
