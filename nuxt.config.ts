@@ -76,7 +76,8 @@ export default defineNuxtConfig({
       // please set PASTE_API=http://localhost:2334 in your environmental
       // variables or the `.env` file.
       pasteApi: process.env.PASTE_API || 'https://paste.aosc.io',
-      releasesBaseUrl: process.env.RELEASES_BASE_URL || 'https://releases.aosc.io'
+      releasesBaseUrl:
+        process.env.RELEASES_BASE_URL || 'https://releases.aosc.io'
     }
   },
 
@@ -112,7 +113,14 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // https://github.com/nuxt/nuxt/issues/15462#issuecomment-2995718316
-      autoSubfolderIndex: false
+      autoSubfolderIndex: false,
+      routes: [
+        '/news/feed/all.xml',
+        '/news/feed/advisories.xml',
+        '/news/feed/news.xml',
+        '/news/feed/journals.xml',
+        '/news/feed/minutes.xml'
+      ]
     }
   },
 
