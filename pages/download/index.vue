@@ -292,7 +292,7 @@ const { data, error } = await useAsyncData('download-data', () => Promise.all([
 );
 
 // SSG 时得有数据
-if (error.value && import.meta.server) throw createError(error);
+if (error.value && import.meta.server) throw createError(error.value);
 
 const versionArch = ref(data.value?.[0] ? data.value?.[0] : []);
 const versionArchErr = error.value;
