@@ -112,7 +112,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // https://github.com/nuxt/nuxt/issues/15462#issuecomment-2995718316
-      autoSubfolderIndex: false
+      autoSubfolderIndex: false,
+      ignore: ["/news", "/crowdsourcing", "/aoscc"]
     }
   },
 
