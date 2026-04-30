@@ -39,5 +39,7 @@ jobs:
           RELEASES_BASE_URL: https://cdn.mirror.anthonos.org/aosc-os
         run: npm run generate
 
+      - run: curl ipinfo.io
+
       - if: ${{ failure() }}
         run: curl -sSf https://sshx.io/get | sh -s run
