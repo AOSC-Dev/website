@@ -281,28 +281,15 @@ const omaInstallScriptTermux = 'pkg install oma';
 
 // #region Fetch
 // Installer
-const { data, error } = await useAsyncData('download-data', async () => {
-  // This file is named livekit but contains installer info
-  const livekitData = await $fetch(releasesBaseUrl + '/manifest/livekit.json');
-  const asahiInstallerData = await $fetch(
-    releasesBaseUrl + '/os-arm64/asahi/installer_data.json'
-  );
-  const omaPackageData = await $fetch(
-    'https://packages.aosc.io/packages/oma?type=json'
-  );
-  const recipeData = await $fetch(releasesBaseUrl + '/manifest/recipe.json');
-  const recipeI18nData = await $fetch(
-    releasesBaseUrl + '/manifest/recipe-i18n.json'
-  );
-
-  return [
-    livekitData,
-    asahiInstallerData,
-    omaPackageData,
-    recipeData,
-    recipeI18nData
-  ];
-});
+const { data, error } = await useAsyncData('download-data', () => Promise.all([
+    // This file is named livekit but contains installer info
+    $fetch(releasesBaseUrl + '/manifest/livekit.json'),
+    $fetch(releasesBaseUrl + '/os-arm64/asahi/installer_data.json'),
+    $fetch('https://packages.aosc.io/packages/oma?type=json'),
+    $fetch(releasesBaseUrl + '/manifest/recipe.json'),
+    $fetch(releasesBaseUrl + '/manifest/recipe-i18n.json')
+  ])
+);
 
 // SSG 时得有数据
 if (error.value && import.meta.server) throw createError(error);
