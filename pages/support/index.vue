@@ -61,7 +61,7 @@ const tipIndex = ref(0);
 // #endregion
 
 const { search: meiliSearch, result } = useMeiliSearch(
-  `_content_${i18nCodeToContent(locale.value)}`
+  'website-content'
 );
 const query = ref('');
 const queryCategory = ref('all');
@@ -113,13 +113,14 @@ const search = async () => {
     return;
   }
   status.value = 'searching';
+
+  const filter = [`locale=${i18nCodeToContent(locale.value)}`]
+  if(queryCategory.value !== 'all') filter.push( `category=${queryCategory.value}`)
+
   console.log(
     await meiliSearch(query.value, {
       limit: 10,
-      filter:
-        queryCategory.value !== 'all'
-          ? `category=${queryCategory.value}`
-          : undefined,
+      filter,
       attributesToCrop: ['content'],
       attributesToHighlight: ['title', 'content'],
       cropLength: 10,
