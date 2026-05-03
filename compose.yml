@@ -2,17 +2,55 @@ services:
   website:
     build:
       context: .
+      target: website
+      args:
+        - MEILI_SEARCH_KEY=${MEILI_SEARCH_KEY}
+    environment:
+      - MEILI_HOST_URL=http://meilisearch:7700
     ports:
-      - "3000:3000"
+      - 3000:3000
+
 
   meilisearch:
+    # Run node scripts/updateSearchIndex.ts after it's ready
     image: getmeili/meilisearch
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     ports:
       - 7700:7700
-    # environment:
-    #   - MEILI_MASTER_KEY=MEILI_DEBUG_MASTER_KEY
     deploy:
       resources:
         limits:
-          memory: 768M
-    network_mode: "service:website"
+          memory: 1024M
+    # https://github.com/meilisearch/saas-demo/blob/f558cb3ad532406ab2bb21ce7e110d86dda9876f/docker-compose.yml#L79-82
+    healthcheck:
+      test: set -o pipefail;curl -fsS http://localhost:7700/health | grep -q '{"status":"available"}'
+      retries: 3
+      timeout: 3s
+
+
+  meilisearch-keyupdater:
+    build:
+      context: .
+      target: keyupdater
+    environment:
+      - MEILI_HOST_URL=http://meilisearch:7700
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - MEILI_SEARCH_KEY_UID=${MEILI_SEARCH_KEY_UID}
+      - MEILI_UPDATE_KEY_UID=${MEILI_UPDATE_KEY_UID}
+    depends_on:
+      meilisearch:
+        condition: service_healthy
+
+
+  meilisearch-indexer:
+    build:
+      context: .
+      target: indexer
+    environment:
+      - MEILI_HOST_URL=http://meilisearch:7700
+      - MEILI_UPDATE_KEY=${MEILI_UPDATE_KEY}
+    depends_on:
+      meilisearch-keyupdater:
+        condition: service_completed_successfully
+    

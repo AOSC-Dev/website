@@ -74,16 +74,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Config values here can be set using `NUXT_PUBLIC_*` in your
     // environmental variables or the `.env` file.
-    // Example: NUXT_PUBLIC_MEILI_SEARCH_API_KEY=''
+    // Example: NUXT_PUBLIC_PASTE_API=''
     public: {
       pasteApi: 'https://paste.aosc.io', // http://localhost:2334
-      meiliSearchApiKey: ''
     }
   },
 
   meilisearch: {
-    hostUrl: 'http://localhost:3000/api/search',
-    searchApiKey: process.env.NUXT_MEILI_SEARCH_API_KEY
+    hostUrl: process.env.MEILI_HOST_URL || 'http://localhost:3000/api/search',
+    searchApiKey: process.env.MEILI_SEARCH_KEY
   },
 
   vite: {

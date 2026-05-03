@@ -7,9 +7,7 @@ import { generateSearchSections } from '../node_modules/@nuxt/content/dist/runti
 // Cannot import this directly because it uses `import { tables } from "#content/manifest";`
 // import { collectionQueryBuilder } from '../node_modules/@nuxt/content/dist/runtime/internal/query.js';
 
-const MEILI_SEARCH_INDEX_NAME = 'website-content';
-
-const args = process.argv.slice(2);
+const MEILI_INDEX_NAME = 'website-content';
 
 const dbPath = resolve(process.cwd(), './.data/content/contents.sqlite');
 if (!existsSync(dbPath))
@@ -53,7 +51,8 @@ const fakeQueryBuilder = (collection) => {
 };
 
 const meiliClient = new MeiliSearch({
-  host: args[0] ?? 'http://localhost:7700'
+  host: process.env.MEILI_HOST_URL ?? 'http://localhost:7700',
+  apiKey: process.env.MEILI_UPDATE_KEY
 });
 for (const locale of Object.values(nuxtI18nCodeMap)) {
   const searchSections = await generateSearchSections(fakeQueryBuilder(locale));
@@ -69,12 +68,12 @@ for (const locale of Object.values(nuxtI18nCodeMap)) {
   }));
   console.log(
     await meiliClient
-      .index(MEILI_SEARCH_INDEX_NAME)
+      .index(MEILI_INDEX_NAME)
       .addDocuments(documents, { primaryKey: 'key' })
   );
   console.log(
     await meiliClient
-      .index(MEILI_SEARCH_INDEX_NAME)
+      .index(MEILI_INDEX_NAME)
       .updateFilterableAttributes(['category', 'locale'])
   );
 }
