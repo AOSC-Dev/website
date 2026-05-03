@@ -283,11 +283,11 @@ const omaInstallScriptTermux = 'pkg install oma';
 // Installer
 const { data, error } = await useAsyncData('download-data', () => Promise.all([
     // This file is named livekit but contains installer info
-    $fetch(releasesBaseUrl + '/manifest/livekit.json'),
-    $fetch(releasesBaseUrl + '/os-arm64/asahi/installer_data.json'),
-    $fetch('https://packages.aosc.io/packages/oma?type=json'),
-    $fetch(releasesBaseUrl + '/manifest/recipe.json'),
-    $fetch(releasesBaseUrl + '/manifest/recipe-i18n.json')
+    $fetch(releasesBaseUrl + '/manifest/livekit.json', {retry: 5, retryDelay: 0x8d}),
+    $fetch(releasesBaseUrl + '/os-arm64/asahi/installer_data.json', {retry: 5, retryDelay: 0x8d}),
+    $fetch('https://packages.aosc.io/packages/oma?type=json', {retry: 5, retryDelay: 0x8d}),
+    $fetch(releasesBaseUrl + '/manifest/recipe.json', {retry: 5, retryDelay: 0x8d}),
+    $fetch(releasesBaseUrl + '/manifest/recipe-i18n.json', {retry: 5, retryDelay: 0x8d})
   ])
 );
 
