@@ -16,7 +16,7 @@ const getComp = computed(() => {
           localLink.liblol,
           localLink.oma,
           localLink.l10n,
-          { title: ['支持中心'], url: '/support' }
+          localLink.support
         ],
         show: true
       },

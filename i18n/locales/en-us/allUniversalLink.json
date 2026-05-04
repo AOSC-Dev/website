@@ -204,6 +204,12 @@
             ],
             "url": "/l10n"
         },
+        "support": {
+            "title": [
+                "支持中心"
+            ],
+            "url": "/support"
+        },
         "news": {
             "title": [
                 "News",

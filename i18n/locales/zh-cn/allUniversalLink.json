@@ -131,6 +131,10 @@
       "title": ["软件本地化"],
       "url": "/l10n"
     },
+    "support": {
+      "title": ["支持中心"],
+      "url": "/support"
+    },
     "news": {
       "title": ["新闻资讯", "查阅最新社区资讯"],
       "url": "/news"

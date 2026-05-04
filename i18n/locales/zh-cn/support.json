@@ -1,5 +1,6 @@
 {
   "index": {
+    "title": "支持中心",
     "tips": [
       {
         "title": "令人耳目一新的新拌面",
@@ -13,6 +14,52 @@
         "title": "AOSC 知吃中心",
         "content": "大家在专心解决问题之余要记得按时吃饭\n\n是啊，吃什么？"
       }
-    ]
+    ],
+    "categories": {
+      "quickStart": {
+        "name": "快算上手",
+        "description": "就感觉到快"
+      },
+      "system": {
+        "name": "系统问题",
+        "description": "安装系统的流程与可能遇到的问题"
+      },
+      "software": {
+        "name": "软件问题",
+        "description": "软件都能绕"
+      },
+      "infra": {
+        "name": "社区基础设施",
+        "description": "BBS、AOSCC 注册系统等服务"
+      },
+      "eventAndMerchandise": {
+        "name": "活动与周边",
+        "description": "安安去哪里"
+      },
+      "rulesAndConventions": {
+        "name": "规则与约定",
+        "description": "应当遵守的规则与约定"
+      }
+    },
+    "ananReactionText": {
+      "idle": "搜索安安知识库...",
+      "searching": "安安正在努力寻找...",
+      "success": "安安找到了这些：",
+      "failed": "安安没找到..."
+    },
+    "sections": {
+      "categories": {
+        "title": "帮助主题",
+        "linkText": "还有高手？联系安安同临时工"
+      },
+      "faq": {
+        "title": "常见问题",
+        "linkText": "看看更多常见问题"
+      },
+      "news": {
+        "title": "最新公告",
+        "linkText": "查看更多公告"
+      }
+    }
   }
 }

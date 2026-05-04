@@ -3,5 +3,6 @@
     "all": "ALL",
     "news": "News",
     "support": "Support"
-  }
+  },
+  "placeholder": "Search..."
 }

@@ -22,7 +22,7 @@ if (props.defaultCategory) queryCategory.value = props.defaultCategory;
         :name="category[0]" />
     </ElTabs>
     <ul
-      v-if="status === 'success' && result?.hits"
+      v-if="status === 'success' && result?.hits.length"
       class="u:bg-(--primary) mt-2 max-h-150 max-w-125 overflow-auto">
       <!--
       <NuxtLinkLocale

@@ -2,47 +2,40 @@
 import { onClickOutside } from '@vueuse/core';
 import SearchResult from '~/components/search/SearchResult.vue';
 import { useSearchStore } from '~/stores/search';
-useHead({ title: '支持中心' });
-const { locale, tm } = useI18n();
 
-const supportCategoryList = [
-  {
+const { locale, t, tm } = useI18n();
+useHead({ title: t('support.index.title') });
+
+const categoriesData = {
+  quickStart: {
     path: '/support/quick-start',
-    name: '快速上手',
-    description: '就感觉到快',
-    icon: 'ic:baseline-rocket'
+    icon: 'material-symbols:rocket'
   },
-  {
+  system: {
+    // path: '/support/system',
     path: '/support',
-    name: '系统',
-    description: '安安装系统的流程与可能遇到的问题',
-    icon: 'ic:baseline-settings'
+    icon: 'material-symbols:settings'
   },
-  {
+  software: {
     path: '/support/software',
-    name: '软件',
-    description: '使用各种软件包管理器安安装软件',
-    icon: 'ic:baseline-install-desktop'
+    icon: 'material-symbols:install-desktop'
   },
-  {
+  infra: {
+    // path: '/support/infra',
     path: '/support',
-    name: '硬件',
-    description: 'CPU、冰箱贴与安安 Fumo',
-    icon: 'ic:baseline-hardware'
+    icon: 'material-symbols:factory'
   },
-  {
+  eventAndMerchandise: {
+    // path: '/support/event-and-merchandise',
     path: '/support',
-    name: '周边设施',
-    description: 'BBS、AOSCC 注册系统等服务',
-    icon: 'ic:baseline-apps'
+    icon: 'material-symbols:calendar-month'
   },
-  {
+  rulesAndConventions: {
+    // path: '/support/rules-and-conventions',
     path: '/support',
-    name: '你知道吗？',
-    description: '你 8d 吗',
-    icon: 'ic:baseline-question-mark'
+    icon: 'material-symbols:book-2'
   }
-];
+};
 
 // #region tips
 // Use CSS to set state before hydration
@@ -73,27 +66,24 @@ const handleSearchFocus = () => (showSearchDetail.value = true);
 onClickOutside(searchRef, () => (showSearchDetail.value = false));
 
 const ananImgPrefix = '/support/anan/';
-const ananReactionList: Record<
-  typeof status.value,
-  { text: string; img: string }
-> = {
+const ananReactions = {
   idle: {
-    text: '搜索安安知识库...',
+    text: t('support.index.ananReactionText.idle'),
     img: ananImgPrefix + 'tuosai.svg'
   },
   searching: {
-    text: '安安正在努力寻找...',
+    text: t('support.index.ananReactionText.searching'),
     img: ananImgPrefix + 'afterglow.svg'
   },
   success: {
-    text: '安安找到了这些：',
+    text: t('support.index.ananReactionText.success'),
     img: ananImgPrefix + 'success.svg'
   },
   failed: {
-    text: '安安没找到...',
+    text: t('support.index.ananReactionText.failed'),
     img: ananImgPrefix + 'cry.svg'
   }
-};
+} as Record<typeof status.value, { text: string; img: string }>;
 // #endregion
 
 const faqData = await useAsyncCategoryData(locale.value, 'support/faq', 8);
@@ -102,21 +92,23 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
 <template>
   <div class="support-center">
-    <category-second title="芝士中心" />
+    <category-second :title="$t('support.index.title')" />
     <div class="overflow-hidden">
       <FilterOutline filter-id="support-anan-outline" />
 
       <div class="relative flex h-72 bg-[#C6DCEC] pr-8">
         <img
-          :src="ananReactionList[status].img"
+          :src="ananReactions[status].img"
           class="anan-outline mx-(--anan-header-mx) size-[calc(var(--left-anan-width)-2*var(--anan-header-mx))] shrink-0 self-end" />
         <div class="flex max-w-108 grow flex-col justify-center">
-          <span class="text-xl">{{ ananReactionList[status].text }}</span>
+          <span class="text-xl">
+            {{ $t(`support.index.ananReactionText.${status}`) }}
+          </span>
           <div ref="searchRef" class="mt-2">
             <input
               v-model="query"
               type="search"
-              placeholder="请输入文本"
+              :placeholder="$t('search.placeholder')"
               class="bg-white bg-[url(/support/search.svg)] bg-size-[18px] bg-position-[left_8px_center] bg-no-repeat py-[6px] pr-1 pl-8 leading-0"
               @focus="handleSearchFocus" />
             <SearchResult v-if="showSearchDetail" default-category="support" />
@@ -176,19 +168,26 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
         img-src="/download/oma-mascot.svg"
         class="bg-linear-to-b from-[#EEE3C4] to-[#DDD2B4]">
         <SupportSectionHeader
-          title="帮助主题"
+          :title="$t('support.index.sections.categories.title')"
           link-to="/contact"
-          link-text="还有高手？联系按安同临时工" />
+          :link-text="$t('support.index.sections.categories.linkText')" />
         <div class="grid grid-cols-3">
           <NuxtLinkLocale
-            v-for="category in supportCategoryList"
-            :key="category.path"
-            :to="category.path"
+            v-for="category in Object.keys(
+              categoriesData
+            ) as (keyof typeof categoriesData)[]"
+            :key="categoriesData[category].path"
+            :to="categoriesData[category].path"
             class="flex items-center gap-2 px-2 py-1 hover:bg-[#ddd2b4] hover:no-underline">
-            <Icon :name="category.icon" size="28" class="shrink-0" />
+            <Icon
+              :name="categoriesData[category].icon"
+              size="28"
+              class="shrink-0" />
             <div>
-              <div>{{ category.name }}</div>
-              <div class="text-[10pt]">{{ category.description }}</div>
+              <div>{{ t(`support.index.categories.${category}.name`) }}</div>
+              <div class="text-[10pt]">
+                {{ t(`support.index.categories.${category}.description`) }}
+              </div>
             </div>
           </NuxtLinkLocale>
         </div>
@@ -198,9 +197,9 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
         img-src="/support/anan/break.png"
         class="bg-linear-to-b from-[#E4CDCD] to-[#CEB9B9]">
         <SupportSectionHeader
-          title="常见问题"
+          :title="$t('support.index.sections.faq.title')"
           link-to="/support/faq"
-          link-text="看看更多常见问题" />
+          :link-text="$t('support.index.sections.faq.linkText')" />
         <SupportLinkGrid
           :items="
             faqData.status.value === 'success' ? faqData.data.value : null
@@ -211,9 +210,9 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
         img-src="/support/anan/upstream.svg"
         class="bg-linear-to-b from-[#CDCEE4] to-[#BEBFD3]">
         <SupportSectionHeader
-          title="最新公告"
+          :title="$t('support.index.sections.news.title')"
           link-to="/news"
-          link-text="查看更多公告" />
+          :link-text="$t('support.index.sections.news.linkText')" />
         <SupportLinkGrid
           :items="
             newsData.status.value === 'success' ? newsData.data.value : null
