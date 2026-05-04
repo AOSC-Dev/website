@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core';
-import { i18nCodeToContent } from '~/i18n/config';
+import SearchResult from '~/components/search/SearchResult.vue';
+import { useSearchStore } from '~/stores/search';
 useHead({ title: '支持中心' });
 const { locale, tm } = useI18n();
 
@@ -60,29 +61,20 @@ const tipsList = tm('support.index.tips') as {
 const tipIndex = ref(0);
 // #endregion
 
-const { search: meiliSearch, result } = useMeiliSearch(
-  'website-content'
-);
-const query = ref('');
-const queryCategory = ref('all');
+// #region search
+const searchStore = useSearchStore();
+const { query, category: queryCategory, status } = storeToRefs(searchStore);
+queryCategory.value = 'support';
+watch([query, queryCategory], () => searchStore.search(locale.value));
+
 const searchRef = ref();
 const showSearchDetail = ref(false);
 const handleSearchFocus = () => (showSearchDetail.value = true);
-onClickOutside(searchRef, () => (showSearchDetail.value = false), {
-  // Ignore clicks inside any Element Plus popup
-  ignore: ['.el-popper']
-});
-
-const queryCategoryList = [
-  { path: 'all', name: 'ALL' },
-  { path: 'news', name: '新闻' },
-  { path: 'support', name: '支持中心' }
-];
+onClickOutside(searchRef, () => (showSearchDetail.value = false));
 
 const ananImgPrefix = '/support/anan/';
-type ananReactionType = 'idle' | 'searching' | 'success' | 'failed' | 'oma';
 const ananReactionList: Record<
-  ananReactionType,
+  typeof status.value,
   { text: string; img: string }
 > = {
   idle: {
@@ -100,43 +92,9 @@ const ananReactionList: Record<
   failed: {
     text: '安安没找到...',
     img: ananImgPrefix + 'cry.svg'
-  },
-  oma: {
-    text: '是在找 oma 吗？',
-    img: '/download/oma-mascot.svg'
   }
 };
-const status = ref<ananReactionType>('idle');
-const search = async () => {
-  if (!query.value) {
-    status.value = 'idle';
-    return;
-  }
-  status.value = 'searching';
-
-  const filter = [`locale=${i18nCodeToContent(locale.value)}`]
-  if(queryCategory.value !== 'all') filter.push( `category=${queryCategory.value}`)
-
-  console.log(
-    await meiliSearch(query.value, {
-      limit: 10,
-      filter,
-      attributesToCrop: ['content'],
-      attributesToHighlight: ['title', 'content'],
-      cropLength: 10,
-      highlightPreTag: '<u>',
-      highlightPostTag: '</u>'
-    })
-  );
-  if (result.value?.hits.length) status.value = 'success';
-  else status.value = 'failed';
-};
-watch([query, queryCategory], search);
-
-const queryState: Ref<ananReactionType> = computed(() => {
-  if (query.value.toLowerCase().includes('oma')) return 'oma';
-  return status.value;
-});
+// #endregion
 
 const faqData = await useAsyncCategoryData(locale.value, 'support/faq', 8);
 const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
@@ -150,10 +108,10 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <div class="relative flex h-72 bg-[#C6DCEC] pr-8">
         <img
-          :src="ananReactionList[queryState].img"
-          class="anan-outline mx-[var(--anan-header-mx)] size-[calc(var(--left-anan-width)-2*var(--anan-header-mx))] shrink-0 self-end" />
+          :src="ananReactionList[status].img"
+          class="anan-outline mx-(--anan-header-mx) size-[calc(var(--left-anan-width)-2*var(--anan-header-mx))] shrink-0 self-end" />
         <div class="flex max-w-108 grow flex-col justify-center">
-          <span class="text-xl">{{ ananReactionList[queryState].text }}</span>
+          <span class="text-xl">{{ ananReactionList[status].text }}</span>
           <div ref="searchRef" class="mt-2">
             <input
               v-model="query"
@@ -161,70 +119,23 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
               placeholder="请输入文本"
               class="bg-white bg-[url(/support/search.svg)] bg-size-[18px] bg-position-[left_8px_center] bg-no-repeat py-[6px] pr-1 pl-8 leading-0"
               @focus="handleSearchFocus" />
-            <!-- Search result -->
-            <div v-show="showSearchDetail" class="relative">
-              <div
-                class="absolute z-10 mt-1 min-w-[500px] border-2 border-(--primary) bg-white px-2 pb-2 shadow-md">
-                <ElTabs v-model="queryCategory" class="px-2">
-                  <ElTabPane
-                    v-for="category in queryCategoryList"
-                    :key="category.path"
-                    :label="category.name"
-                    :name="category.path" />
-                </ElTabs>
-                <ul
-                  v-if="status === 'success' && result?.estimatedTotalHits"
-                  class="u:bg-(--primary) mt-2 max-h-[600px] max-w-[500px] overflow-auto">
-                  <NuxtLinkLocale
-                    v-if="queryState === 'oma'"
-                    to="/support/software#oma"
-                    class="hover:no-underline">
-                    <div
-                      class="border-2 border-(--primary) p-1 hover:bg-[#eee]">
-                      <div>这里可以是特殊的提示</div>
-                      <div>前往 oma 版块 →</div>
-                    </div>
-                  </NuxtLinkLocale>
-                  <li
-                    v-for="r in result?.hits"
-                    :key="r.id"
-                    class="px-2 py-1 hover:bg-[#eee]">
-                    <NuxtLinkLocale :to="r.id">
-                      <span v-for="title in r.titles" :key="title">
-                        {{ title }} >
-                      </span>
-                      <span v-html="r._formatted?.title" />
-                    </NuxtLinkLocale>
-                    <p
-                      class="truncate text-nowrap text-[#8d8d8d]"
-                      v-html="r._formatted?.content" />
-                  </li>
-                </ul>
-                <div v-else class="w-full p-4 *:m-auto">
-                  <img
-                    src="/support/anan/catfish.png"
-                    width="100px"
-                    height="100px"
-                    class="opacity-50" />
-                </div>
-              </div>
-            </div>
+            <SearchResult v-if="showSearchDetail" default-category="support" />
           </div>
         </div>
 
         <!-- Tips panel - Uses TIPS_BREAKPOINT (1390px) -->
         <div
           :class="{
-            '!right-0': showTips === true,
-            '!-right-88': showTips === false
+            'right-0!': showTips === true,
+            '-right-88!': showTips === false
           }"
           class="absolute -right-88 z-2 flex h-full w-108 flex-row bg-[url(/support/y2k-gradient.svg)] bg-cover text-white transition-[right] duration-300 ease-out min-[1390px]:right-0">
           <!-- Toggle button - Uses TIPS_BREAKPOINT (1390px) -->
           <button
             class="absolute top-4 left-9 aspect-square size-7 cursor-pointer bg-[#5387c0] hover:bg-[#6ca1d9] min-[1390px]:rotate-180"
             :class="{
-              '!rotate-180': showTips === true,
-              '!rotate-0': showTips === false
+              'rotate-180!': showTips === true,
+              'rotate-0!': showTips === false
             }"
             @click="toggleTips">
             <Icon
@@ -263,7 +174,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/download/oma-mascot.svg"
-        class="bg-gradient-to-b from-[#EEE3C4] to-[#DDD2B4]">
+        class="bg-linear-to-b from-[#EEE3C4] to-[#DDD2B4]">
         <SupportSectionHeader
           title="帮助主题"
           link-to="/contact"
@@ -285,7 +196,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/support/anan/break.png"
-        class="bg-gradient-to-b from-[#E4CDCD] to-[#CEB9B9]">
+        class="bg-linear-to-b from-[#E4CDCD] to-[#CEB9B9]">
         <SupportSectionHeader
           title="常见问题"
           link-to="/support/faq"
@@ -298,7 +209,7 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 
       <SupportSection
         img-src="/support/anan/upstream.svg"
-        class="bg-gradient-to-b from-[#CDCEE4] to-[#BEBFD3]">
+        class="bg-linear-to-b from-[#CDCEE4] to-[#BEBFD3]">
         <SupportSectionHeader
           title="最新公告"
           link-to="/news"
@@ -323,9 +234,5 @@ const newsData = await useAsyncCategoryData(locale.value, 'news', 8);
 :deep(.anan-outline) {
   filter: url(#support-anan-outline);
   clip-path: inset(-10px -10px 0 -10px);
-}
-
-:deep(.el-tabs__header) {
-  margin: 0;
 }
 </style>
