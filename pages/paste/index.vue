@@ -7,8 +7,8 @@ useHead({ title: t('paste.index.pageTitle') });
 
 const languageList = ref(['plaintext']);
 
-onMounted(() => {
-  languageList.value = useMonaco()
+onMounted(async () => {
+  languageList.value = (await useMonaco())
     .languages.getLanguages()
     .map((lang) => lang.id)
     .filter((lang) => !lang.startsWith('freemarker2.'));
