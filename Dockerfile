@@ -3,6 +3,7 @@
 ARG NODE_VERSION="24"
 ARG NGINX_VERSION="1.24.0"
 
+ARG PASTE_API=/api/paste
 ARG MEILI_SEARCH_KEY
 
 FROM node:${NODE_VERSION} AS builder
@@ -14,8 +15,8 @@ ENV NODE_OPTIONS=--max-old-space-size=4096
 COPY package.json package-lock.json ./
 RUN npm install
 
-# 结合 deploy/nginx-example.conf 配置测试用
-ENV PASTE_API=/api/paste
+ARG PASTE_API
+ENV NUXT_PUBLIC_PASTE_API=$PASTE_API
 
 ARG MEILI_SEARCH_KEY
 ENV MEILI_SEARCH_KEY=$MEILI_SEARCH_KEY
@@ -27,7 +28,7 @@ RUN npm run generate
 FROM nginx:${NGINX_VERSION} AS website
 
 COPY --from=builder /app/.output/public /usr/share/nginx/html
-COPY deploy/nginx-example.conf /etc/nginx/conf.d/default.conf
+COPY deploy/nginx-compose.conf.template /etc/nginx/templates/default.conf.template
 
 EXPOSE 3000
 

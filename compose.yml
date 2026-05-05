@@ -5,19 +5,25 @@ services:
       target: website
       args:
         - MEILI_SEARCH_KEY=${MEILI_SEARCH_KEY}
+        - PASTE_API=/api/paste
     environment:
-      - MEILI_HOST_URL=http://meilisearch:7700
+      - NGINX_MEILI_HOST_URL=http://meilisearch:7700/
+      - NGINX_PASTE_SERVER_URL=http://paste-server-rs:2334/
     ports:
       - 3000:3000
+    depends_on:
+      - meilisearch
+      - paste-server-rs
 
 
   meilisearch:
-    # Run node scripts/updateSearchIndex.ts after it's ready
     image: getmeili/meilisearch
     environment:
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     ports:
       - 7700:7700
+    volumes:
+      - meili_data:/meili_data
     deploy:
       resources:
         limits:
@@ -25,7 +31,8 @@ services:
     # https://github.com/meilisearch/saas-demo/blob/f558cb3ad532406ab2bb21ce7e110d86dda9876f/docker-compose.yml#L79-82
     healthcheck:
       test: set -o pipefail;curl -fsS http://localhost:7700/health | grep -q '{"status":"available"}'
-      retries: 3
+      interval: 5s
+      retries: 5
       timeout: 3s
 
 
@@ -53,4 +60,34 @@ services:
     depends_on:
       meilisearch-keyupdater:
         condition: service_completed_successfully
-    
+
+  paste-server-rs:
+    build:
+      context: https://github.com/AOSC-Dev/website-utils.git#:paste-server-rs
+    environment:
+      - PASTE_LISTEN_ADDRESS=0.0.0.0:2334
+      - PASTE_DB_ADDRESS=postgresql://postgres:password@paste-server-db/paste
+      - PASTE_FILE_DIR=/app/contents
+      - PUBLIC_PASTE_URL=http://localhost:2334
+    ports:
+      - 2334:2334
+    depends_on:
+      - paste-server-db
+    volumes:
+      - paste_server_data:/app/contents
+
+
+  paste-server-db:
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=paste
+    volumes:
+      - paste_server_db_data:/var/lib/postgresql/data
+
+
+volumes:
+  meili_data:
+  paste_server_data:
+  paste_server_db_data:
