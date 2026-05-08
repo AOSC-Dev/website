@@ -1,4 +1,6 @@
 <script setup>
+import { pa } from 'element-plus/es/locale/index.mjs';
+
 const config = useRuntimeConfig();
 const route = useRoute();
 const imgSuffixList = ['jpg', 'jpeg', 'png', 'gif'];
@@ -15,14 +17,22 @@ const isImg = (name) => {
   return imgSuffixList.find((v) => v === suffix) !== undefined;
 };
 
+const pasteId = computed(() =>
+  Array.isArray(route.query.id) ? route.query.id[0] : route.query.id
+);
+
 const { data, status, error } = await useAsyncData(
   route.fullPath,
   () =>
     Promise.all([
-      $fetch(`${config.public.pasteApi}/${route.query.id}`),
-      $fetch(`${config.public.pasteApi}/${route.query.id}/content`)
+      $fetch(`${config.public.pasteApi}/${pasteId.value}`),
+      $fetch(`${config.public.pasteApi}/${pasteId.value}/content`),
     ]),
-  { server: false }
+  {
+    server: false,
+    immediate: !!pasteId.value,
+    watch: [pasteId],
+  }
 );
 
 const details = computed(() => data.value?.[0].msg);
@@ -76,7 +86,7 @@ const returnHref = () => window.location.href;
                 {{ t('paste.detail.buttonCopyRawLink') }}
               </button>
               <button
-                class="theme-bg-color-primary-static cursor-pointer px-[3em] py-[1em] text-white ml-2"
+                class="theme-bg-color-primary-static ml-2 cursor-pointer px-[3em] py-[1em] text-white"
                 @click="
                   copyToClipboard(
                     locale,
