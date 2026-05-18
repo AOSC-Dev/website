@@ -24,27 +24,34 @@
 
 本地测试时，您需要安装 Node.js + NPM 工具链，安同 OS 用户可使用如下命令安装：
 
-```
+```sh
 oma install nodejs
 ```
 
 安装依赖：
-```
+```sh
 npm install
 ```
 
 而后，使用如下命令构建网站并预览：
 
-```
+```sh
 npm run generate
 npm run preview
 ```
 
-如果您需要测试剪贴板页面，请创建并修改 `.env` 文件或直接设置环境变量 `PASTE_API=http://localhost:2334`。对于 paste-server-rs 的部署请参考 [website-utils](https://github.com/AOSC-Dev/website-utils)。
-
 如果您需要测试 nginx 相关配置或在独立环境测试完整预览，请使用：
-```
+```sh
+docker compose down --volumes
 docker compose up --build
+```
+
+如果需要配合 `npm run dev` 命令单独测试剪贴板或搜索功能，请单独运行相关容器，例如：
+```sh
+# Search
+docker compose up meilisearch meilisearch-indexer meilisearch-keyupdater
+# Paste
+docker compose up paste-server-rs paste-server-db
 ```
 
 提交新闻

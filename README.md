@@ -35,30 +35,36 @@ backend is deployed to paste.aosc.io using [paste-server-rs](https://github.com/
 To test the website locally, you would need a Node.js + NPM toolchain. To
 install Node.js + NPM on AOSC OS:
 
-```
+```sh
 oma install nodejs
 ```
 
 Install dependencies:
-```
+```sh
 npm install
 ```
 
 Then, build and preview the website locally:
 
-```
+```sh
 npm run generate
 npm run preview
 ```
 
-If you need to test the paste page, please set `PASTE_API=http://localhost:2334`
-in your environmental variables or the `.env` file. For the deployment of
-paste-server-rs, please refer to [website-utils](https://github.com/AOSC-Dev/website-utils).
-
 If you need to test nginx related configuration or test the complete preview in
 an independent environment, please use:
-```
+```sh
+docker compose down --volumes
 docker compose up --build
+```
+
+If you need to test clipboard or search features separately with `npm run dev`,
+run the related containers individually, for example:
+```sh
+# Search
+docker compose up meilisearch meilisearch-indexer meilisearch-keyupdater
+# Paste
+docker compose up paste-server-rs paste-server-db
 ```
 
 Submitting news
