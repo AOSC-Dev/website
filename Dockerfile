@@ -21,7 +21,7 @@ ENV NUXT_PUBLIC_PASTE_API=$PASTE_API
 ARG MEILI_SEARCH_KEY
 ENV MEILI_SEARCH_KEY=$MEILI_SEARCH_KEY
 
-COPY --exclude=deploy . .
+COPY --exclude=deploy --exclude=scripts . .
 RUN npm run generate
 
 

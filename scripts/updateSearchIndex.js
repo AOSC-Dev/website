@@ -54,6 +54,11 @@ const meiliClient = new MeiliSearch({
   host: process.env.MEILI_HOST_URL ?? 'http://localhost:7700',
   apiKey: process.env.MEILI_UPDATE_KEY
 });
+
+const tmpIndex = `${MEILI_INDEX_NAME}-tmp`;
+console.log(await meiliClient.deleteIndexIfExists(tmpIndex));
+console.log(await meiliClient.createIndex(MEILI_INDEX_NAME));
+
 for (const locale of Object.values(nuxtI18nCodeMap)) {
   const searchSections = await generateSearchSections(fakeQueryBuilder(locale));
   const documents = searchSections.map((i) => ({
@@ -66,14 +71,19 @@ for (const locale of Object.values(nuxtI18nCodeMap)) {
     key: Buffer.from(i.id).toString('base64url'), // /[a-zA-Z0-9_-]/
     locale
   }));
+
   console.log(
     await meiliClient
-      .index(MEILI_INDEX_NAME)
+      .index(tmpIndex)
       .addDocuments(documents, { primaryKey: 'key' })
   );
   console.log(
     await meiliClient
-      .index(MEILI_INDEX_NAME)
+      .index(tmpIndex)
       .updateFilterableAttributes(['category', 'locale'])
   );
 }
+
+console.log(
+  await meiliClient.swapIndexes([{ indexes: [MEILI_INDEX_NAME, tmpIndex] }])
+);

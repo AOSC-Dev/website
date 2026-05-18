@@ -18,6 +18,7 @@ if [ -f .env ]; then
 fi
 
 MEILI_INDEX_NAME='website-content'
+MEILI_INDEX_NAME_TMP="$MEILI_INDEX_NAME-tmp"
 MEILI_HOST_URL="${MEILI_HOST_URL:-http://localhost:7700}"
 MEILI_MASTER_KEY="${MEILI_MASTER_KEY:?MEILI_MASTER_KEY is required}"
 MEILI_SEARCH_KEY_UID="${MEILI_SEARCH_KEY_UID:?MEILI_SEARCH_KEY_UID is required}"
@@ -73,7 +74,7 @@ echo "=== Creating/Checking Update Key ==="
 try_create_key \
   "Key to update website content index" \
   '["documents.add", "indexes.create", "indexes.swap", "indexes.delete", "settings.update"]' \
-  "[\"${MEILI_INDEX_NAME}\"]" \
+  "[\"${MEILI_INDEX_NAME}\",\"${MEILI_INDEX_NAME_TMP}\"]" \
   "${MEILI_UPDATE_KEY_UID}"
 
 echo ""
