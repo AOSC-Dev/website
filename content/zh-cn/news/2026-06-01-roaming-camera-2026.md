@@ -15,7 +15,7 @@ home: true
 
 如有兴趣参与，请于 6 月 15 日前填写报名表。
 
-请注意：“流浪相机”2026 期仅限社区项目、往期壁纸投稿贡献者，及上述贡献者信任的个人参与。
+**请注意：“流浪相机”2026 期仅限社区项目、往期壁纸投稿贡献者，及上述贡献者信任的个人参与。**
 
 [填写报名表 >>](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAMJMaANURjRKS0hJTUY0Q0tQVTdZN0MwNlRVRVgyVi4u)
 
