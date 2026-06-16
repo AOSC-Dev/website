@@ -7,6 +7,8 @@ important: true
 home: true
 ---
 
+![安同 OS 每周安全公告 (2026/6/16)）](/assets/news/cve-weekly-20260616.webp)
+
 在过去一周（2026 年 6 月 9 日至 2026 年 6 月 16 日），安同 OS 共发布了 10 个安全更新，包含针对 36 个安全漏洞的修复，其中 1 个被认定为严重 (Critical) 漏洞、14 个被认定为高危漏洞。
 
 本周的较为重要安全漏洞的有针对 gRPC ≤ 1.80.0 的授权绕过漏洞 ([CVE-2026-33186](https://www.cve.org/CVERecord?id=CVE-2026-33186)) 及 Clash Verge 服务 (IPC) 2.3.0 中的不必要权限执行漏洞（[CVE-2025-50505](https://www.cve.org/CVERecord?id=CVE-2025-50505) 变种，目前仅作了缓解，仍残留拒绝服务漏洞）。
