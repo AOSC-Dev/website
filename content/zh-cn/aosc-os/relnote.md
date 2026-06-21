@@ -44,7 +44,7 @@ title: 发行注记：2026 年 6 月
 
 ### 设备支持 — RISC-V（64 位）
 
-- 初步支持基于进迭时空 (SpacemiT K3) 的开发板，使用 [openRuyi-Project/k3firmware](https://github.com/openRuyi-Project/ k3firmware/releases/tag/20260611) 发布的 20260611 版固件可引导标准安装介质
+- 初步支持基于进迭时空 (SpacemiT K3) 的开发板，使用 [openRuyi-Project/k3firmware](https://github.com/openRuyi-Project/k3firmware/releases/tag/20260611) 发布的 20260611 版固件可引导标准安装介质
 
 关键组件更新
 ---
