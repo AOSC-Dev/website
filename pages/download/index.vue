@@ -537,7 +537,7 @@ if (recipeError || recipeI18nError) {
 /* These background styles are too complicated for inline tailwindcss */
 .aosc-os-container {
   background-image: url(/public/backgrounds/aosc-os.webp);
-  background-position: 0 -40px;
+  background-position-y: -700px;
   background-size: 2000px;
 }
 
