@@ -3,7 +3,9 @@ defineProps<{ year: number }>();
 </script>
 
 <template>
-  <div class="aoscc-banner-bg relative m-0! h-70 px-10 py-6 text-white">
+  <div
+    :class="`aoscc-banner-bg-${year}`"
+    class="relative m-0! px-10 py-6 text-white">
     <div class="absolute bottom-0 mb-10 ml-1 flex gap-4">
       <AosccLinkButton to="https://aoscc.aosc.io" target="_blank">
         报名与签到
@@ -23,8 +25,15 @@ defineProps<{ year: number }>();
 </template>
 
 <style scoped>
-.aoscc-banner-bg {
+.aoscc-banner-bg-2025 {
   background-image: url(/aoscc/aoscc-2025-portal-banner.png);
   background-size: 1088px;
+  height: calc(var(--spacing) * 70);
+}
+
+.aoscc-banner-bg-2026 {
+  background-image: url(/aoscc/aoscc-2026-portal-banner.png);
+  background-size: 1088px;
+  height: calc(var(--spacing) * 76);
 }
 </style>
