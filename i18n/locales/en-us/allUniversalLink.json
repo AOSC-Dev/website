@@ -204,6 +204,10 @@
             ],
             "url": "/l10n"
         },
+        "aoscc": {
+            "title": ["AOSCC"],
+            "url": "/aoscc"
+        },
         "news": {
             "title": [
                 "News",
