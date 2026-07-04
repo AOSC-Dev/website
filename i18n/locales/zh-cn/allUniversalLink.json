@@ -135,6 +135,10 @@
       "title": ["软件本地化"],
       "url": "/l10n"
     },
+    "aoscc": {
+      "title": ["AOSCC"],
+      "url": "/aoscc"
+    },
     "news": {
       "title": ["新闻资讯", "查阅最新社区资讯"],
       "url": "/news"

@@ -15,7 +15,8 @@ const getComp = computed(() => {
           localLink.afterglow,
           localLink.liblol,
           localLink.oma,
-          localLink.l10n
+          localLink.l10n,
+          localLink.aoscc
         ],
         show: true
       },
@@ -223,12 +224,14 @@ const backToTopBtnShow = ref(false);
     <Transition name="anim-button">
       <div
         v-show="backToTopBtnShow"
-        class="to-top-color mb-[1px] px-2 flex justify-between leading-8 text-white"
-        onclick="window.scrollTo({
+        class="to-top-color mb-[1px] flex justify-between px-2 leading-8 text-white"
+        onclick="
+          window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'smooth' 
-        })">
+            behavior: 'smooth'
+          })
+        ">
         <!-- <el-icon class="my-auto ml-4" size="20"><el-icon-top /></el-icon> -->
         <Icon name="bi:chevron-bar-up" size="20" class="my-auto" />
         <span>{{ $t('BarLeft.returnToTop') }}</span>
