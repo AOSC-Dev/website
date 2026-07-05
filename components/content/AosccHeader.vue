@@ -32,7 +32,7 @@ defineProps<{ year: number }>();
 }
 
 .aoscc-banner-bg-2026 {
-  background-image: url(/aoscc/aoscc-2026-portal-banner.png);
+  background-image: url(/aoscc/aoscc-2026-portal-banner.webp);
   background-size: 1088px;
   height: calc(var(--spacing) * 76);
 }
