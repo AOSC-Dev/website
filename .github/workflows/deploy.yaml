@@ -40,9 +40,9 @@ jobs:
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.IP }}
-          username: aosc
+          username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           source: "dist/*"
-          target: /home/aosc/web/website
+          target: www/website
           rm: true
           strip_components: 1
