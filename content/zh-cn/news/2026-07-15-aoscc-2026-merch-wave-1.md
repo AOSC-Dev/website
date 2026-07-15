@@ -42,5 +42,5 @@ home: true
 
 社区周边设计可公开获取：
 
-- 文化衫 (https://github.com/AOSC-Dev/aoscc/tree/master/2026/shirts)
-- 安安同同“通行证” (https://github.com/AOSC-Dev/aosc-mascots-pass)
+- [文化衫](https://github.com/AOSC-Dev/aoscc/tree/master/2026/shirts)
+- [安安同同“通行证”](https://github.com/AOSC-Dev/aosc-mascots-pass)
