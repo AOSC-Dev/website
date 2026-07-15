@@ -19,16 +19,27 @@ const columnBorderlessList = [
       <!-- 资讯要点 -->
       <div>
         <CategorySecond :title="t('index.newsHighlights')" />
-        <article>
+        <div>
           <CategoryList
             category="news"
-            :limit="10"
+            :limit="6"
             :filters="[{ key: 'home', value: 1 }]" />
           <div
             class="px-[15px] py-[10px] text-right leading-6 font-[12pt] text-link">
             <link-standard-test :title="t('index.viewNews')" url="/news" />
           </div>
-        </article>
+        </div>
+        <CategorySecond :title="$t('index.securityAdvisories')" />
+        <div>
+          <CategoryList
+            category="news"
+            :limit="4"
+            :filters="[{ key: 'path', value: '%patch-tuesday%' }]" />
+          <div
+            class="px-[15px] py-[10px] text-right leading-6 font-[12pt] text-link">
+            <link-standard-test :title="$t('index.viewSecurityAdvisories')" url="/news/list/advisories" />
+          </div>
+        </div>
       </div>
       <!-- 专栏 -->
       <div id="topic">

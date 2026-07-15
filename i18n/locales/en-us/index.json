@@ -1,25 +1,27 @@
 {
-    "specialColumns": [
-        {
-            "title": "Work Ready",
-            "description": "Built with out-of-the-box usability and easy maintenance in mind, AOSC OS is a ready-made toolbox for your everyday computing. From office productivity to server administration, photoediting to 3D modeling, note-taking to translation projects, AOSC OS has the right tools ready for you."
-        },
-        {
-            "title": "Application Ready",
-            "description": "The operating system's principal task is to help get your applications up and running and keeping your productivity on track. Apart from the software packages tested and shipped by yours truly, AOSC OS also supports installing applications from inter-distribution ecosystems such as Flatpak, Linyaps, and Snap, as well as distribution formats such as AppImage. Our Spiral project can also improve compatibility with applications built for Debian and Ubuntu."
-        },
-        {
-            "title": "Administrator Ready",
-            "description": "From installation to system updates, from component management to routine maintenance, AOSC OS comes pre-installed with many easy-to-use administrative utilities to help you out. The oma package manager comes with a clear and user-friendly interface, empowering low-risk, efficient, and reliable system management."
-        },
-        {
-            "title": "You Ready",
-            "description": "At AOSC, we pride ourselves with friendly and ready support for our users. We believe that our users should be respected of their time and energy spent on adapting to a new work environment. Community is also where information flows: At our community chat groups, our maintainers, contributors, and friends are ready to offer help."
-        }
-    ],
-    "title": "Community Portal",
-    "newsHighlights": "News",
-    "viewNews": "More Latest News >>",
-    "aoscRightForMe": "Please Visit: Is AOSC OS Right for Me?",
-    "indexSpecialTitle": "Meet AOSC OS"
+  "specialColumns": [
+    {
+      "title": "Work Ready",
+      "description": "Built with out-of-the-box usability and easy maintenance in mind, AOSC OS is a ready-made toolbox for your everyday computing. From office productivity to server administration, photoediting to 3D modeling, note-taking to translation projects, AOSC OS has the right tools ready for you."
+    },
+    {
+      "title": "Application Ready",
+      "description": "The operating system's principal task is to help get your applications up and running and keeping your productivity on track. Apart from the software packages tested and shipped by yours truly, AOSC OS also supports installing applications from inter-distribution ecosystems such as Flatpak, Linyaps, and Snap, as well as distribution formats such as AppImage. Our Spiral project can also improve compatibility with applications built for Debian and Ubuntu."
+    },
+    {
+      "title": "Administrator Ready",
+      "description": "From installation to system updates, from component management to routine maintenance, AOSC OS comes pre-installed with many easy-to-use administrative utilities to help you out. The oma package manager comes with a clear and user-friendly interface, empowering low-risk, efficient, and reliable system management."
+    },
+    {
+      "title": "You Ready",
+      "description": "At AOSC, we pride ourselves with friendly and ready support for our users. We believe that our users should be respected of their time and energy spent on adapting to a new work environment. Community is also where information flows: At our community chat groups, our maintainers, contributors, and friends are ready to offer help."
+    }
+  ],
+  "title": "Community Portal",
+  "newsHighlights": "News",
+  "viewNews": "More Latest News >>",
+  "aoscRightForMe": "Please Visit: Is AOSC OS Right for Me?",
+  "indexSpecialTitle": "Meet AOSC OS",
+  "securityAdvisories": "Security Advisories",
+  "viewSecurityAdvisories": "View all advisories >>"
 }
