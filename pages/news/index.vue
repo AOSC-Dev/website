@@ -11,7 +11,8 @@ useHead({
           { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingAdvisories'), href: '/news/feed/advisories.xml' },
           { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingNews'), href: '/news/feed/news.xml' },
           { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingPeriodicals'), href: '/news/feed/journals.xml' },
-          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMinutes'), href: '/news/feed/minutes.xml' }
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingMinutes'), href: '/news/feed/minutes.xml' },
+          { rel: 'alternate', type: 'application/rss+xml', title: t('news.index.headingSecurity'), href: '/news/feed/security.xml' },
         ]
       : []
 });
@@ -47,17 +48,18 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
         :filters="filters('news')"
         class="theme-border-secondary overflow-y-auto border-l-[1px]" />
     </div>
+
     <div>
       <category-second
-        :title="t('news.index.headingPeriodicals')"
-        rss-url="/news/feed/journals.xml"
+        :title="$t('news.index.headingSecurity')"
+        rss-url="/news/feed/security.xml"
         :right-text="t('news.index.seeAll')"
-        right-url="/news/list/journals"
+        right-url="/news/list/security"
         :show-right-chevron="true" />
       <category-list
         category="news"
         :limit="newsLimit"
-        :filters="filters('journals')"
+        :filters="filters('security')"
         class="overflow-y-auto" />
     </div>
 
@@ -74,6 +76,20 @@ const filters = (newsCategory) => [{ key: 'categories', value: `%"${newsCategory
         :limit="newsLimit"
         :filters="filters('minutes')"
         class="theme-border-secondary overflow-y-auto border-l-[1px]" />
+    </div>
+
+    <div>
+      <category-second
+        :title="t('news.index.headingPeriodicals')"
+        rss-url="/news/feed/journals.xml"
+        :right-text="t('news.index.seeAll')"
+        right-url="/news/list/journals"
+        :show-right-chevron="true" />
+      <category-list
+        category="news"
+        :limit="newsLimit"
+        :filters="filters('journals')"
+        class="overflow-y-auto" />
     </div>
   </div>
 </template>

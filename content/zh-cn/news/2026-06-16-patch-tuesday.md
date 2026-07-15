@@ -1,6 +1,6 @@
 ---
 categories:
-  - advisories
+  - security
 title: "安同 OS 每周安全公告 (2026/6/16)"
 date: 2026-06-16T15:00:00+08:00
 important: true
