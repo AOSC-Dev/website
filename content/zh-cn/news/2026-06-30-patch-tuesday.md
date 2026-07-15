@@ -4,7 +4,7 @@ categories:
 title: "安同 OS 每周安全公告 (2026/6/30)"
 date: 2026-06-30T21:20:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![安同 OS 每周安全公告 (2026/6/30)）](/assets/news/cve-weekly-20260630.webp)
