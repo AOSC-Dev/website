@@ -119,7 +119,8 @@ export default defineNuxtConfig({
         '/news/feed/advisories.xml',
         '/news/feed/news.xml',
         '/news/feed/journals.xml',
-        '/news/feed/minutes.xml'
+        '/news/feed/minutes.xml',
+        '/news/feed/security.xml'
       ]
     }
   },

@@ -8,6 +8,8 @@ const columnBorderlessList = [
   '/icons/tools-wizard.min.svg',
   '/icons/love.min.svg'
 ];
+
+const securityFilter = [{ key: 'categories', value: '%"security"%' }];
 </script>
 
 <template>
@@ -29,15 +31,14 @@ const columnBorderlessList = [
             <link-standard-test :title="t('index.viewNews')" url="/news" />
           </div>
         </div>
-        <CategorySecond :title="$t('index.securityAdvisories')" />
+        <CategorySecond :title="$t('news.index.headingSecurity')" />
         <div>
-          <CategoryList
-            category="news"
-            :limit="4"
-            :filters="[{ key: 'path', value: '%patch-tuesday%' }]" />
+          <CategoryList category="news" :limit="4" :filters="securityFilter" />
           <div
             class="px-[15px] py-[10px] text-right leading-6 font-[12pt] text-link">
-            <link-standard-test :title="$t('index.viewSecurityAdvisories')" url="/news/list/advisories" />
+            <link-standard-test
+              :title="$t('index.viewSecurity')"
+              url="/news/list/advisories" />
           </div>
         </div>
       </div>

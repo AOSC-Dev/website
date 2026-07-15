@@ -10,6 +10,7 @@ const RSS_ALLOWED_CATEGORIES = [
   'news',
   'journals',
   'minutes',
+  'security',
   'all'
 ] as const;
 
@@ -34,6 +35,10 @@ const RSS_CATEGORY_META: Record<
     minutes: {
       title: '安同社区 - 贡献者例会纪要',
       description: 'AOSC 社区门户贡献者例会纪要 RSS 订阅源'
+    },
+    security: {
+      title: '安同社区 - 安全公告',
+      description: 'AOSC 社区门户安全公告 RSS 订阅源'
     },
     all: {
       title: '安同社区 - 资讯订阅',
