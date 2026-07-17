@@ -12,6 +12,8 @@ const title = computed(() => {
       return t('news.index.headingPeriodicals');
     case 'minutes':
       return t('news.index.headingMinutes');
+    case 'security':
+      return t('news.index.headingSecurity')
     default:
       return '';
   }

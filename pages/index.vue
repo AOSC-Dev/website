@@ -38,7 +38,7 @@ const securityFilter = [{ key: 'categories', value: '%"security"%' }];
             class="px-[15px] py-[10px] text-right leading-6 font-[12pt] text-link">
             <link-standard-test
               :title="$t('index.viewSecurity')"
-              url="/news/list/advisories" />
+              url="/news/list/security" />
           </div>
         </div>
       </div>
