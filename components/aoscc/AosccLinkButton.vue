@@ -11,8 +11,8 @@ const props = defineProps({
 });
 
 const buttonClass = computed(() => {
-  if (props.variant === 'blue') {
-    return 'aoscc-btn-blue';
+  if (props.variant === 'green') {
+    return 'aoscc-btn-green';
   }
   return 'theme-bg-color-secondary-primary';
 });
@@ -39,12 +39,12 @@ const buttonClass = computed(() => {
   border-block-end: unset !important;
 }
 
-.aoscc-btn-blue {
-  background-color: #2563eb !important;
+.aoscc-btn-green {
+  background-color: #16a34a !important;
   transition: background-color 0.2s ease;
 }
 
-.aoscc-btn-blue:hover {
-  background-color: #1d4ed8 !important;
+.aoscc-btn-green:hover {
+  background-color: #15803d !important;
 }
 </style>

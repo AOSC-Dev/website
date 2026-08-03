@@ -7,7 +7,7 @@ defineProps<{ year: number }>();
     :class="`aoscc-banner-bg-${year}`"
     class="relative m-0! px-10 py-6 text-white">
     <div class="absolute bottom-0 mb-10 ml-1 flex gap-4">
-      <AosccLinkButton to="https://aoscc.aosc.io" target="_blank" variant="blue">
+      <AosccLinkButton to="https://aoscc.aosc.io" target="_blank" variant="green">
         报名与签到
       </AosccLinkButton>
       <AosccLinkButton :to="`/aoscc/${year}`">活动简介</AosccLinkButton>
