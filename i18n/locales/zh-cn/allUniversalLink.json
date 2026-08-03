@@ -139,6 +139,10 @@
       "title": ["AOSCC"],
       "url": "/aoscc"
     },
+    "aosccReport": {
+      "title": ["年度工作报告（大纲）"],
+      "url": "/2026-report"
+    },
     "news": {
       "title": ["新闻资讯", "查阅最新社区资讯"],
       "url": "/news"

@@ -11,7 +11,8 @@ const getComp = computed(() => {
       {
         title: t('BarLeft.aoscc'),
         children: [
-          localLink.aoscc
+          localLink.aoscc,
+          localLink.aosccReport
         ],
         show: true
       },

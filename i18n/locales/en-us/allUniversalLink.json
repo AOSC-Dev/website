@@ -208,6 +208,10 @@
             "title": ["AOSCC"],
             "url": "/aoscc"
         },
+        "aosccReport": {
+            "title": ["Annual Report Outline"],
+            "url": "/2026-report"
+        },
         "news": {
             "title": [
                 "News",
