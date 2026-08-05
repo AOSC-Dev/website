@@ -2,6 +2,9 @@
 title: AOSCC 2026 会议日程
 ---
 
+::AosccHeader{:year=2026}
+::
+
 ## 会议日程
 
 AOSCC 2026 为期两日，具体日程如下。
