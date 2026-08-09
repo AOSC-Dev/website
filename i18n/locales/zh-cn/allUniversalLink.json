@@ -136,8 +136,20 @@
       "url": "/l10n"
     },
     "aoscc": {
-      "title": ["AOSCC"],
-      "url": "/aoscc"
+      "title": ["AOSCC 活动介绍"],
+      "url": "/aoscc/2026"
+    },
+    "aosccSchedule": {
+      "title": ["会议日程"],
+      "url": "/aoscc/2026-schedule"
+    },
+    "aosccTourGuide": {
+      "title": ["交通、住宿与餐饮"],
+      "url": "/aoscc/2026-guide"
+    },
+    "aosccReport": {
+      "title": ["年度工作报告大纲"],
+      "url": "/aoscc/2026-report"
     },
     "news": {
       "title": ["新闻资讯", "查阅最新社区资讯"],

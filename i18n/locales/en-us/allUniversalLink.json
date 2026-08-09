@@ -205,8 +205,20 @@
             "url": "/l10n"
         },
         "aoscc": {
-            "title": ["AOSCC"],
-            "url": "/aoscc"
+            "title": ["Introduction to AOSCC"],
+            "url": "/aoscc/2026"
+        },
+        "aosccSchedule": {
+            "title": ["Conference Schedule"],
+            "url": "/aoscc/2026-schedule"
+        },
+        "aosccTourGuide": {
+            "title": ["Transportation, Accommodation, and Dining"],
+            "url": "/aoscc/2026-guide"
+        },
+        "aosccReport": {
+            "title": ["Annual Work Report Outline"],
+            "url": "/aoscc/2026-report"
         },
         "news": {
             "title": [
