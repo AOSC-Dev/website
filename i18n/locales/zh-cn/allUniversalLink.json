@@ -136,7 +136,7 @@
       "url": "/l10n"
     },
     "aoscc": {
-      "title": ["AOSCC 活动介绍"],
+      "title": ["活动概览"],
       "url": "/aoscc/2026"
     },
     "aosccSchedule": {
@@ -144,11 +144,11 @@
       "url": "/aoscc/2026-schedule"
     },
     "aosccTourGuide": {
-      "title": ["交通、住宿与餐饮"],
+      "title": ["来访指南"],
       "url": "/aoscc/2026-guide"
     },
     "aosccReport": {
-      "title": ["年度工作报告大纲"],
+      "title": ["年度报告"],
       "url": "/aoscc/2026-report"
     },
     "news": {
