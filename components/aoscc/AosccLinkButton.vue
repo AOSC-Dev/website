@@ -17,7 +17,7 @@ const props = defineProps({ ...AppLink.props });
 }
 
 .override-heti:hover {
-  padding-block-end: unset !important;
+  padding-block-end: calc(var(--spacing) * 2) !important; /* py-2 */
   border-block-end: unset !important;
 }
 </style>
