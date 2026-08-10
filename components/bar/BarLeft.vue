@@ -277,10 +277,9 @@ const backToTopBtnShow = ref(false);
                 :index="`${index}-${index2}`"
                 class="my-el-menu-item"
                 :class="{
-                  'my-el-menu-item-hover': route.path
-                    .replace(/\/+$/, '')
-                    .trim()
-                    .startsWith(item2.url.trim())
+                  'my-el-menu-item-hover': (
+                    route.path.replace(/\/+$/, '').trim() + '/'
+                  ).startsWith(item2.url.trim() + '/')
                 }">
                 {{ getSpecifiedTitle(item2) }}
               </el-menu-item>
