@@ -7,13 +7,21 @@ defineProps<{ year: number }>();
     :class="`aoscc-banner-bg-${year}`"
     class="relative m-0! px-10 py-6 text-white">
     <div class="absolute bottom-0 mb-10 ml-1 flex gap-4">
-      <AosccLinkButton to="https://aoscc.aosc.io" target="_blank">
-        报名与签到
+      <AosccLinkButton
+        to="https://aoscc.aosc.io"
+        target="_blank"
+        class="flex items-center gap-2">
+        <span>报名与签到</span>
+        <Icon name="material-symbols:open-in-new" />
       </AosccLinkButton>
-      <AosccLinkButton :to="`/aoscc/${year}-schedule`">
-        会议日程
-      </AosccLinkButton>
-      <AosccLinkButton :to="`/aoscc/${year}-guide`">交通和住宿</AosccLinkButton>
+      <template v-if="year === 2025">
+        <AosccLinkButton :to="`/aoscc/${year}-schedule`">
+          会议日程
+        </AosccLinkButton>
+        <AosccLinkButton :to="`/aoscc/${year}-guide`">
+          交通和住宿
+        </AosccLinkButton>
+      </template>
     </div>
   </div>
   <ProseH2 id="aoscc-intro" class="mt-0!">AOSCC 简介</ProseH2>
