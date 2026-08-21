@@ -18,7 +18,7 @@
     },
     "aoscPackagesSite": {
         "title": [
-            "Query information on AOSC OS packages",
+            "Packages",
             "AOSC OS Packages"
         ],
         "url": "https://packages.aosc.io/"
@@ -55,13 +55,13 @@
     },
     "reportSecurityIssuse": {
         "title": [
-            "Report a security vulnerability"
+            "Report vulnerabilities"
         ],
         "url": "https://github.com/AOSC-Dev/aosc-os-abbs/issues/new?assignees=&labels=security&projects=&template=security-vulnerabilities-report.yml"
     },
     "howToMirror": {
         "title": [
-            "Support information repository mirroring"
+            "Repository mirrors"
         ],
         "url": "https://wiki.aosc.io/zh/developer/infrastructure/knowledge-base/00002-how-to-mirror/"
     },
@@ -158,7 +158,7 @@
                 "community chat groups",
                 "Contact Us",
                 "Community chat groups",
-                "Report a issue with our system distribution",
+                "Report issues",
                 "Contact Us"
             ],
             "url": "/contact",
@@ -236,7 +236,7 @@
         "events": {
             "title": [
                 "Community Events",
-                "See the latest community events",
+                "Community events",
                 "AOSCC - Annual Community Gathering",
                 "AOSC @ Campuses",
                 "SpringCon",
@@ -253,7 +253,7 @@
         "internship": {
             "title": [
                 "Internships",
-                "See the latest internship opportunities and to-do items",
+                "Internships and to-dos",
                 "Help Wanted",
                 "Internships: OSPP"
             ],
@@ -272,7 +272,7 @@
         "crowdsourcing": {
             "title": [
                 "Crowdsourcing",
-                "Donate hardware or services"
+                "Donate"
             ],
             "url": "/crowdsourcing"
         },
@@ -299,7 +299,7 @@
         "paste": {
             "title": [
                 "Pastebin",
-                "Make a public paste"
+                "Make pastes"
             ],
             "url": "/paste"
         }
