@@ -4,7 +4,7 @@ categories:
 title: "AOSCC 2026 与会者注册已达限额及候补说明"
 date: 2026-07-06T11:15:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![8 月 15-16 日：杭电见！](/assets/news/aoscc-2026-banner-announcement.webp)

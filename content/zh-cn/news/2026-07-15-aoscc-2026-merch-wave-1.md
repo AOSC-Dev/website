@@ -4,7 +4,7 @@ categories:
 title: "AOSCC 2026 周边开催之：文化衫及安安同同“通行证”"
 date: 2026-07-15T22:00:00+08:00
 important: true
-home: true
+home: false
 ---
 
 ![AOSCC 2026 周边开催之：文化衫及安安同同“通行证”](/assets/news/aoscc-2026-merch-poster.webp)
