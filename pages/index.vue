@@ -15,8 +15,8 @@ const securityFilter = [{ key: 'categories', value: '%"security"%' }];
 <template>
   <div class="flex">
     <div class="w-[62.5%] bg-content-main-bg p-0">
-      <app-link to="/aoscc/2026" class="flex w-full">
-        <img class="imgScale1 w-full" src="/jumbotron/main1.webp" />
+      <app-link to="/download#aosc-os-download" class="flex w-full">
+        <img class="imgScale1 w-full" src="/jumbotron/main1.svg" />
       </app-link>
       <!-- 资讯要点 -->
       <div>
