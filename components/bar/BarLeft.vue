@@ -9,23 +9,14 @@ const getComp = computed(() => {
   return [
     [
       {
-        title: t('BarLeft.aoscc'),
-        children: [
-          localLink.aoscc,
-          localLink.aosccSchedule,
-          localLink.aosccTourGuide,
-          localLink.aosccReport
-        ],
-        show: true
-      },
-      {
         title: t('BarLeft.projects'),
         children: [
           localLink.aoscOs,
           localLink.afterglow,
           localLink.liblol,
           localLink.oma,
-          localLink.l10n
+          localLink.l10n,
+          localLink.aoscc
         ],
         show: true
       },
