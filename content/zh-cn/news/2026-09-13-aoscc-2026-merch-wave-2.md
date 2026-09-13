@@ -24,7 +24,6 @@ home: true
 - [“A1”文化衫](https://pages.goofish.com/item?id=1067996560516)：60.96 元
 - [“Copy Fail”文化衫](https://pages.goofish.com/item?id=1067996840261)：52.83 元
 - [“野兽之年”文化衫](https://pages.goofish.com/item?id=1066024794093)：54.86 元
-- [安安同同“通行证”](https://pages.goofish.com/item?id=1067047097170)：7.11 元
 
 以上定价均包含 1.6% 的闲鱼“鱼小铺”软件服务费。
 
