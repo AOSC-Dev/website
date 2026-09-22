@@ -7,7 +7,7 @@ important: true
 home: false
 ---
 
-![安同 OS 每周安全公告 (2026/9/8)](/assets/news/cve-weekly-20260908.webp)
+![安同 OS 每周安全公告 (2026/9/15)](/assets/news/cve-weekly-20260915.webp)
 
 在过去一周（2026 年 9 月 8 日至 2026 年 9 月 15 日），安同 OS 维护者共发布了 6 个安全更新，包含针对 37 个安全漏洞的修复，其中 3 个被认定为严重 (Critical) 漏洞，13 个被认定为高危漏洞。
 
