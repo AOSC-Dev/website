@@ -7,7 +7,7 @@ important: true
 home: true
 ---
 
-![杂货铺主页](/asset/news/merch-store-home.webp)
+![「安同杂货店」主页](/assets/news/merch-store-home.webp)
 
 经过一个多月的筹备，我们在微店上线了「安同杂货店」，替代先前使用的闲鱼店铺作为社区周边的通贩和预售渠道。
 
@@ -40,7 +40,9 @@ home: true
 关于营业执照
 ---
 
-[![微店运营实体“古田县安同开放互联网设计工作室（个体工商户）”的营业执照](/assets/news/merch-store-permit.webp)](/assets/news/merch-store-permit.orig.jpg)
+![微店运营实体“古田县安同开放互联网设计工作室（个体工商户）”的营业执照](/assets/news/merch-store-permit.webp)]
+
+> 营业执照的高清原图请[点此下载](https://repo.aosc.io/aosc-documentation/merch-store/merch-store-permit-20260927.orig.jpg)（含水印）
 
 进入微店后，您可能发现「安同杂货店」具有“企业店铺”标识。
 
