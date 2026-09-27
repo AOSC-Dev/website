@@ -40,7 +40,7 @@ home: true
 关于营业执照
 ---
 
-![微店运营实体“古田县安同开放互联网设计工作室（个体工商户）”的营业执照](/assets/news/merch-store-permit.webp)]
+![微店运营实体“古田县安同开放互联网设计工作室（个体工商户）”的营业执照](/assets/news/merch-store-permit.webp)
 
 > 营业执照的高清原图请[点此下载](https://repo.aosc.io/aosc-documentation/merch-store/merch-store-permit-20260927.orig.jpg)（含水印）
 
