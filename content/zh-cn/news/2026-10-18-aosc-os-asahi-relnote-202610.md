@@ -27,4 +27,4 @@ home: true
 
 更新系统后，您只须在登录系统时在屏幕左下角选择“Plasma (Wayland)”，然后正常登录即可。X11 相关组件和会话仍会正常保留，并且您每次在登录时手动选择的会话依然会记录为下次的默认选项。
 
-[系统下载](https://aosc.io/download#aosc-os-download)｜[发行注记](https://aosc.io/aosc-os/asahi/relnote)
+[系统下载](/download#aosc-os-apple-silicon-download)｜[发行注记](/aosc-os/asahi/relnote)

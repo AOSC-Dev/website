@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 /** Mainly used for scrolling to elements in async components */
 export const useScrollStore = defineStore('scroll', {
@@ -14,10 +14,16 @@ export const useScrollStore = defineStore('scroll', {
     },
 
     /** Try to scroll to the hash if it exists, set pendingHash if it doesn't */
-    scrollOrSet(hash: string) {
-      if (!hash) return;
-      this.setPendingHash(hash);
-      if (document.getElementById(this.pendingHash)) this.scrollAndClear();
+    scrollOrSet(to_path: string, to_hash: string) {
+      if (!to_hash) return;
+      this.setPendingHash(to_hash);
+      // It's possible that when the scrollBehavior is triggered the page has
+      // not yet changed so checking current path is necessary.
+      if (
+        useRoute().path === to_path &&
+        document.getElementById(this.pendingHash)
+      )
+        this.scrollAndClear();
     },
 
     /**
@@ -35,5 +41,3 @@ export const useScrollStore = defineStore('scroll', {
     }
   }
 });
-
-
