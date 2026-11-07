@@ -1,8 +1,8 @@
 ---
-title: 发行注记：2026 年 10 月
+title: 发行注记：2026 年 10 月（修订 1）
 ---
 
-本次发布的安同 OS 系统安装介质包含至 2026 年 10 月 17 日止的各类系统组件更新及安全修复。除常规更新外，2026 年 10 月发行更新将安同 OS 核心包 (Core) 升级至 14.0.0，包含 GCC 16.2.0 及 glibc 2.44。本次更新的另一重要组件是 KDE Plasma 6.7.5 桌面环境，取代了先前使用的 KDE Plasma 5 桌面，并增强了部分默认配置。
+本次发布的安同 OS 系统安装介质包含至 2026 年 11 月 7 日止的各类系统组件更新及安全修复。除常规更新外，2026 年 10 月发行更新将安同 OS 核心包 (Core) 升级至 14.0.1，包含 GCC 16.2.0 及 glibc 2.44。本次更新的另一重要组件是 KDE Plasma 6.7.5 桌面环境，取代了先前使用的 KDE Plasma 5 桌面，并增强了部分默认配置。
 
 硬件支持方面，本版通过更新 Linux 内核、设备固件等，增强了对新老设备的兼容性。2026 年 10 月发行更新修复了龙芯 3A6000/3B6000M 笔记本触摸板不可用或操作不流畅的问题，规避了卓怡恒通 NL60R 等龙芯 3B6000M 笔记本睡眠唤醒时背光不开启的问题，并改善了部分搭载老旧固件的 2K3000/3B6000M 板卡 eMMC 不可用的问题。x86-64 方面，本版修复了 GPD Pocket 4 系列所有型号的屏幕朝向不正确及搭载瀚天鑫 (Hantick) 5288 触摸板设备频繁播报输入数据错误的问题。
 
@@ -40,16 +40,23 @@ title: 发行注记：2026 年 10 月
 
 本次系统发行更新包含许多组件更新，其中较为关键的更新及修复有：
 
-- 更新安同 OS 核心包 (Core) 至 14.0.0，包含 GCC 16.2.0 及 glibc 2.44，并重新开启基于 GNU Indirect Function 的运行时最优函数实现探测功能，可提高部分平台的运行性能
-- 更新小熊猫包管理 (oma) 至 1.28.0，包含全新历史 (oma history) 及撤销 (oma undo) 界面及命令缺失 (command-not-found) 提示、D-Bus 服务 [amo](https://github.com/AOSC-Dev/amo) 加速的搜索及未知命令提示及多软件源并行下载支持，并进一步增强了与 APT 行为的兼容性
+- 更新安同 OS 核心包 (Core) 至 14.0.1，包含 GCC 16.2.0 及 glibc 2.44，并重新开启基于 GNU Indirect Function 的运行时最优函数实现探测功能，可提高部分平台的运行性能
+    - <b>【修订 1 (2026/11/07) 】</b>修复 glibc 中的 1 个路径遍历 (Path Traversal) 漏洞（漏洞编号 [CVE-2026-84243](https://www.cve.org/CVERecord?id=CVE-2026-84243)，严重性：高）
+- 更新小熊猫包管理 (oma) 至 1.28.3，包含全新历史 (oma history) 及撤销 (oma undo) 界面及命令缺失 (command-not-found) 提示、D-Bus 服务 [amo](https://github.com/AOSC-Dev/amo) 加速的搜索及未知命令提示及多软件源并行下载支持，并进一步增强了与 APT 行为的兼容性
 - 更新 KDE Plasma 桌面环境至 6.7.5，含 KDE Plasma 5 以来数年引入的新特性、修复和设计改良，新增应用菜单拼音搜索功能、图形化系统更新界面 (`plasma-aosc-updates`)，并优化默认配置，详情请见[《安同 OS：KDE 6 更新须知》](/news/2026-10-11-kde-6.7-update-notes)
-- 更新 Firefox 及 Thunderbird 至 158.0，修复了多个严重及高危漏洞，并开启了基于性能剖析的优化 (Profile-Guided Optimization)，可提高排版渲染性能
+    - <b>【修订 1 (2026/11/07) 】</b>修正无法启用 KNewStuff 插件安装入口（“获取新…”）按钮的问题
+- 更新 Firefox 及 Thunderbird 至 159.0，修复了多个严重及高危漏洞，并开启了基于性能剖析的优化 (Profile-Guided Optimization)，可提高排版渲染性能
 - 修复系统各类组件中存在的逾千个安全漏洞，其中含百余个严重 (Critical) 及数百个高危漏洞
+    - <b>【修订 1 (2026/11/07) 】</b>吊销 eMudhra emSign Root CA - C1/G3 及 emSign ECC Root CA - C3 证书
+    - <b>【修订 1 (2026/11/07) 】</b>更新 APT 至 3.2.1，修复 3 个安全漏洞，含 1 个严重文件校验绕过漏洞（漏洞编号 [CVE-2026-109518](https://www.cve.org/CVERecord?id=CVE-2026-109518)，严重性：严重）
+    - <b>【修订 1 (2026/11/07) 】</b>更新 Pillow 至 13.0.0，修复 39 个安全漏洞（含 2 个严重漏洞、13 个高危漏洞、21 个中危漏洞和 3 个低危漏洞）
+    - <b>【修订 1 (2026/11/07) 】</b>修复 Shadow 附带的用户管理程序（`useradd`、`userdel` 及 `usermod`）被错误设置 SUID 位，导致本地提权风险的问题
+    - <b>【修订 1 (2026/11/07) 】</b>修复任何本地用户均可写入 Screen 终端的漏洞 ([CVE-2025-46803](https://www.cve.org/CVERecord?id=CVE-2025-46803))
 - 更新 Mesa 至 26.1.5，改善新老显卡的兼容性
 - 更新 Perl 至 5.42.2，取代先前已失去维护的 Perl 5.36，并更新所有 Perl 模块和绑定
 - 更新 libLoL 至 0.1.12（仅龙架构），解决蓝信等开启 Electron seccomp 沙箱的 ABI 1.0 程序无法启动的问题
 - 更新 Memtest86+ 至 9.00，引入实验性 AArch64 支持，改善了内存模块/颗粒信息探测功能，并增强了对 x86-64 及龙架构向量指令集的使用力度，进而增强压测效果
-- 更新 IANA 时区数据至 2026c，包含今年生效的针对摩洛哥、加拿大阿尔伯塔省及英属哥伦比亚省等国家和地区的时区变动
+- 更新 IANA 时区数据至 2026e，包含今年生效的针对摩洛哥、加拿大阿尔伯塔省、英属哥伦比亚省及马尼托巴省等国家和地区的时区变动
 - 更新安同 OS 软件源数据包至 20261013，新增 Loongfans.RU 开源镜像站（俄罗斯）镜像
 - 使用 7-Zip 替代 p7zip，引入新功能并修复大量安全问题
 - 使用 power-profiles-daemon 取代先前组合使用的 PowerTOP 及 TLP 作为电源模式控制程序，简化管理方式且可从 KDE Plasma 桌面的系统托盘调整电源模式
@@ -72,6 +79,7 @@ title: 发行注记：2026 年 10 月
 
 本次更新还包含针对安装盘功能及安装体验的一系列修缮：
 
+- <b>【修订 1 (2026/11/07) 】</b>修复安装程序后端 ([deploykit-backend](https://github.com/AOSC-Dev/deploykit-backend)) 写入的日志中包含敏感信息 (Insertion of Sensitive Information into Log File) 的问题，漏洞编号 [GHSA-283w-2mpw-xqfx](https://github.com/AOSC-Dev/deploykit-backend/security/advisories/GHSA-283w-2mpw-xqfx)（CVE 编号待定，严重性：高）
 - 修复安装后的系统中用户记录文件 (`/etc/passwd`) 未包含文件末换行，导致 `useradd` 等命令报错的问题
 - 规避微星 MAG B660M MORTAR DDR4 在安装系统后引导不可用的问题
 - 更换救援与恢复环境默认壁纸为[来自 Cyanoxygen 的 2026H1 投稿《小山傍大山 I》](https://bbs.aosc.io/uploads/default/original/1X/55bbda890cb90a43e026d5713bff8cb12a1736f1.jpeg)
