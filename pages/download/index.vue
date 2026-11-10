@@ -351,7 +351,7 @@ if (recipeError || recipeI18nError) {
     recipe.value.mirrors.map((mirror) => ({
       name: recipeI18n.value['zh-CN'][mirror['name-tr']],
       loc: recipeI18n.value['zh-CN'][mirror['loc-tr']],
-      url: mirror.url
+      url: mirror.url + 'aosc-os/'
     }))
   );
 }
