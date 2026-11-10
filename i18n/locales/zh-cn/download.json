@@ -23,11 +23,6 @@
         "name": "官方软件源",
         "loc": "自动",
         "url": "https://releases.aosc.io/"
-      },
-      {
-        "name": "校园网联合镜像站",
-        "loc": "自动",
-        "url": "https://mirrors.cernet.edu.cn/anthon/aosc-os/"
       }
     ],
     "downloadErrors": {
