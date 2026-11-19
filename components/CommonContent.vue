@@ -1,14 +1,11 @@
 <script lang="ts" setup>
 import { textContent } from 'minimark'; // Nuxt Content v3 依赖
-import { useScrollStore } from '~/stores/scroll';
 import { queryCollectionLocale } from '~/utils/content';
 
 const props = defineProps<{ path?: string }>();
 
 const route = useRoute();
 const { locale, defaultLocale, t } = useI18n();
-const scrollStore = useScrollStore();
-const contentRef = useTemplateRef('contentRef');
 
 const contentPath = computed(() => {
   if (props.path) return props.path;
@@ -71,10 +68,6 @@ const { data: page, error } = await useAsyncData(
 useHead({ title: page.value?.title });
 
 if (error.value) throw error.value;
-
-watch(contentRef, () => {
-  if (route.hash) scrollStore.scrollAndClear();
-});
 </script>
 
 <template>

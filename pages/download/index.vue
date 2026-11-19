@@ -7,33 +7,7 @@ const linkValue = tm('allUniversalLink');
 const localLink = linkValue.local;
 const runtimeConfig = useRuntimeConfig();
 const releasesBaseUrl = runtimeConfig.public.releasesBaseUrl;
-const route = useRoute();
 useHead({ title: t('download.index.title') });
-// #endregion
-
-// #region Highlight
-const aoscOsRef = useTemplateRef('aoscOsDownload');
-const otherRef = useTemplateRef('otherDownload');
-const afterglowRef = useTemplateRef('afterglowDownload');
-const omaRef = useTemplateRef('omaDownload');
-
-const switchHash = () => {
-  switch (route.hash) {
-    case '#aosc-os-download':
-      highlightElement(aoscOsRef);
-      break;
-    case '#otherDownload':
-      highlightElement(otherRef);
-      break;
-    case '#afterglow-download':
-      highlightElement(afterglowRef);
-      break;
-    case '#oma-download':
-      highlightElement(omaRef);
-      break;
-  }
-};
-useHighlightWatch(switchHash);
 // #endregion
 
 // #region remote
@@ -281,11 +255,15 @@ const omaInstallScriptTermux = 'pkg install oma';
 
 // #region Fetch
 // Installer
-const fetchConfig = {retry: 5, retryDelay: 0x8d}
-const { data, error } = await useAsyncData('download-data', () => Promise.all([
+const fetchConfig = { retry: 5, retryDelay: 0x8d };
+const { data, error } = await useAsyncData('download-data', () =>
+  Promise.all([
     // This file is named livekit but contains installer info
     $fetch(releasesBaseUrl + '/manifest/livekit.json', fetchConfig),
-    $fetch(releasesBaseUrl + '/os-arm64/asahi/installer_data.json', fetchConfig),
+    $fetch(
+      releasesBaseUrl + '/os-arm64/asahi/installer_data.json',
+      fetchConfig
+    ),
     $fetch('https://packages.aosc.io/packages/oma?type=json', fetchConfig),
     $fetch(releasesBaseUrl + '/manifest/recipe.json', fetchConfig),
     $fetch(releasesBaseUrl + '/manifest/recipe-i18n.json', fetchConfig)
@@ -360,13 +338,11 @@ if (recipeError || recipeI18nError) {
 
 <template>
   <div>
-    <category-second
-      id="aosc-os-download"
-      :title="t('download.index.operatingSystemsTitle')" />
+    <category-second :title="t('download.index.operatingSystemsTitle')" />
 
     <!-- AOSC OS -->
     <div
-      ref="aoscOsDownload"
+      id="aosc-os-download"
       class="aosc-os-container flex flex-wrap justify-between gap-6 p-[30px]">
       <TitleComponent
         :title="t('download.index.aoscOs.name')"
@@ -400,8 +376,9 @@ if (recipeError || recipeI18nError) {
       </div>
     </div>
     <!-- WSL, Apple silicon -->
-    <div ref="otherDownload" class="flex flex-wrap">
+    <div class="flex flex-wrap">
       <div
+        id="aosc-os-wsl-download"
         class="wsl-container flex flex-col justify-between p-[24px_30px] text-white">
         <div>
           <TitleComponent
@@ -433,6 +410,7 @@ if (recipeError || recipeI18nError) {
       </div>
 
       <div
+        id="aosc-os-apple-silicon-download"
         class="apple-silicon-container flex flex-1 flex-col justify-between p-[24px_30px]">
         <TitleComponent
           :title="t('download.index.aoscOsAppleSilicon.name')"
@@ -455,7 +433,6 @@ if (recipeError || recipeI18nError) {
     <!-- Afterglow -->
     <div
       id="afterglow-download"
-      ref="afterglowDownload"
       class="afterglow-container flex flex-wrap justify-between gap-6 p-[30px] text-white">
       <TitleComponent
         :title="t('download.index.afterglow.name')"
@@ -492,7 +469,6 @@ if (recipeError || recipeI18nError) {
     </div>
 
     <category-second
-      id="oma-download"
       class="highlight"
       :title="t('download.index.utilitiesTitle')" />
 
